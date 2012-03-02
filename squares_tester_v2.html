@@ -92,7 +92,7 @@ $(document).ready(function(){
 function doTest(at){
     $("#progress").html('<label>Photos checked </label><input type="text" value="'+at+'" />');// Show progress so far
     // Get a batch of photos' data (does not wait for data before returning)
-    $.getJSON("http://www.panoramio.com/wapi/data/get_photos",
+    $.getJSON("http://www.panoramio.com/wapi/data/get_photos?callback=?",
         {'group':group, 'offset':at, 'length':getMax},
     function(result, status){// called when data ready
         var bFinished=true;// unless there are more results
