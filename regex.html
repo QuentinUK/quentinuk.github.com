@@ -32,19 +32,19 @@ var HTMLEncode = (function(){
         '"':'&quot;',
         ' ':'&nbsp;'
     },
-    regExp = "[";
+    regExp = "";
     for(o in creps){
         regExp+=o;
     }
-    regExp = new RegExp(regExp+"]", "g");
+    regExp = new RegExp("["+regExp+"]", "g");
     return function(v){
         if(v===null) return '<em>null</em>';
         if(v===undefined) return '<em>undefined</em>';
         if(v==="") return '<em>empty string</em>';
-        if(typeof v==='number') return v.toString();
-        return v.replace(regExp, function(ch){
+        if(v.replace) return v.replace(regExp, function(ch){
             return creps[ch];
         });
+        return v.toString();
     }
 })();
 
