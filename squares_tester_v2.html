@@ -57,7 +57,7 @@ $(document).ready(function(){
     $("button.start").click(function(){ 
         var newUnSquareMax=$("#unSquareMaxID").val();// Get the user's value for squareness test
         if(0<=newUnSquareMax && newUnSquareMax<=unSquareMaxMax){// validate input value
-            UnSquareMax=newUnSquareMax;
+            unSquareMax=newUnSquareMax;
             // clean up all
             iSelected=null;
             if($("#pageSlider").slider){// clear previous sliders
