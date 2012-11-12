@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>SansAmp</title>
+<script type="text/javascript">
+//<![CDATA[
+window.onload = function(event){
+    var bOK = true;
+    var param=event.target.URL;
+    var iQ = param.indexOf('?');
+    if(iQ==-1){
+        bOK = false;
+    }
+    else{
+        param = param.substring(iQ+1)// jump ?
+            .replace(/^\s+/,"")//left trim
+            .replace(/&amp;/g,'&');// replace &amp; with &
+        if(param.indexOf("://")!=4){// "http://"
+            param = "http://"+param;
+        }
+        if(bOK){
+            window.location.replace(param);
+        }
+    }
+
+    if(!bOK){
+        document.getElementById("msg").innerHTML = "oops";
+    }
+}
+//]]>
+</script> 
+</head>
+<body>
+<div id="msg"></div>
+</body>
+</html>
