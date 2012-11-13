@@ -16,7 +16,7 @@ var HTMLCoder = (function(){
 
 window.onload = function(event){
     var param=event.target.URL;
-    var iQ = param.indexOf('?');
+    var iQ = param.indexOf('?');alert(param);
     if(iQ==-1){
         document.getElementById("msg").innerHTML = "oops";
     }
