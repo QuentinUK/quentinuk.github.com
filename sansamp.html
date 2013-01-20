@@ -16,13 +16,13 @@ var HTMLCoder = (function(){
 
 window.onload = function(event){
     var param=event.target.URL;
-    var iQ = param.indexOf('?');
+    var iQ = param.indexOf('?');// alert(param);
     if(iQ==-1){
         document.getElementById("msg").innerHTML = "oops";
     }
     else{
         param = HTMLCoder(param.substring(iQ+1).replace(/^(%20)+/,''));// jump ?
-        if(param.indexOf("://")!=4){// "http://"
+        if(param.indexOf("://")!=4 && param.indexOf("://")!=5){// "http://"
             param = "http://"+param;
         }
         window.location.replace(param);
