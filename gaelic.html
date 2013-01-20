@@ -1,0 +1,23 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>A Gaelic Dictionary in Two Parts</title>
+<script type="text/javascript">
+//<![CDATA[
+window.onload = function(event){
+    var iQ = event.target.URL.indexOf('?');
+    var params=event.target.URL.substring(iQ+1).split(",");
+    if(iQ==-1 || params.length!=2){
+        document.getElementById("msg").innerHTML = "USE: http://QuentinUK.github.com/gaelic?word,page";
+    }
+    else{ 
+        window.location.replace("http://books.google.co.uk/books?id=r4Bk4KKEjvMC&lpg=PA"+params[1]+"&dq="+params[0]+"&pg=PA"+params[1]+"#v=onepage&q="+params[0]+"&f=false");
+    }
+}
+//]]>
+</script> 
+</head>
+<body>
+<div id="msg"></div>
+</body>
+</html>
