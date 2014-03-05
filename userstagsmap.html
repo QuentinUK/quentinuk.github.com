@@ -1,12 +1,33 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
+<!DOCTYPE html> 
 <html> 
 <head> 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
-<title>Pictures</title> 
-<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" /> 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=panoramio"></script> 
+<style>
+html, body, #map-canvas {
+  height: 100%;
+  margin: 0px;
+  padding: 0px
+}
+#panoramio_Notice {
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 300px;
+  font-size: 12px;
+  font-family: Ariel
+}
+</style>
+<title>Pictures</title>  
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?v=3.exp&sensor=false&libraries=panoramio"></script> 
 <script type="text/javascript"> 
-
+// USAGE:userstagsmap.html?user=2419040,1597930&tag=Amiens,17mm&lat=51.409271&lng=-1.094169&zoom=9
+// Adds photos for users and tags (tags are for all Panoramio users) to the map centred at the given location.
+// user (optional): a list of user(s) Panoramio ids (optional)
+// tag (optional): a list of tags 
+// How to get the lat, lng, zoom parameters:-
+// Move and zoom the map to the desired location.
+// Use javascript on the browser's address line:-
+// javascript alert(getPos())
+// Copy the alert message for use with the url to get the desired view.
 function getPos(){};// declare global function defined later
 
 function ParseParams(urlParams){ 
@@ -20,7 +41,8 @@ while(e=r.exec(q))
 return urlParams; 
 }; 
 
-function initialize(urlParams){ 
+function initialize(){ 
+  var urlParams = ParseParams({lat:51.497059,lng:-0.091668,zoom:12})
   var myOptions = { 
     zoom: Number(urlParams.zoom), 
     center: new google.maps.LatLng(urlParams.lat, urlParams.lng), 
@@ -34,14 +56,7 @@ function initialize(urlParams){
           panoramioLayer.setMap(this);  
           panoramioLayer[panoSetFn](param);
 
-          // fix the clipping of images in pop-up bug (possibly change title!)
-          google.maps.event.addListener(panoramioLayer, 'click', function(event){
-             var height = event.featureDetails.aspectRatio>1?240/event.featureDetails.aspectRatio:240;
-             var width  = event.featureDetails.aspectRatio>1?240:240*event.featureDetails.aspectRatio;
-             event.infoWindowHtml=event.infoWindowHtml.replace("width: 300px; height: 180px;",
-                "width: "+width.toFixed()+"px;height: "
-                +height.toFixed()+"px;margin-left:auto; margin-right:auto;");
-          });
+  
 
        }, this);// this = map, see map.addLayers
     } 
@@ -50,7 +65,7 @@ function initialize(urlParams){
   getPos = function(){return "lat="+map.center.lat().toFixed(6)
      +"&lng="+map.center.lng().toFixed(6)+"&zoom="+map.zoom;} 
 
-  var mapCanvas = document.getElementById("map_Canvas"); 
+  var mapCanvas = document.getElementById("map-canvas"); 
   var map = new google.maps.Map(mapCanvas, myOptions); 
 
    map.addLayers(urlParams.tag, "setTag");
@@ -59,12 +74,15 @@ function initialize(urlParams){
    // place copyright notice on top of map
    var panoramioNotice = document.getElementById('panoramio_Notice');
    map.controls[google.maps.ControlPosition.BOTTOM].push(panoramioNotice);
-} 
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+ 
 </script> 
 </head> 
-<body onload='initialize(ParseParams({lat:51.497059,lng:-0.091668,zoom:12}))'> 
-<div id="map_Canvas"></div> 
-<div id="panoramio_Notice" style="overflow-y: auto;overflow-x: hidden;width: 300px;font-size: 12px;font-family: Ariel;">
+<body> 
+<div id="map-canvas"></div> 
+<div id="panoramio_Notice">
 <a href="http://www.panoramio.com" target="_blank">
 <img src="http://www.panoramio.com/img/header-logo.png" height="12"></a>Photos copyright their owners</div>
 </body> 
