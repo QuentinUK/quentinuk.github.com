@@ -31,14 +31,14 @@ html, body, #map-canvas {
 function getPos(){};// declare global function defined later
 
 function ParseParams(urlParams){ 
-urlParams= urlParams||{}; 
-var e,a= /\+/g, 
+  urlParams= urlParams||{}; 
+  var e,a= /\+/g, 
     r=/([^&=]+)=?([^&=]*)/g, 
     d=function(s){return decodeURIComponent(s.replace(a," "));}, 
     q=window.location.search.substring(1); 
-while(e=r.exec(q)) 
+  while(e=r.exec(q)) 
     urlParams[d(e[1])]=d(e[2]); 
-return urlParams; 
+  return urlParams; 
 }; 
 
 function initialize(){ 
@@ -56,7 +56,14 @@ function initialize(){
           panoramioLayer.setMap(this);  
           panoramioLayer[panoSetFn](param);
 
-  
+          // fix the clipping of images in pop-up bug
+          google.maps.event.addListener(panoramioLayer, 'click', function(event){
+             var height = event.featureDetails.aspectRatio>1?240/event.featureDetails.aspectRatio:240;
+             var width  = event.featureDetails.aspectRatio>1?240:240*event.featureDetails.aspectRatio;
+             event.infoWindowHtml=event.infoWindowHtml.replace("width: 300px; height: 180px;",
+                "width: "+width.toFixed()+"px;height: "
+                +height.toFixed()+"px;margin-left:auto; margin-right:auto;");
+          });
 
        }, this);// this = map, see map.addLayers
     } 
