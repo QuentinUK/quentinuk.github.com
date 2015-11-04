@@ -51,10 +51,7 @@ p, button, #when {
 </body>
 <script>
 var D=document,
-I=D.getElementById,
-E=[].forEach,
-L="addEventListener";
-E=E.call.bind(E);
+I=D.getElementById;
 I=I.bind(D);
 var msg=I("msg"),
 res=I("result"),
@@ -65,14 +62,16 @@ chosen, red, green,
 state=0,
 change=true,
 auto=false;
-
 function random(max){
   return Math.floor(Math.random() * (max+1));
+}
+function click(id, f){
+	I(id).addEventListener("click", f);
 }
 function tog(i,c){
 	I(sqs[i]).classList.toggle(c);
 }
-I("play")[L]("click", function(e){
+click("play", function(e){
 	play();
 });
 function play(){
@@ -87,7 +86,7 @@ function play(){
 		msg.innerText = "Click a square";
 	}
 }
-I("sqs")[L]("click", function(e){
+click("sqs", function(e){
 	squareClick(idx[e.target.id]);
 });
 function squareClick(i){ 
@@ -116,24 +115,20 @@ function squareClick(i){
 	}
 	res.innerText = score.win + " wins. " + score.loose + " loses.";
 }
-I("when")[L]("click", function(e){
+click("when", function(e){
 	var c = {a:true,n:false}[e.target.id];
 	if(c!=undefined){
 		change = c;
 	}
 });
-I("auto")[L]("click", function(e){
+click("auto", function(e){
+	auto = !auto;
 	if(auto){
-		auto = false;
-	}
-	else {
-		auto = true;
 		setTimeout(goAuto1, 1000);
 	}
 });
 function goAuto1(){
 	play();
-	console.log("squareClick");
 	squareClick(random(2));
 	setTimeout(goAuto2, 1000);
 }
