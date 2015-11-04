@@ -1,0 +1,216 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>StopWatch</title>
+<style>
+* {
+	cursor: default;
+	background-color: lightcoral;
+}
+svg#stop_watch  {
+	stroke-linecap: null;
+	stroke-linejoin: null;
+	stroke-dasharray: null;
+	stroke-width: 10;
+	stroke: black;
+	fill: antiqueWhite;
+	text-anchor: middle;
+	font-family: Monospace;
+	font-size: 24px;
+}
+svg rect {
+	fill: white;
+	stroke-width: 1;
+}
+svg text {
+	stroke-width: 0;
+	stroke: black;
+	fill: black;
+}
+svg text.sec1_30 {
+	fill: black;
+}
+svg text.sec2_60 {
+	fill: red;
+}
+svg path#arrow {
+	stroke-width: 0;
+	fill: slateGray;
+}
+svg path.mark {
+	fill: yellow;
+	stroke-width: 1;
+	stroke: red;
+}
+svg text.digital {
+	text-anchor: right;
+ 	font-size: 75px;
+	fill: tomato;
+}
+svg ellipse.but {
+	fill: orange;
+	cursor: pointer;
+}
+@-webkit-keyframes butinpress {
+  0% { fill: yellow; }
+  100% { fill: orange; }
+}
+svg ellipse.butin {
+-webkit-animation: butinpress  1s;
+}
+@-webkit-keyframes butoutpress {
+  0% { fill: yellow; }
+  100% { fill: orange; }
+}
+svg ellipse.butout {
+-webkit-animation: butoutpress  1s;
+}
+
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" id="stop_watch" viewBox="0 0 600 600">
+ <g>
+  <ellipse id="face" ry="250" rx="250" cy="340" cx="300"/>
+ </g>
+ <ellipse id="stop" class="but butin" ry="25" rx="25" cy="120" cx="120" />
+ <text y="80" x="120" >Stop</text>
+ <ellipse id="start" class="but butin" ry="25" rx="25" cy="56"  cx="300"/>
+ <text y="22" x="300">Start</text>
+ <ellipse id="set" class="but butin" ry="25" rx="25" cy="96"  cx="440"/>
+ <text y="60" x="440">Set</text>
+ <ellipse id="reset" class="but butin" ry="25" rx="25" cy="154" cx="510"/>
+ <text y="118" x="520">ReSet</text>
+ <rect height="70" width="350" y="240" x="125"/>
+ <text id="digi_time" class="digital" y="300" x="300">00:00.00</text>
+ <path id="arrow" d="m295,360l10,0l0,-20l-5,-250l-5,250l0,20l5,0" />
+ <ellipse ry="5" rx="5" cy="340" cx="300" />
+</svg>
+</body>
+<script>
+function E(id){
+	return document.getElementById(id);
+}
+function onClick(id, fn){
+	E(id). addEventListener("click", fn);
+}
+function flash(e){
+	var t = e.target;
+	t.classList.toggle("butin");
+	t.classList.toggle("butout");
+}
+
+var going = false;
+var set = false;
+var startTime;
+var timer;
+var accum = 0;
+
+onClick("stop", function(e){
+	if(going){
+		flash(e);
+		clearTimeout(timer);
+		going = false;
+		accum += getTdif();
+		dispDigitalTime(accum);
+	}
+});
+onClick("start",function(e){
+	if(!going){
+		flash(e);
+		going = true;
+		set = false;
+		startTime = performance.now();
+		timer = setTimeout(go, 10);
+	}
+});
+onClick("set", function(e){
+	if(going){
+		flash(e);
+		set = true;
+		dispDigitalTime(accum + getTdif());
+	}
+});
+onClick("reset", function(e){
+	if(set || !going){
+		flash(e);
+	}
+	if(set){
+		set = false;
+	}
+	if(!going){
+		accum = 0;
+		showTime(0);
+	}
+});
+function go(){
+	var tdif = getTdif();
+	showTime(accum + tdif);
+	var err = tdif%10;
+	if(err>5){
+		err -= 10;
+	}
+	timer = setTimeout(go,10-err);
+}
+function getTdif(){
+	return performance.now()-startTime;
+}
+function showTime(t){
+	var θ =  Math.floor((t%30000)/100+0.5)*360/300;
+
+	E("arrow").setAttribute("transform", "rotate("+θ+" 300 340)");
+	if(!set){
+		dispDigitalTime(t);
+	}
+}
+function dispDigitalTime(t){
+	var mins = Math.floor(t/60000)%100;
+	mins = (mins<10?"0":"") + mins;
+	var secs = (t/1000)%60;
+	secs = (secs <10?"0":"") + secs.toFixed(2);
+	E("digi_time").textContent = mins + ":" + secs;
+}
+
+var m0 = E("face");
+
+for(var i=0; i<=300; i++){
+	var a = 2*Math.PI/300*i;
+	var s = Math.sin(a);
+	var c = Math.cos(a);
+	var r = 250-10/2;
+	var n = 2+(i%10?0:5)+(i%5?0:5);
+
+	var secs = i/10;
+	if(!(i%10)){
+		var rt; 
+		var secClass;
+
+		if((i%20)||secs==0){
+			if(secs==0){
+				secs = 30;
+			}
+			rt = 250-30;
+			secClass = "sec1_30"
+		}
+		else {
+			secs += 30;
+			rt = 250-50;
+			secClass = "sec2_60"
+		}
+		var t = document.createElementNS( m0.namespaceURI, "text");
+		t.classList.add(secClass);
+		t.setAttribute('x', 300+s*rt);
+		t.setAttribute('y', 340-c*rt+10);
+		t.textContent = secs;
+		m0.parentElement.appendChild(t);
+	}
+	if(i!=300){
+		var m = document.createElementNS( m0.namespaceURI, "path");
+		m.classList.add("mark");
+		m.setAttribute("d", "m" + (300+s*r) + "," + (340-c*r) + "l" + -s*n + "," + c*n);
+		m0.parentElement.appendChild(m);
+	}
+}
+</script>
+</html>
