@@ -1,0 +1,136 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hangman</title>
+<style>
+svg {
+stroke: black;
+stroke-width: 5;
+stroke-linecap:null;
+stroke-linejoin:null;
+stroke-dasharray:null;
+fill:none;
+}
+svg #gallows, svg #rope {
+fill: brown;
+}
+text, label {
+margin: 1em;
+}
+#letter {
+width: 1em;
+}
+</style>
+</head>
+<body>
+<div>
+<svg width="300" height="300">
+<g id="gallows">
+  <rect height="13" width="92" y="17" x="45"/>
+  <rect height="263" width="13" y="29" x="45" />
+  <rect height="13" width="155" y="279" x="59"/>
+  <line y2="55" x2="141" y1="15" x1="141"/>
+</g>  
+  <ellipse id = "bonse" ry="36" rx="36" cy="86" cx="162"/>
+  <line id="torso" y2="190" x2="138" y1="122" x1="150"/>
+ <g id="left-leg">
+  <line y2="265" x2="158" y1="191" x1="138"/>
+  <line y2="258" x2="174" y1="265" x1="158"/>
+</g>
+ <g id="right-leg">
+  <line y2="254" x2="90" y1="190" x1="136"/>
+  <line y2="240" x2="79" y1="254" x1="90" />
+</g>
+  <line id="left-arm" y2="137" x2="147" y1="159" x1="190" />
+  <line id="right-arm" y2="135" x2="146" y1="134" x1="99" />
+</svg>
+</div>
+<text>Secret Word</text>
+<text id="result"></text>
+<div><label for="letter">Guess Letter</label>
+<input type="text" id="letter"></input>
+<button id="ok">OK</button>
+<text>Wrong guesses:</text>
+<text id="wrong"></text>
+</div>
+<text id="msg"></text>
+</div>
+</body>
+<script>
+var bodyParts = ["left-leg", "right-leg", "left-arm", "right-arm", "torso", "bonse"];
+var guessInt = bodyParts.length;
+var guessStr;
+var wrongGuesses = "";
+var word = getWord();
+var result = [];
+for(var i=0; i<word.length; i++){
+	result.push("_");
+}
+visibleAll(false);
+	updateDisplay();
+
+	function updateGuessStr(){
+	guessStr = "You have " + guessInt + " tries left.";
+}
+
+function id(i){
+	return document.getElementById(i);
+}
+
+function visible(n, v){
+	id(n) .style.visibility = v ? "visible" : "hidden";
+}
+
+function visibleAll(v){
+	bodyParts.forEach( function(p){ visible(p,v); });
+}
+
+function getWord(){ 
+//Initialize array words using the condensed format with a minimum of 15 words up to as many choose 
+var words = ["Kitty", "Comfortable", "Redrum", "Anime", "otaku", "senpai", "mangaka", "convention", "Lolita", "prayer", "brave", "jesus", "holyspirit", "biblestudy", "chialpha"]; 
+
+//Generate a random index value using Math object methods Math.floor, Math.random, and the scaling factor based on the length of the words array defined above 
+var index = Math.floor(Math.random()*words.length); 
+return words[index]; 
+}
+
+function updateDisplay(){
+	updateGuessStr();
+	id("msg").innerHTML = guessStr;
+	id("result").innerHTML = result.join(' ');
+	id("wrong").innerHTML = wrongGuesses;
+	id("letter").focus();
+}
+
+function countLetter(c){
+	var count = 0;
+	var index = -1;
+	for(;;) {
+		index = word.indexOf(c, 1+index);
+		if(-1==index){
+			break;
+		}
+		count++;
+		result[index] = c;
+	}
+	return count;
+}
+
+id("ok"). addEventListener("click", function(e){
+	if(guessInt>0){
+		var c = id("letter").value.toLowerCase();
+		if(c.length!=1 || wrongGuesses.indexOf(c)!=-1){
+			// can't be 0 or >1 letter, so do nothing
+			// doesn't count if already guessed
+		}
+		else if(countLetter(c) + countLetter(c.toUpperCase())==0){
+wrongGuesses += c;
+			visible(bodyParts[--guessInt], true);
+		}
+		updateDisplay();
+	}
+	id("letter").value = "";
+});
+</script>
+</html>
