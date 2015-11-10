@@ -6,8 +6,16 @@
 <style>
 * {
 	background: whitesmoke;
+	font-size:1vw;
+	text-align: center;
 }
-#listen	{
+div::first-line  {
+	line-height: 1.5vw;
+}
+.words div {
+	color: rgba(0,0,0,0);
+}
+#listen, #more {
 	display:inline-block;
 }
 .circle {
@@ -19,7 +27,6 @@
 	border-radius: 5vw;
 	-moz-border-radius: 5vw;
 	-webkit-border-radius: 5vw;
-	font-size:4em;
 }
 .dot {
 	float: left;
@@ -113,12 +120,11 @@
 </style>
 </head>
 <body>
-<div id="listen">
+<div id="listen" class="words">
 </div>
 </div>
-<div id="more">
+<div id="more" class="words">
 </div>
-
 </body>
 <script>
 // useful fn's
@@ -163,7 +169,10 @@ randomArray(colors);
 var timers = 0, heapcolor = "";
 onClick("#listen", function(e){
 	var t=e.target;
-	if(!t.id){
+	if(t.id){
+		t.classList.toggle("words");
+	}
+	else{
 		timers++;
 		setTimeout(decTimer, 2000);
 
@@ -225,37 +234,61 @@ function addColors(){
 		D.styleSheets[0].insertRule("."+c+" {background: "+c+";}");
 	});
 }
-function addDiv(qs, class1, class2){
+function addColor(qs, color, class2){
 	var div = D.createElement("div");
-	div.classList.add(class1);
+	div.classList.add(color);
 	div.classList.add(class2);
+	div.innerHTML = "<br>"+color
+	.replace(/([^>]+)(white|green)/g, "$1<br>$2")
+	.replace(/(light|pale|medium|dark)([^<]+)/, "$1<br>$2")
 	qs.appendChild(div);
 }
-function addColorCircles(){
+function addColorDots(){
 	var qs = QS("#more");
 	colors.forEach(function(color){
-		addDiv(qs, color, "dot");
+		addColor(qs, color, "dot");
 	});
 }
 function addGameColor(color){
-	addDiv(QS("#listen"), color, "circle");
+	addColor(QS("#listen"), color, "circle");
 }
 function startColors(cols){
+	var a = [];
 	for(col in cols){
 		for(var i=0; i<cols[col]; i++){
-			addGameColor(col);
+			a.push(col);
 		}
 	}
-}				
+	randomArray(a);
+	a.forEach(function(col){
+		addGameColor(col);
+	});
+}
+function parseParams(urlParams){ 
+    urlParams= urlParams||{}; 
+    var e,a= /\+/g, 
+        r=/([^&=]+)=?([^&=]*)/g, 
+        d=function(s){return decodeURIComponent(s.replace(a," "));}, 
+        q=window.location.search.substring(1); 
+    while(e=r.exec(q)) 
+        urlParams[d(e[1])]=d(e[2]); 
+    return urlParams; 
+}
+function orOb(a,b){
+	return Object.keys(a).length ? a : b;
+}
 onClick("#more", function(e){
 	var t=e.target;
-	if(!t.id){
+	if(t.id){
+		t.classList.toggle("words");
+	}
+	else{
 		addGameColor(t.classList[0]);
 	}
 });
 addColors();
-addColorCircles();
-startColors({orange:3, red: 4, blue:5});
+addColorDots();
+startColors(orOb(parseParams(),{orange:3, red: 4, blue:5}));
 
 function nim(heaps, misere){
 	misere = misere==undefined?false:misere;
