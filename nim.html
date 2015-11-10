@@ -260,7 +260,7 @@ startColors({orange:3, red: 4, blue:5});
 function nim(heaps, misere){
 	misere = misere==undefined?false:misere;
 	var res = {chosen:0,remove:0,over:false};
-	var x = heaps.reduce(function(x,y){
+	var x = heaps.length==0 ? 0 : heaps.reduce(function(x,y){
 		return x^y;
 	});
 	if(x==0){
