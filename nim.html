@@ -1,0 +1,300 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Game of Nim</title>
+<style>
+#listen	{
+	display:inline-block;
+}
+.circle {
+	float: left;
+	margin: 1vw;
+	width: 10vw;
+	height: 10vw;
+	cursor: pointer;
+	border-radius: 5vw;
+	-moz-border-radius: 5vw;
+	-webkit-border-radius: 5vw;
+	font-size:4em;
+}
+.dot {
+	float: left;
+	margin: 0.5vw;
+	width: 5.8vw;
+	height: 5.8vw;
+	cursor: pointer;
+	border-radius: 3vw;
+	-moz-border-radius: 3vw;
+	-webkit-border-radius: 3vw;
+}
+@keyframes butoutpress {
+  100% {
+	background: transparent;
+	width: 0;
+	height: 0;
+	display: none;
+	visibility: hidden;
+	margin: 0;
+	}
+}
+@-moz-keyframes butoutpress {
+  100% {
+	background: transparent;
+	width: 0;
+	height: 0;
+	display: none;
+	visibility: hidden;
+	margin: 0;
+	}
+}
+@-webkit-keyframes butoutpress {
+  100% {
+	background: transparent;
+	width: 0;
+	height: 0;
+	display: none;
+	visibility: hidden;
+	margin: 0;
+	}
+}
+.butout {
+	animation: butoutpress  1s forwards;
+	-moz-animation: butoutpress  1s forwards;
+	-webkit-animation: butoutpress  1s forwards;
+}
+@keyframes wobble  {
+  0%  { transform:  skew(5deg,0); }
+  20%  { transform:  skew(5deg,5deg); }
+  50%  { transform:  skew(0,5deg); }
+  100%  { transform:  skew(0,0); }
+}
+@-moz-keyframes wobble2  {
+  0%  { -moz-transform:  skew(5deg,0); }
+  20%  { -moz-transform:  skew(5deg,5deg); }
+  50%  { -moz-transform:  skew(0,5deg); }
+  100%  { -moz-transform:  skew(0,0); }
+}
+@-webkit-keyframes wobble  {
+  0%  { -webkit-transform:  skew(5deg,0); }
+  20%  { -webkit-transform:  skew(5deg,5deg); }
+  50%  { -webkit-transform:  skew(0,5deg); }
+  100%  { -webkit-transform:  skew(0,0); }
+}
+@keyframes wobble2  {
+  0%  { transform:  skew(5deg,0); }
+  20%  { transform:  skew(5deg,5deg); }
+  50%  { transform:  skew(0,5deg); }
+  100%  { transform:  skew(0,0); }
+}
+@-moz-keyframes wobble  {
+  0%  { -moz-transform:  skew(5deg,0); }
+  20%  { -moz-transform:  skew(5deg,5deg); }
+  50%  { -moz-transform:  skew(0,5deg); }
+  100%  { -moz-transform:  skew(0,0); }
+}
+@-webkit-keyframes wobble2  {
+  0%  { -webkit-transform:  skew(5deg,0); }
+  20%  { -webkit-transform:  skew(5deg,5deg); }
+  50%  { -webkit-transform:  skew(0,5deg); }
+  100%  { -webkit-transform:  skew(0,0); }
+}
+.wobble { animation: wobble 0.1s 10;
+	-moz-animation: wobble 0.1s 10;
+	-webkit-animation: wobble 0.1s 10; 
+}
+.wobble2 { animation: wobble2 0.1s 10;
+	-moz-animation: wobble2 0.1s 10;
+	-webkit-animation: wobble2 0.1s 10; 
+}
+</style>
+</head>
+<body>
+<div id="listen">
+</div>
+</div>
+<div id="more">
+</div>
+
+</body>
+<script>
+// useful fn's
+var D=document, qs="querySelector", qa=qs+"All",
+QS=D[qs].bind(D), QA=D[qa].bind(D), E=[].forEach;
+E=E.call.bind(E)
+function onClick(id, fn){
+	QS(id). addEventListener("click", fn);
+}
+function tog(e,c){
+	return e.classList.toggle(c);
+}
+
+// Nim
+function hide(e){
+	tog(e, "butout");
+}
+function wobble(e){
+	if(!tog(e, "wobble") || e.classList.contains("wobble2")){
+		tog(e, "wobble2");
+	}
+}
+var colors = ["black", "silver", "maroon", "red", "purple", "fuchsia", "green", "lime", "olive", "yellow", "navy", "blue", "teal", "aqua", "orange", "aliceblue", "antiquewhite", "aquamarine", "azure", "beige", "bisque", "blanchedalmond", "blueviolet", "brown", "burlywood", "cadetblue", "chartreuse", "chocolate", "coral", "cornflowerblue", "cornsilk", "crimson", "darkblue", "darkcyan", "darkgoldenrod", "darkgreen", "darkgrey", "darkkhaki", "darkmagenta", "darkolivegreen", "darkorange", "darkorchid", "darkred", "darksalmon", "darkseagreen", "darkslateblue", "darkslategrey", "darkturquoise", "darkviolet", "deeppink", "deepskyblue", "dimgrey", "dodgerblue", "firebrick", "floralwhite", "forestgreen", "gainsboro", "ghostwhite", "gold", "goldenrod", "greenyellow", "grey", "honeydew", "hotpink", "indianred", "indigo", "ivory", "khaki", "lavender", "lavenderblush", "lawngreen", "lemonchiffon", "lightblue", "lightcoral", "lightcyan", "lightgoldenrodyellow", "lightgreen", "lightgrey", "lightpink", "lightsalmon", "lightseagreen", "lightskyblue", "lightslategrey", "lightsteelblue", "lightyellow", "limegreen", "linen", "mediumaquamarine", "mediumblue", "mediumorchid", "mediumpurple", "mediumseagreen", "mediumslateblue", "mediumspringgreen", "mediumturquoise", "mediumvioletred", "midnightblue", "mintcream", "mistyrose", "moccasin", "navajowhite", "oldlace", "olivedrab", "orangered", "orchid", "palegoldenrod", "palegreen", "paleturquoise", "palevioletred", "papayawhip", "peachpuff", "peru", "pink", "plum", "powderblue", "rosybrown", "royalblue", "saddlebrown", "salmon", "sandybrown", "seagreen", "seashell", "sienna", "skyblue", "slateblue", "slategrey", "snow", "springgreen", "steelblue", "tan", "thistle", "tomato", "turquoise", "violet", "wheat", "whitesmoke", "yellowgreen"];
+
+function random(max){
+  return Math.floor(Math.random() * (max+1));
+}
+
+function randomArray(a){
+	var end = a.length;
+	if(end){
+		while(--end){
+			var ran = random(end);
+			var tmp = a[ran];
+			a[ran] = a[end];
+			a[end] = tmp;
+		}
+	}
+}
+randomArray(colors);
+
+var timers = 0, heapcolor = "";
+onClick("#listen", function(e){
+	var t=e.target;
+	if(!t.id){
+		timers++;
+		setTimeout(decTimer, 2000);
+
+		if(heapcolor =="" || heapcolor==t.classList[0]){
+			heapcolor = t.classList[0];
+			hide(t);
+		}
+		else {
+			wobble(t);
+		}
+	}
+});
+function removeAll(c){
+	E(QA("."+c), function(e){
+		e.classList.remove(c);
+	});
+}
+function decTimer(){
+	if(0==--timers){
+		heapcolor = "";
+		removeAll("wobble");
+		removeAll("wobble2");
+		var circles = QA(".circle"), heaps = [], cols = [], heapmap = {};
+		E(circles, function(e){
+			var col = e.classList[0];
+			if(!e.classList.contains("butout")){
+				heapmap[col] = (heapmap[col]||0)+1;
+			}
+		});
+		var i=0;
+		for(col in heapmap){
+			heaps[i] = heapmap[col];
+			cols[i] = col;
+			i++;
+		}
+		var res = nim(heaps, false);
+		if(res.remove>0){
+			var chosen = QA("#listen ."+cols[res.chosen]);
+			for(var i=0; i<chosen.length && res.remove>0; i++){
+				var child = chosen[i];
+				if(!child.classList.contains("butout")){
+					hide(child);
+					res.remove--;
+				}
+			}
+		}
+		if(res.over){
+			console.log("Game Over");
+			setTimeout(function(){
+				E(QA(".butout"), function(e){
+					e.remove();
+				});
+			}, 1100);
+		}
+	}
+}
+function addColors(){
+	colors.forEach(function(c){
+		D.styleSheets[0].insertRule("."+c+" {background: "+c+";}");
+	});
+}
+function addDiv(qs, class1, class2){
+	var div = D.createElement("div");
+	div.classList.add(class1);
+	div.classList.add(class2);
+	qs.appendChild(div);
+}
+function addColorCircles(){
+	var qs = QS("#more");
+	colors.forEach(function(color){
+		addDiv(qs, color, "dot");
+	});
+}
+function addGameColor(color){
+	addDiv(QS("#listen"), color, "circle");
+}
+function startColors(cols){
+	for(col in cols){
+		for(var i=0; i<cols[col]; i++){
+			addGameColor(col);
+		}
+	}
+}				
+onClick("#more", function(e){
+	var t=e.target;
+	if(!t.id){
+		addGameColor(t.classList[0]);
+	}
+});
+addColors();
+addColorCircles();
+startColors({orange:3, red: 4, blue:5});
+
+function nim(heaps, misere){
+	misere = misere==undefined?false:misere;
+	var res = {chosen:0,remove:0,over:false};
+	var x = heaps.reduce(function(x,y){
+		return x^y;
+	});
+	if(x==0){
+		if(Math.max.apply(0,heaps)>1){
+			console.log("You will lose :(");
+		}
+		for(var i=0; i<heaps.length; i++){
+			if(heaps[i]>0){
+				res.chosen = i;
+				res.remove = heaps[i];
+				break;
+			}
+		}
+	}
+	else{
+		res.chosen = heaps.map(function(t){
+			return (t^x)<t;
+		}).indexOf(true);
+		res.remove = heaps[res.chosen] - (heaps[res.chosen]^x);
+
+		if(heaps.reduce(function(twomore, heap, i){
+			return (res.chosen-i? heap-res.remove : heap)>1 ? twomore+1 : twomore;
+		}, 0)==0){
+			res.chosen = heaps.indexOf(Math.max.apply(0,heaps));
+			var ones = heaps.reduce(function(p,c){
+				return c==1?p+1:p;
+			},0);
+			res.remove = heaps[res.chosen]==1 || (ones%2)==misere ? heaps[res.chosen] : heaps[res.chosen]-1;
+		}
+	}
+	res.over = (misere ? 1 : 0) >= heaps.reduce(function(x,y,i){
+		if(i==res.chosen){
+			y -= res.remove;
+		}
+		return x+y;
+	},0);
+	return res;
+}
+</script>
+</html>
