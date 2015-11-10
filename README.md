@@ -1,6 +1,10 @@
 # quentinuk.github.com
 Stuff for the web.
 
+Nim: The Game of Nim.
+Can have parameters for the colours (to show colour names click on blank space) eg
+http://quentinuk.github.io/nim.html?chartreuse=4&green=7&aqua=4
+
 Gaelic: a shorthand link to a Gaelic dictionary at a given word and page.
 
 RegEx: for Regular Expressions testing and development.
