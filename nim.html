@@ -20,13 +20,26 @@ div::first-line  {
 }
 .circle {
 	float: left;
-	margin: 1vw;
-	width: 10vw;
-	height: 10vw;
 	cursor: pointer;
-	border-radius: 5vw;
-	-moz-border-radius: 5vw;
-	-webkit-border-radius: 5vw;
+	margin: 2vw;
+	width: 19vw;
+	height: 19vw;
+	cursor: pointer;
+	font-size: 4vw;
+	border-radius: 10vw;
+	-moz-border-radius: 10vw;
+	-webkit-border-radius: 10vw;
+}
+@media screen and (min-width: 600px) {
+	.circle {
+		margin: 1vw;
+		width: 10vw;
+		height: 10vw;
+		font-size: 2vw;
+		border-radius: 5vw;
+		-moz-border-radius: 5vw;
+		-webkit-border-radius: 5vw;
+	}
 }
 .dot {
 	float: left;
@@ -239,7 +252,7 @@ function addColor(qs, color, class2){
 	div.classList.add(color);
 	div.classList.add(class2);
 	div.innerHTML = "<br>"+color
-	.replace(/([^>]+)(white|green)/g, "$1<br>$2")
+	.replace(/([^>]+)(white|green|blue)/, "$1<br>$2")
 	.replace(/(light|pale|medium|dark)([^<]+)/, "$1<br>$2")
 	qs.appendChild(div);
 }
