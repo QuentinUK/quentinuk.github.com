@@ -14,6 +14,10 @@ Hangman: Play hangman with an SVG hanging man.
 
 http://quentinuk.github.io/hangMan.html
 
+StopWatch: A digital stop watch with analogue hands.
+
+http://quentinuk.github.io/stopWatch.html
+
 Gaelic: a shorthand link to a Gaelic dictionary at a given word and page.
 eg the Gaelic word "leuma" on page 353 of the dictionary
 
