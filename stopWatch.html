@@ -4,11 +4,34 @@
     <meta charset="utf-8">
     <title>StopWatch</title>
 <style>
-* {
+html, body {
+	height: 100%;
+}
+body{
 	cursor: default;
 	background-color: lightcoral;
 }
+.square, svg#stop_watch {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+.square {
+	min-height: calc(100vh - 20px);
+}
+
 svg#stop_watch  {
+	width: calc(100vh - 20px);
+	height: calc(100vh - 20px);
 	stroke-linecap: null;
 	stroke-linejoin: null;
 	stroke-dasharray: null;
@@ -70,6 +93,7 @@ svg ellipse.butout {
 </style>
 </head>
 <body>
+<div class="square">
 <svg xmlns="http://www.w3.org/2000/svg" id="stop_watch" viewBox="0 0 600 600">
  <g>
   <ellipse id="face" ry="250" rx="250" cy="340" cx="300"/>
@@ -87,6 +111,7 @@ svg ellipse.butout {
  <path id="arrow" d="m295,360l10,0l0,-20l-5,-250l-5,250l0,20l5,0" />
  <ellipse ry="5" rx="5" cy="340" cx="300" />
 </svg>
+</div>
 </body>
 <script>
 function E(id){
