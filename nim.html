@@ -243,7 +243,7 @@ function decTimer(){
 }
 function addColors(){
 	colors.forEach(function(c){
-		D.styleSheets[0].insertRule("."+c+" {background: "+c+";}");
+		D.styleSheets[0].insertRule("."+c+" {background: "+c+";}", 0);
 	});
 }
 function addColor(qs, color, class2){
