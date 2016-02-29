@@ -24,6 +24,7 @@ eg the Gaelic word "leuma" on page 353 of the dictionary
 http://quentinuk.github.io/gaelic?leuma,353
 
 RegEx: for Regular Expressions testing and development.
+http://quentinuk.github.io/regex.html?testText=Hello%20GitHub&regExText=/\b[^\s]%2B\s*$/&replacementText=World
 
 SansAmp: a solution to Google replacing & with &+and+; in hyperlinks.
 
