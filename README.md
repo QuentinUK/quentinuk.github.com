@@ -10,11 +10,11 @@ Monty Hall: Play the paradoxical Monty Hall Game
 
 http://quentinuk.github.io/montyHall.html
 
-Hangman: Play hangman with an SVG hanging man.
+Hangman: Play hangman with an SVG hanging man. (clue: all secret words are CSS colours)
 
 http://quentinuk.github.io/hangMan.html
 
-StopWatch: A digital stop watch with analogue hands.
+StopWatch: A digital stop watch with an analogue ¹/₁₀th second hand.
 
 http://quentinuk.github.io/stopWatch.html
 
