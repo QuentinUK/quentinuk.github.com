@@ -5,32 +5,32 @@
     <title>Hangman</title>
 <style>
 svg {
-stroke: black;
-stroke-width: 5;
-stroke-linecap:null;
-stroke-linejoin:null;
-stroke-dasharray:null;
-fill:none;
+	stroke: black;
+	stroke-width: 5;
+	stroke-linecap:null;
+	stroke-linejoin:null;
+	stroke-dasharray:null;
+	fill:none;
 }
 svg #gallows, svg #rope {
-fill: brown;
+	fill: brown;
 }
 text, label {
-margin: 1em;
+	margin: 1em;
 }
 #letter {
-width: 1em;
+	width: 1em;
 }
 </style>
 </head>
 <body>
 <div>
-<svg width="300" height="300">
+<svg id="board" width="300" height="300">
 <g id="gallows">
-  <rect height="13" width="92" y="17" x="45"/>
-  <rect height="263" width="13" y="29" x="45" />
-  <rect height="13" width="155" y="279" x="59"/>
-  <line y2="55" x2="141" y1="15" x1="141"/>
+  <rect id="gallows1" height="13" width="92" y="17" x="45"/>
+  <rect id="gallows2" height="263" width="13" y="29" x="45" />
+  <rect id="floor" height="13" width="155" y="279" x="59"/>
+  <line id="rope" y2="55" x2="141" y1="15" x1="141"/>
 </g>  
   <ellipse id = "bonse" ry="36" rx="36" cy="86" cx="162"/>
   <line id="torso" y2="190" x2="138" y1="122" x1="150"/>
@@ -51,28 +51,24 @@ width: 1em;
 <div><label for="letter">Guess Letter</label>
 <input type="text" id="letter"></input>
 <button id="ok">OK</button>
-<text>Wrong guesses:</text>
+<text>Wrong Guesses:</text>
 <text id="wrong"></text>
 </div>
 <text id="msg"></text>
+<button id="start">Restart</button>
 </div>
 </body>
 <script>
-var bodyParts = ["left-leg", "right-leg", "left-arm", "right-arm", "torso", "bonse"];
-var guessInt = bodyParts.length;
-var guessStr;
-var wrongGuesses = "";
-var word = getWord();
-var result = [];
-for(var i=0; i<word.length; i++){
-	result.push("_");
-}
-visibleAll(false);
-	updateDisplay();
+// Initialise array of words with CSS colour names
+var words = ["black", "silver", "maroon", "red", "purple", "fuchsia", "green", "lime", "olive", "yellow", "navy", "blue", "teal", "aqua", "orange", "aliceblue", "antiquewhite", "aquamarine", "azure", "beige", "bisque", "blanchedalmond", "blueviolet", "brown", "burlywood", "cadetblue", "chartreuse", "chocolate", "coral", "cornflowerblue", "cornsilk", "crimson", "darkblue", "darkcyan", "darkgoldenrod", "darkgreen", "darkgrey", "darkkhaki", "darkmagenta", "darkolivegreen", "darkorange", "darkorchid", "darkred", "darksalmon", "darkseagreen", "darkslateblue", "darkslategrey", "darkturquoise", "darkviolet", "deeppink", "deepskyblue", "dimgrey", "dodgerblue", "firebrick", "floralwhite", "forestgreen", "gainsboro", "ghostwhite", "gold", "goldenrod", "greenyellow", "grey", "honeydew", "hotpink", "indianred", "indigo", "ivory", "khaki", "lavender", "lavenderblush", "lawngreen", "lemonchiffon", "lightblue", "lightcoral", "lightcyan", "lightgoldenrodyellow", "lightgreen", "lightgrey", "lightpink", "lightsalmon", "lightseagreen", "lightskyblue", "lightslategrey", "lightsteelblue", "lightyellow", "limegreen", "linen", "mediumaquamarine", "mediumblue", "mediumorchid", "mediumpurple", "mediumseagreen", "mediumslateblue", "mediumspringgreen", "mediumturquoise", "mediumvioletred", "midnightblue", "mintcream", "mistyrose", "moccasin", "navajowhite", "oldlace", "olivedrab", "orangered", "orchid", "palegoldenrod", "palegreen", "paleturquoise", "palevioletred", "papayawhip", "peachpuff", "peru", "pink", "plum", "powderblue", "rosybrown", "royalblue", "saddlebrown", "salmon", "sandybrown", "seagreen", "seashell", "sienna", "skyblue", "slateblue", "slategrey", "snow", "springgreen", "steelblue", "tan", "thistle", "tomato", "turquoise", "violet", "wheat", "whitesmoke", "yellowgreen"];
 
-	function updateGuessStr(){
-	guessStr = "You have " + guessInt + " tries left.";
-}
+var parts = ["left-leg", "right-leg", "left-arm", "right-arm", "torso", "bonse", "rope", "gallows1", "gallows2", "floor"];
+
+var triesLeft;
+var guessStr;
+var wrongGuesses;
+var word;
+var result;
 
 function id(i){
 	return document.getElementById(i);
@@ -82,24 +78,25 @@ function visible(n, v){
 	id(n) .style.visibility = v ? "visible" : "hidden";
 }
 
+function updateGuessStr(){
+	guessStr = "You have " + triesLeft + " tries left.";
+}
+
 function visibleAll(v){
-	bodyParts.forEach( function(p){ visible(p,v); });
+	parts.forEach( function(p){ visible(p,v); });
 }
 
 function getWord(){ 
-//Initialize array words using the condensed format with a minimum of 15 words up to as many choose 
-var words = ["Kitty", "Comfortable", "Redrum", "Anime", "otaku", "senpai", "mangaka", "convention", "Lolita", "prayer", "brave", "jesus", "holyspirit", "biblestudy", "chialpha"]; 
-
-//Generate a random index value using Math object methods Math.floor, Math.random, and the scaling factor based on the length of the words array defined above 
-var index = Math.floor(Math.random()*words.length); 
-return words[index]; 
+	// select a word at random
+	var index = Math.floor(Math.random()*words.length); 
+	return words[index]; 
 }
 
 function updateDisplay(){
-	updateGuessStr();
+	id("board").style.backgroundColor = won ? word : "white";	
 	id("msg").innerHTML = guessStr;
 	id("result").innerHTML = result.join(' ');
-	id("wrong").innerHTML = wrongGuesses;
+	id("wrong").innerHTML = wrongGuesses.join(' ');
 	id("letter").focus();
 }
 
@@ -117,20 +114,49 @@ function countLetter(c){
 	return count;
 }
 
-id("ok"). addEventListener("click", function(e){
-	if(guessInt>0){
-		var c = id("letter").value.toLowerCase();
-		if(c.length!=1 || wrongGuesses.indexOf(c)!=-1){
-			// can't be 0 or >1 letter, so do nothing
-			// doesn't count if already guessed
-		}
-		else if(countLetter(c) + countLetter(c.toUpperCase())==0){
-wrongGuesses += c;
-			visible(bodyParts[--guessInt], true);
-		}
-		updateDisplay();
+function startGame(){
+	triesLeft = parts.length;
+	won = false;
+	word = getWord();
+	result = [];
+	wrongGuesses = [];
+	for(var i=0; i<word.length; i++){
+		result.push("_");
 	}
-	id("letter").value = "";
-});
+	visibleAll(false);
+	
+	updateGuessStr();
+	updateDisplay();
+}
+
+function onClick(i, fn){
+	id(i).addEventListener("click", fn);
+}
+
+(function(){
+	onClick("ok", function(e){
+		if(triesLeft>0){
+			var c = id("letter").value.toUpperCase();
+			if(c.length!=1 || wrongGuesses.indexOf(c)!=-1){
+				// can't be 0 or >1 letter, so do nothing
+				// doesn't count if already guessed
+			}
+			else if(countLetter(c)
+				+ countLetter(c.toLowerCase())==0){
+wrongGuesses.push(c);
+				wrongGuesses.sort();
+				visible(parts[--triesLeft], true);
+			}
+			won = result.join("").toUpperCase() == word.toUpperCase();
+			updateGuessStr();
+			updateDisplay();
+		}
+		id("letter").value = "";
+	});
+	onClick("start", function(e){
+		startGame();
+	});
+	startGame();
+})();
 </script>
 </html>
