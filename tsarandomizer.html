@@ -44,17 +44,17 @@ body{
 	font-size: 24px;
 }
 @-webkit-keyframes butinanim {
-  0% { fill-opacity: 0; }
-  10% { fill-opacity: 1; }
-  90% { fill-opacity: 1; }
-  100% { fill-opacity: 0; }
+	0% { fill-opacity: 0; }
+	10% { fill-opacity: 1; }
+	90% { fill-opacity: 1; }
+	100% { fill-opacity: 0; }
 }
 
 @-webkit-keyframes butoutanim {
-  0% { fill-opacity: 0; }
-  10% { fill-opacity: 1; }
-  90% { fill-opacity: 1; }
-  100% { fill-opacity: 0; }
+	0% { fill-opacity: 0; }
+	10% { fill-opacity: 1; }
+	90% { fill-opacity: 1; }
+	100% { fill-opacity: 0; }
 }
 #arrow.butin {
 -webkit-animation: butinanim  1.5s;
@@ -75,28 +75,24 @@ body{
 </body>
 <script>
 function E(id)
-	{
+{
 	return document.getElementById(id);
-	}
+}
 function onClick(id, fn)
-	{
+{
 	E(id). addEventListener("click", fn);
-	}
+}
 function random(max)
-	{
+{
 	return Math.floor(Math.random() * (max+1));
-	}
-var t = [0,0];
+}
 onClick("tsa", function(e)
-	{
-	e = e.target;
-	var r = random(1);
-	t[r]++;
-	var θ = r*180;
+{
 	var a = E("arrow");
+	var θ = random(1)*180;
 	a.setAttribute("transform", "rotate("+θ+" 300 300)");
 	a.classList.toggle("butin");
 	a.classList.toggle("butout");
-	});
+});
 </script>
 </html>
