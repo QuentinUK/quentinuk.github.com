@@ -1,6 +1,10 @@
 # quentinuk.github.com
 Stuff for the web.
 
+TSA Randomizer: Selects a random queue like the TSA
+
+http://quentinuk.github.io/tsarandomizer.html
+
 Nim: The Game of Nim.
 Can have parameters for the colours (to show colour names click on blank space) eg
 
