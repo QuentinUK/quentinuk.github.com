@@ -1,0 +1,102 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TSA Randomizer</title>
+  </head>
+<style>
+html {
+	height: 100%;
+}
+body{
+	height: calc(100vh - 20px);
+	cursor: default;
+	background-color: darkslategray;
+}
+.square {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	min-height: calc(100vh - 20px);
+}
+#tsa  {
+	width: calc(100vh - 20px);
+	height: calc(100vh - 20px);
+	stroke-linecap: null;
+	stroke-linejoin: null;
+	stroke-dasharray: null;
+	stroke-width: 0;
+	stroke: null;
+	fill: antiqueWhite;
+}
+#arrow {
+	fill-opacity: 0;
+}
+#press {
+	text-anchor: middle;
+	font-family: Monospace;
+	font-size: 24px;
+}
+@-webkit-keyframes butinanim {
+  0% { fill-opacity: 0; }
+  10% { fill-opacity: 1; }
+  90% { fill-opacity: 1; }
+  100% { fill-opacity: 0; }
+}
+
+@-webkit-keyframes butoutanim {
+  0% { fill-opacity: 0; }
+  10% { fill-opacity: 1; }
+  90% { fill-opacity: 1; }
+  100% { fill-opacity: 0; }
+}
+#arrow.butin {
+-webkit-animation: butinanim  1.5s;
+}
+#arrow.butout {
+-webkit-animation: butoutanim  1.5s;
+}
+</style>
+</head>
+<body>
+<div class="square">
+<svg xmlns="http://www.w3.org/2000/svg" id="tsa" viewBox="0 0 600 600">
+<text id="press" y="300" x="300">Press Here</text>
+<path id="arrow" class="butin"  d="m0,300l250,-250l0,175l350,0l0,150l-350,0l0,175z"/>
+
+</svg>
+</div>
+</body>
+<script>
+function E(id)
+	{
+	return document.getElementById(id);
+	}
+function onClick(id, fn)
+	{
+	E(id). addEventListener("click", fn);
+	}
+function random(max)
+	{
+	return Math.floor(Math.random() * (max+1));
+	}
+var t = [0,0];
+onClick("tsa", function(e)
+	{
+	e = e.target;
+	var r = random(1);
+	t[r]++;
+	var θ = r*180;
+	var a = E("arrow");
+	a.setAttribute("transform", "rotate("+θ+" 300 300)");
+	a.classList.toggle("butin");
+	a.classList.toggle("butout");
+	});
+</script>
+</html>
