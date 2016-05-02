@@ -22,6 +22,9 @@ StopWatch: A digital stop watch with an analogue ¹/₁₀th second hand.
 
 http://quentinuk.github.io/stopWatch.html
 
+Hamlet (Prince of Denmark) by Shakespeare, with dynamic Act_Scene_Verse_Line numbering. All parts fully named.
+http://quentinuk.github.io/hamlet.html
+
 Gaelic: a shorthand link to a Gaelic dictionary at a given word and page.
 eg the Gaelic word "leuma" on page 353 of the dictionary
 
