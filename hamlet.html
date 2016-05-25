@@ -5283,7 +5283,7 @@ if(!qa("#hp p").length){// only do once (not again when converting to PDF)
  })
 }
 // display ACT, SCENE, VERSE labels
-D["onmouseover"]=function(e){
+D["onmouseover"]=D["ontouchmove"]=function(e){
   with(e.target){
     if((n=(name||id))&&tagName.length<3){
       (b=qs("#hh")).style.top=offsetTop+"px"
