@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-<title>Sprite Test</title>
+<title>Size Test</title>
 <link href="https://fonts.googleapis.com/css?family=Julee" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/hammerjs/2.0.8/hammer.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -61,6 +61,7 @@ canvas
     }
 text:first-child
     {
+    font-family: Helvetica, sans-serif;
     font-size: 2.5vw;
     vertical-align: text-top;
     }
@@ -83,7 +84,7 @@ text:first-child
     {
     text:first-child
         {
-        font-family: Ariel, sans-serif;
+        font-family: Ariel;
         }
     }
 </style>
@@ -95,11 +96,11 @@ text:first-child
 </div>
 <div class="data top_left">
 <text>TOP LEFT</text>
-<text id="topr">a</text>
+<text id="topl">a</text>
 </div>
 <div class="data top_right">
 <text>TOP RIGHT</text>
-<text id="topl">b</text>
+<text id="topr">b</text>
 </div>
 <div class="data bot_right">
 <text>BOT RIGHT</text>
@@ -133,7 +134,7 @@ function make_canvas(s)
     return canvas.insertBefore($("img"));
     }
 
-$.fn.get2D = function()
+$.fn.get2D = function() 
     {
     return this[0].getContext("2d");
     };
@@ -176,13 +177,13 @@ $(function()
 
         mc = new Hammer(ctx.canvas);
         mc.on('tap', function(ev){
-            $("#topr").text("tap");
+            $("#topr").text("tap at " + ev.center.x + ","+ ev.center.y);
             $("#bot").text("c");
             });
         mc.get('swipe').set({direction: Hammer.DIRECTION_DOWN});
         mc.on('swipe', function(ev){
             $("#topr").text("b");
-            $("#bot").text("swipe");
+            $("#bot").text("pull down at " + ev.center.x + ','+ ev.center.y);
             });
         });
     });
@@ -210,8 +211,11 @@ function image_loader(url)
 <script id="data" type="text/JSONdata">
 {
 "a": {"y": 461, "x": 718, "size": {"h": 187, "w": 604}, "page": 2, "position": {"y": 1742, "x": 1419}},
+
 "b": {"y": 820, "x": 1711, "size": {"h": 574, "w": 337}, "page": 2, "position": {"y": 1163, "x": 1419}},
+
 "c": {"y": 811, "x": 0, "size": {"h": 553, "w": 306}, "page": 2, "position": {"y": 0, "x": 1570}}
+
 }
 </script>
-</html>
+</html> 
