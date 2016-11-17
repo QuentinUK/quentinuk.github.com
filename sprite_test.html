@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Sprite Test</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<style>
+body, html
+    {
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    }
+body
+    {
+    background-color : aliceblue;
+    }
+.cv 
+    {
+    position : absolute;
+    }
+#game
+    {
+/*    margin : 50px auto;
+    width : 2048px;*/
+    }
+img {
+/*    height: 2048px;*/
+    width: 100%;
+    }
+canvas
+    {
+    width: 100%;
+    top: 0px;
+    }
+#loading
+    {
+    font-size: 1em;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    color: white;
+    font-size: 3em;
+    }
+.data
+    {
+    color: ivory;
+    position: absolute;
+    font-size: 3vw;
+    background-color: black;
+    padding: 2px 1em 2px 1em;
+    border-style: solid;
+    border-width: 1px;
+    margin: 0.5em;
+    position: absolute;
+    }
+text:first-child
+    {
+    font-family: Helvetica, sans-serif;
+    font-size: 2.5vw;
+    vertical-align: text-top;
+    }
+.top_left
+    {
+    left: 0;
+    top: 0;
+    }
+.top_right
+    {
+    right: 0;
+    top: 0;
+    }
+.bot_right
+    {
+    right: 0;
+    bottom: 0;
+    }
+@media screen and (min-width: 700px)
+    {
+    text:first-child
+        {
+        font-family: Ariel;
+        }
+    }
+</style>
+</head>
+<body>
+<div id="game">
+<text id="loading">Loading...</text>
+<img src="Sprites/testimg_1.png" />
+</div>
+<div class="data top_left">
+<text>TOPLEFT</text>
+<text id="balance">a</text>
+</div>
+<div class="data top_right">
+<text>TOPRIGHT</text>
+<text id="winnings">b</text>
+</div>
+<div class="data bot_right">
+<text>BOT RIGHT</text>
+<text id="bet">c</text>
+</div>
+</body>
+<script>
+
+var drawer = {
+    sprite : function(sprite)
+        {
+        this.ctx.drawImage(this.imgs[sprite.page],
+            sprite.position.x, sprite.position.y,
+            sprite.size.w, sprite.size.h,
+            sprite.x, sprite.y,
+            sprite.size.w, sprite.size.h);
+        }
+    };
+function Draw(imgs, ctx) 
+    {
+    this.imgs = imgs;
+    this.ctx = ctx;
+    };
+Draw.prototype = drawer;
+
+function make_canvas(s)
+    {
+    var canvas = $('<canvas/>', {"class" : "cv"});
+    canvas[0].width = s.w;
+    canvas[0].height = s.h;
+    return canvas.insertBefore($("img"));
+    }
+
+$.fn.get2D = function() 
+    {
+    return this[0].getContext("2d");
+    };
+
+/********************** main ***************************************/
+
+var sprites_path      = "Sprites/";
+var sounds_path       = "sounds/";
+
+var y_offset = 450;
+
+$(function()
+    {
+    // load resources
+    var sprites_img0      = image_loader(sprites_path+"testimg_0.png");
+    var sprites_img1      = image_loader(sprites_path+"testimg_1.png");
+    var sprites_img2      = image_loader(sprites_path+"testimg_2.png");
+
+    var back_size = {w:2048, h:2048};
+
+    $.when(sprites_img0.load_image()
+        , sprites_img1.load_image()
+        , sprites_img2.load_image()
+        )
+        .then(function()
+        {
+        $("#loading").remove();
+
+        var data = $.parseJSON($("#data").text());
+
+        var imgs = [sprites_img0.img, sprites_img1.img, sprites_img2.img];
+        var ctx = make_canvas(back_size).get2D();
+        ctx.translate(0,-y_offset);
+
+        var draw = new Draw(imgs, ctx);
+        draw.sprite(data.a);
+        draw.sprite(data.b);
+        draw.sprite(data.c);
+        });
+    });
+
+function image_loader(url)
+    {
+    var img = new Image();
+    function load_image()
+        {
+        var def = $.Deferred();
+        img.onload = function()
+            {
+            def.resolve(true);
+            };
+        img.src = url;
+        return def.promise();
+        }
+    return ({
+        load_image : load_image,
+        img : img
+        });
+    };
+
+</script>
+<script id="data" type="text/JSONdata">
+{
+"a": {"y": 461, "x": 718, "size": {"h": 187, "w": 604}, "page": 2, "position": {"y": 1742, "x": 1419}},
+"b": {"y": 820, "x": 1711, "size": {"h": 574, "w": 337}, "page": 2, "position": {"y": 1163, "x": 1419}},
+"c": {"y": 811, "x": 0, "size": {"h": 553, "w": 306}, "page": 2, "position": {"y": 0, "x": 1570}}
+}
+</script>
+</html> 
