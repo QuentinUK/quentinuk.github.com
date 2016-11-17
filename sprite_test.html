@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <title>Sprite Test</title>
+<link href="https://fonts.googleapis.com/css?family=Julee" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/hammerjs/2.0.8/hammer.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 <style>
@@ -46,6 +48,7 @@ canvas
     }
 .data
     {
+    font-family: 'Julee', cursive;
     color: ivory;
     position: absolute;
     font-size: 3vw;
@@ -58,7 +61,6 @@ canvas
     }
 text:first-child
     {
-    font-family: Helvetica, sans-serif;
     font-size: 2.5vw;
     vertical-align: text-top;
     }
@@ -81,7 +83,7 @@ text:first-child
     {
     text:first-child
         {
-        font-family: Ariel;
+        font-family: Ariel, sans-serif;
         }
     }
 </style>
@@ -92,16 +94,16 @@ text:first-child
 <img src="Sprites/testimg_1.png" />
 </div>
 <div class="data top_left">
-<text>TOPLEFT</text>
-<text id="balance">a</text>
+<text>TOP LEFT</text>
+<text id="topr">a</text>
 </div>
 <div class="data top_right">
-<text>TOPRIGHT</text>
-<text id="winnings">b</text>
+<text>TOP RIGHT</text>
+<text id="topl">b</text>
 </div>
 <div class="data bot_right">
 <text>BOT RIGHT</text>
-<text id="bet">c</text>
+<text id="bot">c</text>
 </div>
 </body>
 <script>
@@ -131,7 +133,7 @@ function make_canvas(s)
     return canvas.insertBefore($("img"));
     }
 
-$.fn.get2D = function() 
+$.fn.get2D = function()
     {
     return this[0].getContext("2d");
     };
@@ -142,6 +144,7 @@ var sprites_path      = "Sprites/";
 var sounds_path       = "sounds/";
 
 var y_offset = 450;
+var mc;
 
 $(function()
     {
@@ -170,6 +173,17 @@ $(function()
         draw.sprite(data.a);
         draw.sprite(data.b);
         draw.sprite(data.c);
+
+        mc = new Hammer(ctx.canvas);
+        mc.on('tap', function(ev){
+            $("#topr").text("tap");
+            $("#bot").text("c");
+            });
+        mc.get('swipe').set({direction: Hammer.DIRECTION_DOWN});
+        mc.on('swipe', function(ev){
+            $("#topr").text("b");
+            $("#bot").text("swipe");
+            });
         });
     });
 
@@ -200,4 +214,4 @@ function image_loader(url)
 "c": {"y": 811, "x": 0, "size": {"h": 553, "w": 306}, "page": 2, "position": {"y": 0, "x": 1570}}
 }
 </script>
-</html> 
+</html>
