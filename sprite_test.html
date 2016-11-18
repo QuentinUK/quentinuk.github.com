@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-<title>Size Test</title>
+<title>Sprite Test</title>
 <link href="https://fonts.googleapis.com/css?family=Julee" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/hammerjs/2.0.8/hammer.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -50,7 +50,6 @@ canvas
     {
     font-family: 'Julee', cursive;
     color: ivory;
-    position: absolute;
     font-size: 3vw;
     background-color: black;
     padding: 2px 1em 2px 1em;
@@ -139,6 +138,12 @@ $.fn.get2D = function()
     return this[0].getContext("2d");
     };
 
+$.fn.toTop = function()
+    {
+    if(this.scrollTop())
+        this.scrollTop(0);
+    }
+
 /********************** main ***************************************/
 
 var sprites_path      = "Sprites/";
@@ -150,9 +155,9 @@ var mc;
 $(function()
     {
     // load resources
-    var sprites_img0      = image_loader(sprites_path+"testimg_0.png");
-    var sprites_img1      = image_loader(sprites_path+"testimg_1.png");
-    var sprites_img2      = image_loader(sprites_path+"testimg_2.png");
+    var sprites_img0 = image_loader(sprites_path+"testimg_0.png");
+    var sprites_img1 = image_loader(sprites_path+"testimg_1.png");
+    var sprites_img2 = image_loader(sprites_path+"testimg_2.png");
 
     var back_size = {w:2048, h:2048};
 
@@ -163,6 +168,16 @@ $(function()
         .then(function()
         {
         $("#loading").remove();
+
+        $("html").scroll(function(){
+            $("#topl").text("scrolling1");
+        });
+        $("body").scroll(function(){
+            $("#topl;").text("scrolling2");
+        });
+        $("#game").scroll(function(){
+            $("#topl").text("scrolling3");
+        });
 
         var data = $.parseJSON($("#data").text());
 
@@ -184,6 +199,7 @@ $(function()
         mc.on('swipe', function(ev){
             $("#topr").text("b");
             $("#bot").text("pull down at " + ev.center.x + ','+ ev.center.y);
+            $("body").toTop();
             });
         });
     });
@@ -211,11 +227,8 @@ function image_loader(url)
 <script id="data" type="text/JSONdata">
 {
 "a": {"y": 461, "x": 718, "size": {"h": 187, "w": 604}, "page": 2, "position": {"y": 1742, "x": 1419}},
-
-"b": {"y": 820, "x": 1711, "size": {"h": 574, "w": 337}, "page": 2, "position": {"y": 1163, "x": 1419}},
-
-"c": {"y": 811, "x": 0, "size": {"h": 553, "w": 306}, "page": 2, "position": {"y": 0, "x": 1570}}
-
+"b": {"y": 820, "x": 1661, "size": {"h": 574, "w": 337}, "page": 2, "position": {"y": 1163, "x": 1419}},
+"c": {"y": 811, "x": 50, "size": {"h": 553, "w": 306}, "page": 2, "position": {"y": 0, "x": 1570}}
 }
 </script>
 </html> 
