@@ -105,7 +105,7 @@ text:first-child
 <text>BOT RIGHT</text>
 <text id="bot">c</text>
 </div>
-</body>
+
 <script>
 
 var drawer = {
@@ -192,17 +192,31 @@ $(function()
 
         mc = new Hammer(ctx.canvas);
         mc.on('tap', function(ev){
-            $("#topr").text("tap at " + ev.center.x + ","+ ev.center.y);
-            $("#bot").text("c");
+            make_note("tap", ev);
             });
+        mc.get('press').set({ enable: true });
+        mc.on('press', function(ev){
+            make_note("press", ev);
+            });            
         mc.get('swipe').set({direction: Hammer.DIRECTION_DOWN});
         mc.on('swipe', function(ev){
-            $("#topr").text("b");
-            $("#bot").text("pull down at " + ev.center.x + ','+ ev.center.y);
+            make_note("pull_down", ev);
             $("body").toTop();
             });
         });
     });
+
+function make_note(action, ev)
+    {
+    note(({press: 'a', tap: 'b', pull_down: 'c'})[action], action + ' at ' + ev.center.x + ','+ ev.center.y);
+    }
+
+function note(pos, msg)
+    {
+    var buts = {a:"#topl", b: "#topr", c: "#bot"};
+    for(var key in buts)
+        $(buts[key]).text(key==pos ? msg : key);
+    }
 
 function image_loader(url)
     {
@@ -231,4 +245,5 @@ function image_loader(url)
 "c": {"y": 811, "x": 50, "size": {"h": 553, "w": 306}, "page": 2, "position": {"y": 0, "x": 1570}}
 }
 </script>
+</body>
 </html> 
