@@ -1,42 +1,27 @@
 # quentinuk.github.com
 Stuff for the web.
 
-TSA Randomizer: Selects a random queue like the TSA
+[TSA Randomizer: Selects a random queue like the TSA](https://quentinuk.github.io/tsarandomizer.html)
 
-http://quentinuk.github.io/tsarandomizer.html
-
-Nim: The Game of Nim.
+[Nim: The Game of Nim.](https://quentinuk.github.io/nim.html?chartreuse=4&green=7&aqua=4)
 Can have parameters for the colours (to show colour names click on blank space) eg
 
-http://quentinuk.github.io/nim.html?chartreuse=4&green=7&aqua=4
+[Monty Hall: Play the paradoxical Monty Hall Game](https://quentinuk.github.io/montyHall.html)
 
-Monty Hall: Play the paradoxical Monty Hall Game
+[Hangman: Play hangman with an SVG hanging man. (clue: all secret words are CSS colours)](https://quentinuk.github.io/hangMan.html)
 
-http://quentinuk.github.io/montyHall.html
+[StopWatch: A digital stop watch with an analogue ¹/₁₀th second hand.](https://quentinuk.github.io/stopWatch.html)
 
-Hangman: Play hangman with an SVG hanging man. (clue: all secret words are CSS colours)
+[Hamlet (Prince of Denmark) by Shakespeare, with dynamic Act_Scene_Verse_Line numbering. All parts fully named.](https://quentinuk.github.io/hamlet.html)
 
-http://quentinuk.github.io/hangMan.html
-
-StopWatch: A digital stop watch with an analogue ¹/₁₀th second hand.
-
-http://quentinuk.github.io/stopWatch.html
-
-Hamlet (Prince of Denmark) by Shakespeare, with dynamic Act_Scene_Verse_Line numbering. All parts fully named.
-http://quentinuk.github.io/hamlet.html
-
-Gaelic: a shorthand link to a Gaelic dictionary at a given word and page.
+[Gaelic: a shorthand link to a Gaelic dictionary at a given word and page.](https://quentinuk.github.io/gaelic?leuma,353)
 eg the Gaelic word "leuma" on page 353 of the dictionary
 
-http://quentinuk.github.io/gaelic?leuma,353
-
-RegEx: for Regular Expressions testing and development.
-
-http://quentinuk.github.io/regex.html?testText=Hello%20GitHub&regExText=/\b[^\s]%2B\s*$/&replacementText=World
+[RegEx: for Regular Expressions testing and development.](https://quentinuk.github.io/regex.html?testText=Hello%20GitHub&regExText=/\b[^\s]%2B\s*$/&replacementText=World)
 
 SansAmp: a solution to Google replacing & with &+and+; in hyperlinks.
 
 SquaresTester: for the Panoramio Group: Square Shots. Every photo in the group is tested for squareness.
 
 UsersTagsMap: for Goole Maps. Putting on the map all the photos for the given user(s) and tag(s).
-[Google has closed down Panoramio now so this doesn't work any longer.]
+(Google has closed down Panoramio now so this doesn't work any longer.)
