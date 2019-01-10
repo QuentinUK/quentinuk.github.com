@@ -14,6 +14,8 @@ Can have parameters for the colours (to show colour names click on blank space) 
 
 [Hamlet (Prince of Denmark) by Shakespeare, with dynamic Act_Scene_Verse_Line numbering. All parts fully named.](https://quentinuk.github.io/hamlet.html)
 
+[Finnegans Wake by James Joyce, with a Concordance Generator Formatted for the web with CSS3. Images by SVG](https://quentinuk.github.io/fw.html)
+
 [Gaelic: a shorthand link to a Gaelic dictionary at a given word and page.](https://quentinuk.github.io/gaelic?leuma,353)
 eg the Gaelic word "leuma" on page 353 of the dictionary
 
