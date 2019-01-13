@@ -1,4 +1,4 @@
-# quentinuk.github.com
+# [quentinuk.github.com](https://github.com/QuentinUK/quentinuk.github.com)
 Stuff for the web.
 
 [TSA Randomizer: Selects a random queue like the TSA](https://quentinuk.github.io/tsarandomizer.html)
