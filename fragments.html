@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="James Joyce">
+  <title>Fragments</title>
+<style>
+body {
+  background-color: antiquewhite;
+  margin-right: 1.2em;
+}
+section{
+  margin: 7em 0 5em 0
+}
+#preface {
+  margin-right: 0.3em;
+}
+.c, h3, h4, .jj, .printer {
+  text-align: center; 
+}
+.jj {
+  margin: 2em auto 6em auto;
+}
+.p {
+  content: '¶';
+  vertical-align: super;
+  font-size: 50%;
+}
+.pn {
+  font-size: 0.6em;
+  font-style: normal;
+  padding:  0.4em 0.2em 0.4em 0.4em;/* t r b l | tb rl*/
+  margin-right: 0.2em;
+  color:ivory;
+  background-color: silver;
+  text-indent: 0;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.pnl {
+  right: 0;
+  white-space: pre-wrap;
+  position:absolute;
+  padding: 0.4em 0.3em;
+  margin: 0 0.1em;
+}
+p {
+  text-indent: 1em;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  margin: 0;
+  text-align: justify;
+  line-height: 1.5;
+}
+section p:nth-of-type(1) {
+  text-indent: 0em;
+}
+section p:nth-of-type(1) > span:nth-of-type(1) {
+  color: red;
+  font-size: 2.5em;
+  float: left;
+  margin-top: -0.25em;
+  height: 1.4em;
+}
+h1, h3, .jj {
+  color: red;
+}
+.than1, .than8 {
+  font-size: 1.5em;
+}
+.than2, .than7 {
+  font-size: 1.3em;
+}
+.than3, than6  {
+  font-size: 1.1em;
+}
+.than4, .than5, .ncr {
+  font-size: 0.8em;
+}
+svg {
+  cursor: pointer;
+}
+#ALP_diagram {
+  fill-opacity: 0;
+  width: 16em;
+  height: 13em;
+  stroke-width: 4;
+  stroke: #000000;
+  fill: #000000;
+  float: right;
+}
+svg text {
+  white-space: pre;
+  text-anchor: middle;
+  font-family: serif;
+  font-size: 6em;
+  stroke-width: 0;
+  stroke: #000000;
+  fill: #000000;
+  fill-opacity: 1;
+  width: 20em;
+  height: 15em;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-bottom: 2em;
+}
+.dash  {
+  stroke-dasharray: 0.5em, 0.5em;
+}
+.verse, .printer, .iglu_ways {
+  white-space: pre-wrap;
+}
+.verse {
+  margin-top: 1em;
+}
+.iglu_ways {
+  text-indent: 0;
+  margin-left: 4em;
+}
+.printer {
+  font-size: 0.7em;
+}
+.vi_line div {
+  text-indent: -4em;
+  margin-left: 4em;
+  margin-bottom: 0.5em;
+  font-style: italic;
+}
+.vi_line div span {
+  font-style: normal;
+}
+.title {
+  margin: 10vw;
+}
+.title h1:nth-of-type(even), .cko {
+  text-align: right;
+}
+#info {
+  position: fixed;
+  z-index: 20;
+  width: 100%;
+  height: 1.5em;
+  bottom: 0;
+  right: 0;
+  background-color: aliceblue;
+}
+.iglu {
+  text-indent: -3.5em;
+  margin-left: 4.5em;
+}
+.letu {
+  font-family:"American Typewriter", serif;
+  color:gray;
+  display:inline-block;
+  -ms-transform: rotate(3deg);-webkit-transform: rotate(3deg);transform: rotate(3deg);
+}
+.round_box {
+  border: 2px solid darkslategray;
+  border-radius: 5px;
+  float: right;
+}
+#pos {
+  float: left;
+}
+svg#Portait_of_James_Joyce { 
+ background-color: antiquewhite;
+stroke-width: 3;
+fill: none;
+stroke: black;
+margin: 10vw;
+}
+@media (min-aspect-ratio: 600/800), @media (aspect-ratio: 600/800) {
+svg#Portait_of_James_Joyce { 
+  height: 80vh;
+}
+}
+@media (min-aspect-ratio: 600/800) {
+svg#Portait_of_James_Joyce { 
+  height: 80vh;
+}
+}
+
+</style>
+</head>
+<body>
+<div id="front">
+<div class="title"><h1>Tales Told of</h1><h1>Shem and Shaun</h1></div>
+<h4>Three Fragments from</h4><h4>Work in Progress</h4>
+<div class="c">by</div><div class="jj c">JAMES JOYCE</div>
+<div class="printer">
+THE BLACK SUN PRESS
+RUE CARDINALE
+PARIS
+MCMXXIX</div>
+<a class="p" id="pFront"></a>
+</div>
+<div>
+<nav>
+<h3>CONTENTS</h3>
+<p>Portrait of the Author by C. Brancusi</p>
+<p>Preface by C. K. Ogden</p>
+<p>The Mookse and the Gripes</p>
+<p>The Muddest Thick That Was Ever Heard Dump</p> 
+<p>The Ondt and the Gracehoper</p>
+</nav><a class="p" id="pContents"></a></div>
+<section id="portrait">
+<svg id="Portait_of_James_Joyce" viewBox="0 0 600 800">
+   <defs>
+    <g id="spiral">
+    <path d="M 0.00,12.50 Q -3.62,14.80 -8.33,14.43 Q -13.61,14.02 -18.04,10.42 Q -22.95,6.43 -25.00,0.00 Q -27.24,-7.04 -25.26,-14.58 Q -23.10,-22.77 -16.67,-28.87 Q -9.73,-35.44 -0.00,-37.50 Q 10.41,-39.71 20.83,-36.08 Q 31.92,-32.23 39.69,-22.92 Q 47.92,-13.06 50.00,0.00 Q 52.19,13.77 46.91,27.08 Q 41.36,41.07 29.17,50.52 Q 16.40,60.41 -0.00,62.50 Q -17.12,64.68 -33.33,57.74 Q -50.22,50.50 -61.34,35.42 Q -72.91,19.74 -75.00,0.00 Q -77.17,-20.47 -68.56,-39.58 Q -59.64,-59.37 -41.67,-72.17 Q -23.09,-85.40 -0.00,-87.50 Q 23.82,-89.67 45.83,-79.39 Q 68.52,-68.79 82.99,-47.92 Q 97.90,-26.43 100.00,-0.00 Q 102.16,27.17 90.21,52.08 Q 77.94,77.66 54.17,93.82 Q 29.78,110.39 0.00,112.50 Q -30.52,114.66 -58.33,101.04 Q -86.81,87.09 -104.64,60.42 Q -122.89,33.13 -125.00,0.00 Q -127.16,-33.87 -111.86,-64.58 Q -96.23,-95.96 -66.67,-115.47 Q -36.48,-135.39 -0.00,-137.50 Q 37.22,-139.65 70.83,-122.69 Q 105.11,-105.38 126.30,-72.92 Q 147.89,-39.82 150.00,-0.00 Q 152.15,40.57 133.51,77.08 Q 114.53,114.26 79.17,137.12 Q 43.17,160.39 0.00,162.50 Q -43.92,164.65 -83.33,144.34 Q -123.41,123.68 -147.95,85.42 Q -172.88,46.52 -175.00,0.00 Q -177.15,-47.27 -155.16,-89.58 Q -132.83,-132.56 -91.67,-158.77 Q -49.87,-185.38 -0.00,-187.50 Q 50.62,-189.65 95.83,-165.99 Q 141.71,-141.98 169.60,-97.92 Q 197.88,-53.22 200.00,-0.00 Q 202.15,53.97 176.81,102.08 Q 151.13,150.86 104.17,180.42 Q 56.57,210.38 0.00,212.50 Q -57.32,214.65 -108.33,187.64 "/>
+  </g>
+</defs>
+  <use xlink:href="#spiral" x="0" y="0" transform="rotate(140,400,400) translate(450,450)" />
+   <line x1="50" y1="10" x2="50" y2="790" />
+   <line x1="450" y1="600" x2="450" y2="790" />
+</svg>
+<a class="p" id="pBrancusi"></a></section><section id="preface"><h3>PREFACE</h3><p><span>T</span>HE preservation of Print, the authority of the
+Authorised Version, the convenience of
+Dr. Johnson’s Dictionary, the standardization of
+the English Public Schools, and the exigencies
+of Fleet Street. If we are looking for the chief
+historical influences which have somewhat over<span class="h">-<br></span>conventionalized the English language, we shall
+find it hard to add a sixth of equal significance.
+The power of print over simple minds, the clichés 
+engendered by doctrines of verbal inspiration, 
+the lexicographical rally against the cursory and 
+the colloquial, the tyranny of grammatical good 
+form, and the scurry of late extras ; all are still
+with us. It is not surprising that after five<a class="p" id="pI"></a>
+centuries the resentment of those who decline to 
+play the game according to the rules of the 
+schoolmaster is overt and vocal ; or that Mr. Joyce 
+appears as a promised liquidator where the 
+machinery of literature has been clogged by the 
+ministrations and minutiae of an ossified propæ<span class="h">-<br></span>deutic.</p>
+<p>Not that the dissatisfaction is general in the 
+literary community. The world of sight and space 
+is more sensitive to the new spirit — but the 
+academicians are not altering their language to 
+accommodate Kandinsky or Brancusi, nor are the 
+Todhunters (whose bleak régime once seared a 
+romantic Irish soul, as we learn from these pages) 
+perturbed by the tensors of the Einsteins. In 
+music alone are stirrings heard which may affect 
+fundamental notation in the near future ; and, as 
+usual, Paris, if not Moscow and New York, has 
+been publicly tuning in for a full decade.</p>
+<p>Readers, however, who are unsympathetic to 
+linguistic experiments, and unfamiliar with the<a class="p" id="pII"></a>
+milieu from which these particular experiments 
+have emerged, will find themselves at a dis<span class="h">-<br></span>advantage. That such may be encouraged to 
+pause for a few moments before allowing their 
+impatience a free rein, one whose approach is 
+primarily linguistic has been asked to put together 
+a few prefatory remarks.</p>
+<p>Of the three semi-detached satirical pieces 
+here reprinted in a much expanded form, the 
+first is from Part I, the second from Part II, and 
+the third from Part III, of Mr. Joyce’s forthcoming 
+work, the title of which has not yet been disclosed, 
+though the eight installments of Part I and nearly 
+all of Part III, under the general caption <i>Work in 
+Progress</i>, have been made available in <i>transition</i> 
+since the appearance of <i>Ulysses</i> in 1922. One other 
+such fragment <i>Anna Livia Plurabelle</i> has also 
+been accorded independent publication (1928), but 
+in order to pass judgment on these isolated gesticul<span class="h">-<br></span>atory specimens something more than sympathy and
+good will may be requisite. There is the mental<a class="p" id="pIII"></a>
+factor — the ideology of half a lifetime, the
+environmental — for James Joyce, though he can
+write standard English and lives in Paris, is
+neither an Englishman nor a Parisian ; and
+the experimental — the factor of symbolic inno<span class="h">-<br></span>vation. Each may be noticed in turn.</p>
+<p>The mental factor in the case of Mr. Joyce is 
+not more of an obstacle than has been surmounted 
+by readers of many of his contemporaries. Thus 
+we find such names as Hart Crane, E.E. Cummings, 
+Gertrude Stein, Edith Sitwell, and Maiakovsky 
+also associated by Max Eastman with the “Cult of 
+Unintelligibility” which the critic so urbanely 
+deprecates. Mallarmé, Rimbaud, Dodgson, Gerard 
+Hopkins, Morgenstern, and T. S. Eliot might be 
+instanced with still greater relevance. To the 
+barriers which such authors interpose Mr. Joyce 
+has added his mediaeval and Jesuit background, 
+his origins in Celtic romanticism, his predilection 
+for Norse and Classical mythology, a later pre<span class="h">-<br></span>occupation with the <i>Purgatorio</i>, and a final phase<a class="p" id="pIV"></a>
+embracing Vico, Freud, and the reactions of The 
+Enemy.</p>
+<p>Then there is Dublin. Some of us failed to be 
+born and bred on the banks of the Liffey and to 
+that extent we are at a disadvantage in interpreting 
+some of Mr. Joyce’s basic symbols. The disad<span class="h">-<br></span>vantage is probably not greater than that of a 
+student at Ann Arbor confronted by Pindar, or 
+a member of the Athenaeum endeavouring to 
+establish relations with a record by Bessie Smith. 
+From over half of every audience at Covent 
+Garden or the Metropolitan Opera House less than 
+one-quarter of the symbolic material can be 
+securing any adhesion. In so far, therefore, as
+such audiences are not listening with a purely 
+musical or social ear, they are relying on that 
+vaguer emotive rapport which in the case of 
+Mr. Joyce is equally easily established. His <i>pietas</i> 
+is so transparent that the effort required to shoulder 
+this load need not be greater than we made in 
+our childhood in the interests of old Anchises.<a class="p" id="pV"></a></p>
+<p>When, however, we turn from the environ<span class="h">-<br></span>mental to the experimental, there yawns a greater 
+gulf. Many who find themselves bored by local 
+lore are overcome by absolute inertia when urged 
+to the acquisition of new linguistic tricks after the 
+age of twenty-one. A few, such as Jane Harrison, 
+may master the aspects in Russian when past 
+three score, but serious attempts on polysynthetic 
+languages are rarer. The case of Eskimo, since 
+it may have a more direct bearing on these frag<span class="h">-<br></span>ments than even their author supposes, is worthy 
+of special consideration.</p>
+<p>We know that Mr. Joyce has conscious mytho<span class="h">-<br></span>logical affiliations with his Norse ancestors; and 
+a dexterous “Norsemanship” is occasionally 
+evident even in <i>The Mookse</i>. But did the clouds 
+he trails condense even farther north ?</p>
+<p>The technique of much of Mr. Joyce’s verbal 
+creation may be illustrated by the principle of 
+the <i>infix</i>. English works almost entirely through 
+<i>suffixes</i> and <i>affixes</i>. We even go so far as to<a class="p" id="pVI"></a>
+tolerate dis | em | barc | ation officials. But an 
+official banquet is not so called because the menu 
+comprises fish and offal. The Eskimos, however, 
+would find nothing extraordinary in the compound 
+off | fish | al. A house agent in Greenland, anxious 
+to dispose of a “ large and capacious modern 
+residence, built to present owner’s special design 
+and still in owner’s occupation ; allowance for 
+dilapidations due to the efflux of time and normal 
+wear and tear,” etc., would require only one word</p>
+<p class="c"><i>Iglupakulia</i></p>
+<p>To illustrate the principle of infixes, let us 
+consider how this word is constructed. There are 
+twenty-seven case forms in Eskimo, nine each in 
+the singular, dual, and plural ; and the singular, 
+forms of the noun <i>iglu</i> meaning a shelter, such as 
+a dwelling, church, station or tent, are as follows :</p>
+<p>IGLU (accusative case)</p>
+<p>IGLUM (nominative case)</p>
+<p class="iglu">IGLUA (genitive case) - one house belonging to
+one man<a class="p" id="pVII"></a></p>
+<p>IGLUMUN to the house</p>
+<p>IGLUMIN from the house</p>
+<p>IGLUMI in the house</p>
+<p>IGLUMIK with the house</p>
+<p>IGLUKUN through the house</p>
+<p>IGLUTUN like a house</p>
+<p>The word Iglupakulia is built up with the infixes 
+PAK, LIK and KUK, which are themselves 
+changed to suit the rest of the word. Thus :</p>
+<p>IGLU-A one man’s own house.</p>
+<p>IGLU-PA (IGLU-PAK-A) his big house.</p>
+<p class="iglu">IGLU-PA-LI-A the big house which he built and
+still possesses.</p>
+<p class="iglu">IGLU-PA-KU-LI-A the big house which he built
+for himself and still possesses and which
+is no longer as good as formerly.</p>
+<p>There are 164 infixes for nouns and verbs in 
+the Mackenzie dialect, and over one thousand 
+forms can be made out for one noun alone. It is 
+not surprising that Stefansson, who is one of 
+about a dozen linguists familiar with this language,<a class="p" id="pVIII"></a>
+regards it as the most difficult but at the same time 
+the most efficient language as yet evolved by man. 
+He tells me that it was only after six years of 
+constant study and practice that he attained 
+proficiency in its use. So at least a decade may 
+be necessary before Mr. Joyce’s “word-ballet” 
+yields its secret even to an adjusted mind.</p>
+<p>The only serious attempt which has been made 
+to deal with the way in which Mr. Joyce builds 
+up his word structures is Rodker’s article in 
+<i>Transition</i>, No. 14; and as he refers to the 
+analyses given in the <i>Meaning of Meaning</i>, I may 
+add a few remarks supplementary to what can 
+there be found. For a language like that of 
+Mr. Joyce, there are ten main ways in which 
+symbolic texture can be complicated and compac<span class="h">-<br></span>ted.</p>
+<p class="iglu_ways">Root-cultivation
+Tongue-gesture
+Rhyme-slang
+Analogical deformation<a class="p" id="pIX"></a></p>
+<p class="iglu_ways">Onomatopoeia, phonetic and kinetic 
+Puns, select and dialect 
+Spoonerisms
+Condensations
+Mergers
+Echoes</p>
+<p>If we separate the functions of language into
+four main divisions — Sense, Feeling, Tone and 
+Intention — it is clear that Mr. Joyce’s neologisms 
+chiefly provide blends of the three last. He is 
+not concerned, as is the scientist, with the creation 
+of new names, so much as with the development 
+of fresh emotive and invective gestures. In this 
+respect the researches of Sir Richard Paget should 
+prove germane ; and as regards the four language 
+functions, the inquisitive may be referred to 
+Professor I. A. Richards’ <i>Practical Criticism</i> now 
+in the press, where the relevant portions of his 
+<i>Principles</i> are further expanded.</p>
+<p>As a result of this synthetic proliferate agglom<span class="h">-<br></span>eration whereby the timeless condensation of the<a class="p" id="pX"></a>
+dream is attained, there is a natural temptation 
+for the critical clinician to be reminded of the 
+obscurer forms of graphomanic infantilism or 
+deliriant echolalia. Here Mr. Joyce must be 
+content to suffer with Blake, Cézanne and Picasso, 
+with Walt Whitman, and even with Hieronymus 
+Bosch. Whoever flouts, parodies, or evades linguistic 
+conventions, will seem to the magistrature to have 
+something in common with those whose inhibitions 
+or social ties have broken down. It is worth 
+noting, however, that even the musical innovations 
+achieved by a reversed gramophone, in spite of 
+analogies with the mirror-speech of certain asylum 
+cases, have a structural and melodic significance 
+for persons of understanding.</p>
+<p>Mr. Joyce’s symbolic condensation, in fact, 
+corresponds closely enough with his theory of 
+Time — a theory incidentally responsible for the 
+rattle of Lewis-guns which still resounds through 
+<i>The Mookse and The Gripes</i>. The intensive, 
+compressive, reverberative infixation ; the sly,<a class="p" id="pXI"></a>
+meaty, oneiric logorrhoea, polymathic, polyper<span class="h">-<br></span>verse; even the clangorous calembour, irrespon<span class="h">-<br></span>sible and irrepressible, all conjure us to penetrate 
+the night mind of man, that kaleidoscopic recamera 
+of an hypothecated Unconscious, jolted by some 
+logophilous Birth-trauma into chronic serial 
+extension.</p>
+<p>A little more than two centuries ago another 
+Dublin satirist attempted to influence the English 
+language, then threatened by neologisms due to 
+the return of Charles II’s court from exile abroad. 
+In his <i>Letter to the Lord Treasurer</i> Swift deplores 
+the “licentiousness which from infecting our reli<span class="h">-<br></span>gion and morals fell to corrupt our language”. 
+And from Swift,· too, came the <i>Tatler</i> indictment 
+of the “late refinements crept into our language”—
+which included ‘mob’ and the failure to pronounce 
+the ‘e’ in disturbed.</p>
+<p>Fifty years later Dr. Johnson triumphantly 
+arrested the entire language. “ I hereby declare” 
+wrote Lord Chesterfield in <i>The World</i>, “that I<!-- added quote --><a class="p" id="pXII"></a>
+make a total surrender of all my rights and 
+privileges in the English language, as a freeborn 
+British subject, to the said Mr. Johnson, during 
+the term of his Dictatorship.” And as regards 
+spelling, “I have really known very fatal consequen<span class="h">-<br></span>ces attend the loose and uncertain practise of 
+auricular orthography”.</p>
+<p>What Chesterfield meant half in jest, the 
+academic world ingested in all seriousness, and 
+though the advantages which resulted from stand<span class="h">-<br></span>ardization are undoubted, a reaction is overdue 
+from both the literary and commercial sufferers.</p>
+<p>Yet in another mood (sair chairmanlooking, 
+like the Ondt, “when he was not making spaces 
+in his psyche”) when Freud and Dante, Vico and 
+Earwicker, Remorse and Erse give place to a 
+more Rabelaisian Parisian Joyce, the cynical 
+flexibility of a portentous verbal virtuoso is 
+manifest. Joyce, the protagonist of neologistic 
+orthology, the bell-wether of debabelization, 
+demands a different approach.<a class="p" id="pXIII"></a></p>
+<p>There are two main tendencies in this most 
+significant of contemporary aspirations. Chaucer, 
+Elyot, Nash, Rabelais, Urquhart, and the literary 
+practitioners of the last decade, are in contrast 
+with a tradition which began with Bishop Wilkins 
+and Leibnitz, and which led through Horne Tooke 
+to the great Jeremy Bentham, even through 
+Zamenhof and C. S. Peirce, to the makers of those 
+latest notations and nomenclatures which are 
+again revolutionizing the sciences.</p>
+<p>The first may achieve the new Word-Orches<span class="h">-<br></span>tration, the second may destroy the old Word<span class="hh">-<br></span>Magic. If it is worth asking what can be done 
+for Internationalism with the 500 words of 
+Panoptic English, or whither a billion symbols 
+will lead the groping scientist; it is equally worth 
+creating new symbolic melodies on the eternal 
+themes even for a dozen kindred experts in 
+emotional association, with the entire parapher<span class="h">-<br></span>nalia of communicative language, from the dis<span class="h">-<br></span>cretest intra-verbal punctuation to the most<a class="p" id="pXIV"></a>
+saturated polysyllabic interpenetration. If the 
+reading of <i>Work in Progress</i>, and particularly 
+these three apologues, does but serve to stimulate 
+here and there an interest in words as sincere as 
+that of their author, let us rejoice.</p>
+<div class="cko">C.K. OGDEN.</div><a class="p" id="pXV"></a>
+</section>
+<section><h3>THE MOOKSE AND THE GRIPES</h3><p><span>E</span>INS within a space and a weary wide space it 
+wast ere wohned a Mookse. The onesome<span class="h">-<br></span>ness wast alltolonely, archunsitslike, broady oval,
+and a Mookse he would a walking go (My hood ! 
+cries Antony Romeo) so one grandsumer evening, 
+after a great morning and his good supper of 
+gammon and spittish, having flabelled his eyes, 
+pilleoled his nostrils, vacticanated his ears and 
+palliumed his throats, he put on his impermeable, 
+seized his impugnable, harped on his crown and 
+stepped out of his immobile <i>De Rure Albo</i> (socolled 
+becauld it was chalkfull of masterplasters and 
+had borgeously letout gardens strown with cascad<span class="h">-<br></span>as, pintacostecas, horthoducts and currycombs)<a class="p" id="p01"></a>
+and set off from Ludstown a spasso to see how 
+badness was badness in the weirdest of all pens<span class="h">-<br></span>ible ways. As he set off with his father’s sword, 
+his <i>lancia spezzata</i>, he was girded on, and with 
+that between his legs and his tarkeels, our once 
+in only Bragspear, he clanked, to my clinking, 
+from veetoes to threetop, every inch of an 
+immortal. He had not walked over a pentiadpair 
+of parsecs from his azylium when at the turning 
+of the Shinshone Lanteran near Saint Bowery’s<span class="hh">-<br></span>without-his-Walls he came (secunding to the one 
+one oneth of the propecies, <i>Amnis Limina Perma<span class="h">-<br></span>nent,</i>) upon the most unconsciously boggylooking 
+stream he ever locked his eyes with. Out of the 
+colliens it took a rise by daubing itself Ninon. It 
+looked little and it smelt of brown and it thought 
+in narrows and it talked showshallow. And as it 
+rinn it dribbled like any lively purliteasy : <i>My, 
+my, my! Me and me! Little down dream don’t I 
+love thee !</i> And, I declare, what was there on the 
+yonder bank of the stream that would be a river,<a class="p" id="p02"></a>
+parched on a limb of the olum, bolt downright, but 
+the Gripes? And no doubt he was fit to be dried for 
+why had he not been having the juice of his times ?</p>
+<p>His pips had been neatly all drowned on him ; 
+his polps were charging odours every older minute ; 
+he was quickly for getting the dresser’s desdaign 
+on the flyleaf of his frons; and he was quietly for 
+giving the bailiff’s distrain on to the bulkside of his 
+<i>cul de Pompe</i> In all his specious heavings, as be 
+lived by Optimus Maximus, the Mookse had never 
+seen his Dubville brooder-on-low so nigh to a pickle.</p>
+<p>Adrian (that was the Mookse now’s assumpti<span class="h">-<br></span>nome) stuccstill phiz-à-phiz to the Gripes in an 
+accessit of aurignacian. But Allmookse must to 
+Moodend much as Allrouts, austereways or was<span class="h">-<br></span>tersways, in roaming run through Room. Hic sor 
+a stone, singularly illud, and on hoe stone Seter satt 
+huc sate which it filled quite poposterously and by 
+acclammitation to its fullest justotoryum and 
+whereopum with his unfallable encyclicling upom 
+his alloilable, diupetriark of the wouest, and the<a class="p" id="p03"></a>
+athemystsprinkled pederect he always walked 
+with, <i>Deusdedit</i>, cheek by jowel with his frisher<span class="h">-<br></span>man’s blague, <i>Bellua Triumphanes</i>, his everyway 
+addedto wallat’s collectium, for yea longer he 
+lieved yea broader he betaught of it, the fetter, the 
+summe and the haul it cost, he looked the first and 
+last micahlike laicness of Quartus the Fifth and 
+Quintus the Sixth and Sixtus the Seventh giving 
+allnight sitting to Lio the Faultyfindth.</p>
+<p>— Good appetite us, sir Mookse ! How do you 
+do it ? cheeped the Gripes in a wherry whiggy 
+maudelenian woice and the jackasses all within 
+bawl laughed and brayed for his intentions for 
+they knew their sly toad lowry now. I am rarum<span class="h">-<br></span>ominum blessed to see you, my dear mouster. Will 
+you not perhopes tell me everything if you are 
+pleased, sanity? All about aulne and lithial and 
+allsall allinall about awn and liseias? Ney?</p>
+<p>Think of it ! O miserendissimest retempter ! 
+A Gripes!</p>
+<p>— Rats ! bullowed the Mookse most telesphor<a class="p" id="p04"></a><span class="h">-<br></span>ously, the concionator, and the sissymusses and 
+the zozzymusses in their robenhauses quailed 
+to hear his tardeynois at all for you cannot 
+wake a silken noise out of a hoarse oar. Blast 
+yourself and your anathomy infairioriboos ! No, 
+hang you for an animal rurale ! I am superbly 
+in my supremest poncif ! Abase you, baldyqueens ! 
+Gather behind me, satraps ! Rot !</p>
+<p>— I am till infinity obliged with you, bowed 
+the Gripes, his whine having gone to his palpruy 
+head. I am still always having a wish on all my 
+extremities. By the watch, what is the time, 
+pace?</p>
+<p>Figure it! The pining peever ! To a Mookse !</p>
+<p>— Ask my index, mund my achilles, swell 
+my obolum, woshup my nase serene, answered 
+the Mookse, rapidly by turning clement, urban, 
+eugenious and celestian in the formose of good 
+grogory humours. Quote awhore ? That is quite 
+about what I came on my missions with my 
+intentions <i>laudibiliter</i> to settle with you barba<a class="p" id="p05"></a><span class="h">-<br></span>rousse. Let thor be orlog. Let Pauline be Irene. 
+Let you be Beeton. And let me be Los Angeles. 
+Now measure your length. Now estimate my 
+capacity. Well, sour? Is this space of our 
+couple of hours too dimensional for you, tempor<span class="h">-<br></span>iser? Will you give you up ? <i>Como ? Fuert it ?</i></p>
+<p><i>Sancta Patientia</i>. You should have heard the 
+voice that answered him. <i>Culla vosellina</i>.</p>
+<p>— I was just thinkling upon that, swees 
+Mookse, but, for all the rime on my raisins, if I 
+connow make my submission, I cannos give you 
+up, the Gripes whimpered from nethermost of his 
+wanhope. Ishallassoboundbewilsothoutoosezit. My 
+tumble, loudy bullocker, is my own. My velicity is 
+too fit in one stockend. And my spetial inexshell<span class="h">-<br></span>sis the belowing things ab ove. But I will never 
+be abler to tell Your Honoriousness (here he near 
+lost his limb) though my corked father was bott 
+a pseudowaiter, whose o’cloak you ware.</p>
+<p>Incredible ! Well, hear the inevitable.</p>
+<p>— Your temple, <i>sus in cribro !</i> Semperex<a class="p" id="p06"></a><span class="h">-<br></span>communicambiambisumers. Tugurios-in-Newrobe 
+or Tukurias-in-Ashies. Novarome, my creature, 
+blievend bleives. My building space in lyonine 
+city is always to let to leonlike Men, the Mookse 
+in a most consistorous allocution pompifically with 
+immediate jurisdiction constantinently conclud<span class="h">-<br></span>ded (what a crammer for the shapewrucked 
+Gripes!). And I regret to proclaim that it is out 
+of my temporal to help you from being killed by 
+inchies, (what a thrust!), as we first met each 
+other newwhere so airly. (Poor little sowsieved 
+subsquashed Gripes ! I begin to feel contemption 
+for him !). My side thank decretals, is as safe as 
+motherour’s houses, he continued, and I can seen 
+from my holeydome what it is to be wholly 
+sane. Unionjok and be joined to yok ! Parysis, 
+<i>tu sais</i>, crucycrooks, belongs to him who parises 
+himself. And there I must leave you subject for 
+the pressing. I can prove that against you, weight 
+a momentum, mein goot enemy ! or Cospol’s not 
+our star. I bet you this dozen odd. This folum<a class="p" id="p07"></a><span class="h">-<br></span>inous dozen odd. <i>Quas primas</i> - but ’tis bitter to 
+compote my knowledge’s fructos of. Tomes.</p>
+<p>Elevating, to give peint to his blick, his jewelled 
+pederect to the allmysty cielung, he luckystruck 
+blueild out of a few shouldbe santillants, a cloister 
+of starabouts over Maples, a lucciolys in Teresa 
+street and a stopsign before Sophy Barratt’s, he 
+gaddered togodder the odds docence of his 
+vellumes, gresk, letton and russicruxian, onto the 
+lapse of his prolegs, into umfullth onescuppered, 
+and sat about his widerproof. He proved it well 
+whoonearth dry and drysick times, and <i>vremia<span class="h">-<br></span>ment, tu cesses</i>, to the extinction of Niklaus 
+altogether (Niklaus Alopysius having been the 
+once Gripes’s popwilled nimbum) by Neuclidius 
+and Inexagoras and Mumfsen and Thumpsem, by 
+Orasmus and by Amenius, by Anacletus the Jew 
+and by Malachy the Augurer and by the Cappon’s 
+collection and after that, with Cheekee’s gelatine 
+and Alldaybrandy’s formolon, he reproved it 
+ehrltogether when not in that order sundering in<a class="p" id="p08"></a>
+some different order, alter three thirty and a hund<span class="h">-<br></span>red times by the binomial dioram and the penic 
+walls and the ind, the Inklespill legends and the 
+rure, the rule of the hoop and the blessons of 
+expedience and the jus, the jugicants of Pontius 
+Pilax and all the mummyscrips in Sick Bokes’ 
+Juncroom and the Chapters for the Cunning of the 
+Chapters of the Conning Fox by Tail.</p>
+<p>While that Mooksius with preprocession and 
+with proprecession, duplicitly and diplussedly, was 
+promulgating ipsofacts and sadcontras this raskolly 
+Gripos he had allbust seceded in monophysicking 
+his illsobordunates. But asawfulas he had caught 
+his base semenoyous sarchnaktiers to combuccinate 
+upon the silipses of his aspillouts and the ache<span class="h">-<br></span>poreoozers of his haggyown pneumax to synereth<span class="h">-<br></span>etise with the breadchestviousness of his sweeat<span class="h">-<br></span>ovular ducose sofarfully the loggerthuds of his 
+sakellaries were fond at variance with the synodals 
+of his somepooliom and his babskissed nepogreasy<span class="h">-<br></span>most got the hoof from his philioquus.<a class="p" id="p09"></a></p>
+<p>— Efter thousand yaws, O Gripes con my 
+sheepskins, yow will be belined to the world, ens<span class="h">-<br></span>cayed the Mookse.</p>
+<p>— Ofter thousand yores, amsered the Gripes, 
+be the goat of MacHammud’s, yours may be still, 
+O Mookse, more botheared.</p>
+<p>— Us shall be chosen as the first of the last by 
+the electress of Vale Hollow, obselved the Mookse 
+nobily, for par the unicum of Elelijiacks, Us am in 
+Our stabulary and that is what Ruby and Roby 
+fall for, blissim.</p>
+<p>The Pills, the Nasal Wash (Yardly’s), the Army 
+Man Cut, as british as bondstrict and as straight<span class="h">-<br></span>cut as when that brokenarched traveller from 
+Nuzuland....</p>
+<p>— Wee, cumfused the Gripes limply, shall not 
+even be the last of the first, wee hope, when oust 
+are visitated by the Veiled Horror. And, he added : 
+Mee are relying entirely, see the fortethurd of Eliss<span class="h">-<br></span>abed, on the weightiness of mear’s breath. Puffut !</p>
+<p>Unsightbared embouscher, relentless foe to<a class="p" id="p10"></a>
+social and business succes ! (Hourihaleine) It 
+might have been a happy evening but....</p>
+<p>And they viterberated each other, <i>canis et coluber</i> 
+with the wildest ever wielded since Tarriestinus 
+lashed Pissasphaltium.</p>
+<p>— Unuchorn !</p>
+<p>— Ungulant !</p>
+<p>— Uvuloid !</p>
+<p>— Uskybeak !</p>
+<p>And bullfolly answered volleyball.</p>
+<p>Nuvoletta in her lightdress, spunn of sisteen
+shimmers was looking down on them, leaning over 
+the bannistars and listening all she childishly could. 
+How she was brightened when Shouldrups in 
+his glaubering hochskied his welkinstuck and how 
+she was overclused when Kneesknobs on his 
+zwivvel was makeacting such a paulse of himshelp ! 
+She was alone. All her nubied companions were 
+asleeping with the squirrels. Their mivver, Mrs 
+Moonan, was off in the Fuerst quarter scrubbing 
+the backsteps of Number 28. Fuvver, that Skand,<a class="p" id="p11"></a>
+he was up in Norwood’s sokaparlour, eating 
+oceans of Voking’s Blemish. Nuvoletta listened 
+as she reflected herself, though the heavenly one 
+with his constellatria and his emanations stood 
+between, and she tried all she tried to make the 
+Mookse look up at her (but <i>he</i> was fore too adiapt<span class="h">-<br></span>otously farseeing) and to make the Gripes hear 
+how coy she could be (though he was much too 
+schystimatically auricular about <i>his ens</i> to heed 
+her) but it was all mild’s vapour moist. Not even 
+her feignt reflection, Nuvoluccia, could they 
+toke their gnoses off for their minds with intrepi<span class="h">-<br></span>fide fate and bungless curiasity, were conclaved 
+with Heliogobbleus and Commodus and Enobarb<span class="h">-<br></span>arus and whatever the coordinal dickens they 
+did as their damprauch of papyrs and buchstubs 
+said. As if that was their spiration ! As if theirs 
+could duiparate her queendim ! As if she would 
+be third perty to search on search proceedings ! 
+She tried all the winsome wonsome ways her 
+four winds had taught her. She tossed her<a class="p" id="p12"></a>
+sfumastelliacinous hair like <i>la princesse de la Petite 
+Bretagne</i> and she rounded her mignons arms like 
+Mrs Cornwallis-West and she smiled over herself 
+like the beauty of the image of the pose of the 
+daughter of the queen of the Emperour of Irelande 
+and she sighed after herself as were she born to 
+bride with Tristis Tristior Tristissimus. But, sweet 
+madonine, she might fair as well have carried her 
+daisy’s worth to Florida. For the Mookse, a 
+dogmad Accanite, were not amoosed and the 
+Gripes, a dubliboused Catalick, wis pinefully 
+obliviscent. I see, she sighed. There are menner.</p>
+<p>The siss of the whisp of the sigh of the soft<span class="h">-<br></span>zing at the stir of the ver grose O arundo of a 
+long one in midias reeds : and shades began to 
+glidder along the banks, greepsing, greepsing, 
+duusk unto duusk, and it was as glooming as 
+gloaming could be in the waste of all peacable 
+worlds. Metamnisia was allsoonome coloroform 
+brune ; citherior spiane an eaulande, innemorous 
+and unnumerose. The Mookse had a sound eyes<a class="p" id="p13"></a>
+right but he could not all hear. The Gripes had 
+light ears left yet he could but ill see. He ceased. 
+And he ceased, tung and trit, and it was neverso<span class="h">-<br></span>ever so dusk of both of them. But still Moo thought 
+on the deeps of the undths he would profoundth 
+come the morrokse and still Gri feeled of the 
+scripes he would escipe if by grice he had luck 
+enoupes.</p>
+<p>O, how it was duusk ! From Vallee Maraia to 
+grasyaplaina, dormimust Echo ! Ah dew! Ah dew ! 
+It was so duusk that the tears of night began to 
+fall, first by ones and twos, then by threes and 
+fours, at last by fives and sixes of sevens, for the 
+tired ones were wecking, as we weep now with 
+them. <i>O! O! O! Par la pluie!</i></p>
+<p>Then there came down to the thither bank a 
+woman of no appearance (I believe she was a 
+Black with chills at her feet) and she gathered up 
+his hoariness the Mookse motamourfully where 
+he was spread and caried him away to her 
+invisible dwelling, thats hights, <i>Aquila Rapax</i>, for<a class="p" id="p14"></a>
+he was the holy sacred solem and poshup spit 
+of her bushop’s apron. So you see the Mookse 
+he had reason as I knew and you knew and he 
+knew all along. And there came down to the 
+hither bank a woman to all important (though 
+they say that she was comely, spite the cold in 
+her heed) and, for he was as like it as blow it to 
+a hawker’s hank, she plucked down the Gripes, 
+torn panicky autotone, in angeu from his limb 
+and cariad away its beotitubes with her to her 
+unseen shieling, it is, <i>De Rore Coeli</i>. And so the
+poor Gripes got wrong ; for that is always how a 
+Gripes is, always was and always will be. And 
+it was never so thoughtful of either of them. 
+And there were left now an only elmtree and 
+but a stone. Polled with pietrous, Sierre but saule. 
+O ! Yes! And Nuvoletta, a lass.</p>
+<p>Then Nuvoletta reflected for the last time in 
+her little long life and she made up all her 
+myriads of drifting minds in one. She cancelled 
+all her engauzements. She climbed over the<a class="p" id="p15"></a>
+bannistars; she gave a childy cloudy cry: <i>Nuée ! 
+Nuée!</i> A lightdress fluttered. She was gone. 
+And into the river that had been a stream (for 
+a thousand of tears had gone eon her and 
+come on her and she was stout and struck on 
+dancing and her muddied name was Missisliffi) 
+there fell a tear, a singult tear, the loveliest of 
+all tears (I mean for those who are “ keen ” on 
+the pretty-pretty commonface sort of thing you 
+meet by hopeharrods) for it was a leaptear. 
+But the river tripped on her by and by, lapping 
+as though her heart was brook : <i>Why, why, why! 
+Weh, O weh ! I’se so silly to be flowing but I no 
+canna stay!</i></p><a class="p" id="p16"></a>
+</section>
+<section><h3>THE MUDDEST THICK THAT WAS</h3><h3>EVER HEARD DUMP</h3><p><span>B</span>OON on begyndelse.</p>
+<p>At maturing daily gloryaims !</p>
+<p>A flink dab was frankily at the manual
+arith sure enough which was the bekase he 
+knowed from his cradle, no boy better, why his
+fingures were giving him whatfor to fife with.
+First by observation, there came boko and nigh
+him wigworms and nigh him tittlies and nigh him
+cheekchaps and nigh him pickpocket with pick<span class="h">-<br></span>pocketpumb, pickpocketpoint, pickpocketprod,
+pickpocketpromise and upwithem. And anyhows
+always after them the dimpler he weighed the
+fonder fell he of his null four lovedroyd curdinals
+his element curdinal numen and his enement<a class="p" id="p17"></a>
+curdinal marryng and his epulent curdinal weiss<span class="h">-<br></span>wassh and his eminent curdinal Kay O’Kay. 
+Always would he be a reciting of them up by 
+rota, in his Fanden’s catachysm from fursed to 
+laced, quickmarch to decemvers, so as to pin the 
+tenners, thumbs down. And anon and aldays, 
+strues yerthere, would he wile arecreating em om 
+lumerous ways, caiuscounting in the scale of piff 
+puff pive poo, poo puff pive pree, pree puff pive 
+pfoor, pfoor puff pive pippive, poopive, Niall
+Dhu, Foughty Unn, Enoch Thortig, endso one, 
+like to pitch of your cap, pac, on to tin tall spillicans. 
+To sum, borus pew notus pew eurus pew zipher. 
+Ace, deuce, tricks, quarts, quims Mumtiplay of 
+course and carry to their whole number. While on 
+the other hand, traduced by their comedy nomin<span class="h">-<br></span>ator to the loaferst terms for their aloquent parts, 
+sexes, suppers, oglers, novels and dice. He could 
+find by practice the valuse of thine-to-mine 
+articles with no reminder for an equality of 
+reations and, with the helpings from his tables,<a class="p" id="p18"></a>
+improduce fullmin to trumblers, links unto chains, 
+weys in Nuffolk till tods of Yorek, oozies ad 
+libs and several townsends, several hundreds, 
+civil-to-civil imperious gallants into gells (Irish), 
+bringing alliving stone allaughing down to 
+grave clothnails and a league of achers, fools 
+and lurchers under the rude rule of fumb. 
+What signifieth whole that but, be all the prowess of 
+ten, ’tis as strange to relate he, nonparile to rede, 
+rite and reckan, caught allmeals dullmarks for 
+his nucleuds and alegobrew. O them doddhunters 
+and allanights, aabs and baas for agnomes, yees 
+and zees for incognits, bate him up jerrybly.! Show 
+that the median, hce che ech, interecting at royde 
+angles the parilegs of a given obtuse one biscuts 
+both the arcs that are in curveachord behind. 
+Brickbaths. A Tullagrove pole to the Height of 
+County Fearmanagh has a septain inclinaison 
+and the graphplot for all the functions in 
+Lower County Monachan, whereat samething is 
+rivisible by nighttim, may be involted into the<a class="p" id="p19"></a>
+zeroic couplet, palls pell inhis heventh glike 
+noughty times ∞ find, if you are not literally 
+cooefficient how minney combinaisies and permut<span class="h">-<br></span>andies can be played on the international surd 
+! pthwndxrclzp ! , hids cubid rute being extructed, 
+taking anan illitterettes, ififif at a tom. Answers, (for 
+teasers only). Ten, twent, thirt, see, ex and three 
+icky totchty ones. From solation to solution. 
+Imagine the twelve deaferended dumbbawls of 
+the whowl abovebeugled to be the contonuation 
+through regeneration of the urutteration of 
+the word in pregross. It follows that, if the two 
+antesedents be bissyclitties and the three come<span class="h">-<br></span>seekwenchers trundletrikes, then, Big Wheeler 
+restant upsittuponable, the <span class="ncr">N</span>C<span class="ncr">R</span> presents to us
+an ottomantic turquo-indaco of pictorial shine by 
+pictorial shimmer so long as pictorial summer, 
+viridorefulvid, lits asheen, but, if this habby 
+cyclic order be outraciously enviolated, the zitas 
+runnind hare and dart, with the yeggs in their 
+muddle, while the catched and dodged exarx seems<a class="p" id="p20"></a>
+himmulteemiously to beem the ersed ladest mand 
+and the losed farce on erroroots, <span class="ncr">M</span>P<span class="ncr">M</span> brings us 
+a rainborne pamtomomiom, aquilavant to kaksi<span class="h">-<br></span>toista volts yksitoista volts kymmenen volts 
+yhdeksan volts kahdeksan volts seitseman volts 
+kuusi volts viisi volts nelja volts kolme volts 
+kaksi volts yksi to the finish of helvé’s fractures. 
+In outher wards, one from five, one from fives two, 
+two to fives ones millamills with a mill and a 
+half a mill and twos fives fives of ballycleevers. 
+For a surview over all the factionables see Iris 
+in the Evening World. Binomeans to be com<span class="h">-<br></span>prendered. The aximones. And their prostalutes. 
+For his neuralgiabrown. Equal to = soahc.</p>
+<p>P.t.l.o.a.t.o.</p>
+<p>So, bagdad, as I know and you know yourself
+and the arab in the street knows better nor 
+anymeade or persan, comic cuts always were to 
+be capered in Casey’s frost book of, page torn on 
+dirty, to be hacked at Hickey’s, hucksler, Welling<span class="h">-<br></span>ton’s Iron Bridge, and so, by long last as it would<a class="p" id="p21"></a>
+shuffle out, must he to trump adieu adroit adieu 
+atout atous to those cardinhands he a big deal 
+missed, radmachrees and rossecullinans and blag<span class="h">-<br></span>pikes in suitclover. Dear hearts of my counting, 
+would he revoke them, forewheel to packnumbers, 
+and, the time being no help fort, plates to lick 
+one and turn over.</p>
+<p>Problem ye ferst, construct ann aquilittoral 
+dryankle Probe loom! With his primal handstoe 
+in his sole salivarium. Concoct an equoangular 
+trillitter. On the name of the tizzer and off the 
+tongs and off the mythametical tripods. Beatsoon.</p>
+<p>Can you nei do her, numb ? asks Dolph, 
+suspecting the answer know. Oikkont, ken you, 
+ninny? asks Kev, expecting the answer guess. 
+Nor was the noer long disappointed for easiest of 
+kisshams, he was made vicewise. Oc, tell it to oui, 
+do, Sem ! Well, ’tis oil thusly. First mull a mugfull 
+of mud, son. Oglores, the virtuoser prays, olorum ! 
+What the D.V. would I do that for ? That’s a 
+goosey’s ganswer you’re for giving me, he is told,<a class="p" id="p22"></a>
+what the Deva would you do that for? Now, 
+sknow royol road to Puddlin, take your mut for 
+a first beginning. Anny liffle mud which cometh 
+out of Mam will doob, I guess. Mux your 
+pistany at a point of the coastmap to be called 
+<i>a</i> but pronounced olfa. There’s the isle of Mun, 
+ah ! O ! Tis just. <i>Bene!</i> Now, all in applepine 
+erdor</p>
+<p>(for Dolph, dean of idlers, meager suckling of 
+gert stone, though barekely a balbose boy, he too,—
+<i>venite, preteriti, sine mora dumque de entibus 
+nascituris decentius in lingua romana mortuorum 
+parva chartula liviana ostenditur, sedentes in 
+letitia super ollas carnium spectantes immo situm 
+lutetiae unde auspiciis secundis tantae consurgent 
+humanae stirpes, antiquissimam flaminum am<span class="h">-<br></span>borum Jordani et Jambaptistae mentibus revol<span class="h">-<br></span>vamus sapientam : totum tute fluvii modo 
+mundo fluere, eadem quae ex aggere fututa fuere 
+iterum inter alveum fore futura, quodlibet sese 
+ipsum per aliudpiam agnoscere contrarium,</i><a class="p" id="p23"></a>
+<i>omnem demun amnem ripis rivalibus amplecti</i> —
+recurrently often, when him moved he would 
+cake their chair, coached rebelliumtending mikes 
+of his same and over his own choirage at 
+Backlane univarsity, among of which pupal 
+souaves the pizdrool was pulled up, bred 
+and battered, for a dillon a dollar, chanching 
+letters for them vice o’verse to bronze mottes and 
+blending tschemes for em in tropadores and 
+doublecressing twofold thruths and devising tingl<span class="h">-<br></span>ing tailwords too whilest, cunctant that another 
+would finish his sentence for him, he would 
+smilabit eggways ned, he would, so prim, and 
+pick upon his ten ordinailed ungles, retelling 
+humself by the math hour a reel of funnish ficts 
+apout the shee, how faust of all and on segund 
+thoughts and the thirds the charmhim girlalove
+and fourthermore and filthily with bag from 
+Oxatown and baroccidents and proper accidence 
+and hoptohill and hexenshoes ; and, in point of 
+feet, when he landed in ourland’s leinster of saved<a class="p" id="p24"></a>
+and solomnones for the twicedhecame time off
+Lipton’s strongbowed launch, the <i>Lady Eva</i>, in a
+tan soute of sails he converted it’s nataves, name
+saints, young ordnands, maderaheads and old
+unguished P.T. Publikums, through the medium
+of znigznaks with sotiric zeal, to put off the
+barcelonas from their peccaminous corpulums
+(Gratings, Mr Dane !) and kiss on their bottes (Mas<span class="h">-<br></span>ter!) as often as they came within bloodshot of
+that other familiar temple and showed em the
+celestine way to by his tristar and his flop hattrick
+and his perry humdrum dumb and numb nostrums 
+that he larned in Hymbuktu, and that same 
+galloroman cultous is very prevailend up to this 
+windiest of laudhavemiseries all over what was 
+beforeaboots a land of nods, in spite of all the 
+bloot, all the braim, all the brawn, all the brile, that 
+was shod, that were shat, that was shuk all the 
+while, for our people, the at Wickerworks, still 
+hold ford to their healing and byleave in the old 
+weights downupon the Swanny innovated by him,<a class="p" id="p25"></a>
+the prence di Propagandi, the chrism for the christ<span class="h">-<br></span>mass, the pillar of the perished and the rock 
+o’ ralereality, and it is veritably belied, we belove, 
+that not allsods of esoupcans that’s in the queen’s 
+pottage post and not allfinesof greendgold that 
+the Indus contains would overhinduce them (o.p.) 
+to steeplechange back to their ancient flash and 
+crash habits of old Pales time ere beam slewed 
+cable or Derzherr, live wire, fired Benjermine 
+Funkling outa th’Empyre, sin righthand son; which, 
+cummal, having listed curefully to his continental’s 
+curses, pummel, apostrophised Byrne’s and Flam<span class="h">-<br></span>ing’s and Furniss’s and Bill Hayses’s and Ellishly 
+Haught’s, hoe, they (t. a. W.) let drop as a doom<span class="h">-<br></span>body drops, without another word eitherways, as 
+priesto as puddywhack, coal on : and, talking of 
+missions for mades to scotch the schlang and
+leathercoats for murty magdies of course this 
+has blameall in that world to say to his privates 
+judgments when, so to put it, conn the shaughraun ; 
+but to return for a moment from the reptile’s age to<a class="p" id="p26"></a>
+the coxswain on the first landing (page Ainée Ri<span class="h">-<br></span>vière !) if the pretty elisabess, Hotel des Ruines —
+she laid her batsleeve for him two trueveres tell 
+(Love. On the Ides of Valentino’s, at Idleness, 
+Floods Area, Isolade, Liv’s lonely daughter, with 
+the Comes Tichiami, of Prima Vista, Abroad, sudd<span class="h">-<br></span>enly) and beauty alone of all dare say when now in 
+what niche of time is Shee or where in the rose world 
+trysting, that was the belle of La Chapelle,
+shapely Liselle, and the peg-of-my-heart of all the 
+tompull or on whose limbs-to-lave her semicupiose 
+eyes now kindling themselves are brightning, 
+O Shee who then (4.32 M.P., old time, to be precise, 
+according to all three doctors waterburies that 
+was MacAuliffe and poor MacBeth and poor 
+MacGhimley to the tickleticks, of the synchronisms, 
+all lauschening, a time also confirmed seven 
+sincuries later by the fourth medical johnny, poor 
+old MacAdoo MacDollett, with notary, whose 
+presence was required by law of Devine Foresygth) 
+who after the first compliments med darkist day<a class="p" id="p27"></a><span class="h">-<br></span>light, gave him then that vantage of a Blnkensope’s 
+cuddlebath at her proper mitts — if she then, the then 
+that matters, — but, <i>seigneur!</i> she could never 
+have forefelt, as she yet will fearfeel, when the lovenext 
+breaks out, such a coolcold douche as him, the 
+totterer, doubling back, in nowtime, <i>O alors !</i>, to 
+mount miss (the wooeds of Fogloot !) under that 
+<i>chemise de fer</i> and a vartryproof name, Multalusi 
+(would it wash?) with a cheek white peaceful as, 
+we shall say, a single professed claire’s and his 
+washawash tubatubtub and his diagonoser’s 
+lampblick to pure where they where hornest girls 
+to buy her in, <i>mon foie</i>, if you plait, nuncandtunc 
+and for simper and other duel mavourneens in 
+plurible numbers from Arklow Vikloe to Louth 
+super Luck, come messes, come mams, and 
+touch your spottprice (for twas he was the 
+born suborner, man) on behalf of an oldest 
+ablished firma of winebakers, Lagrima and Gemiti, 
+later on, his craft ebbing, invoked by the unirish 
+title Grindings of Nash, the One and Only, Unic<a class="p" id="p28"></a>
+bar None, of Saint Yves by Landsend cornwer, 
+man — ship me silver !, it must have been, faw ! 
+a terrible mavrue mavone, to synamite up the old 
+Adam-he-used-to, such a finalley, and that’s flat 
+as Tut’s fut, for whowhowho? the poour girl, a 
+lonely peggy, given the bird, so iseuladed as 
+Crampton’s peartree, (she sall eurn bitter bed by 
+thirt sweet of her face !), and short wonder so 
+many of the tomthick and tarry members in all 
+there subsequious ages tipped to console with her 
+at her mirrorable gracewindow’d hut till the ives 
+of Man, the O’Kneels and the O’Prayins and the 
+O’Hyens of Lochlaunstown and the O’Hollerins 
+of Staneybooter, hollyboys, all, burryripe who’ll 
+buy?, in juwelietry and kicky-choses and madorna<span class="h">-<br></span>ments and that’s not the finis of it (would it 
+were !) — but to think of him foundling a nelliza 
+the second, also cliptbuss (the best was still there 
+if the torso was gone) where he did and when he 
+did, retriever to the last — escapes my forgetness 
+now was it dustcovered, <i>nom de Lieu</i> ! on lapse or<a class="p" id="p29"></a>
+street ondown — for merry a valsehood whisprit he 
+to manny a lilying earling; and to try to analvse that 
+ambo’s pair of braceleans akwart the rollyon 
+trying to amarm all of that miching micher’s 
+bearded but insensible virility and its gaulish 
+mousetaches into her limited (<i>tuffluff, que tu es 
+pitre !</i>) lapse at the same slapse for towelling ends 
+in their dolightful Sexsex home, Somehow-at-Sea, 
+(O little oily head, sloper’s brow and prickled
+ears!) as though he, a notoriety, a foist edition, 
+were a wrigular writher neonovene babe ! — well, 
+diarmuee aud granyou and <i>Vae Vinctis</i>, if that 
+is what lamoor that of gentle breast rathe is 
+intaken seems circling toward out yondest heaven 
+help his hindmost and, mark mo, if the so greatly 
+displeaced diorems in the Saint Lubbock’s Day 
+number of that most improving of roundshows, 
+<i>Spice and Westend Woman</i> (utterly exhausted 
+before publication, indiapepper edition shortly),
+are for our indices, it agins to pear like it par 
+my fay and there is no use for your pastripreach<a class="p" id="p30"></a><span class="h">-<br></span>ing for to cheesse it either or praying fresh 
+fleshblood claspers of young catholick throats on 
+Huggin Green to take warning by the prispast, 
+why?, bycows ∵ man, in shirt, is how he is <i>più
+la gonna è mobile</i> and ∴ they wonet do ut ; and 
+an you could peep inside the cerebralised saucepan 
+of this eer illwinded goodfornobody you would 
+see in his house of thoughtsam what a jetsam 
+litterage of convolvuli of times lost or strayed, of 
+lands derelict and of tongues laggin too, not only 
+that but searchlighting pharahead into faturity 
+your own convolvulis would real to jazztfancy 
+the novo takin place of what stale words whilom 
+were woven with and fitted fairly featly for, so ; 
+and equally so the crame of it is that, whenas the 
+swiftshnt scareyss of our pupilteachertaut duplex 
+will hark back to lark to you that no mouth has 
+the might to set a mearbound to the march of a 
+landsmaul, in half a sylb onward the beast of 
+boredom, common sense, lurking down insire his 
+loose Eating S. S. collar is gogoing ot whisth to<a class="p" id="p31"></a>
+you sternly how you must, how, draw the line 
+somewhawre)</p>
+<p>Coss? Cossist ? Your parn ! (and in 
+truth he had albut lost himself, so had he gazet in 
+the lazily eye of his lapis, Vieus Von DVbLIn)
+<svg id="ALP_diagram" viewBox="0 0 1200 800">
+ <g >
+  <line x1="600"  y1="60" x2="405" y2="400"/>
+  <line x1="600"  y1="60" x2="795" y2="400"/>
+  <line class="dash" x1="405"  y1="400" x2="600" y2="745"/>
+  <line class="dash" x1="795"  y1="400" x2="600" y2="745"/>
+  <line x1="405"  y1="400" x2="795" y2="400"/>
+  <text x="600" y="0">𝜋</text>
+  <text x="330" y="400">A𝛼</text>
+  <text x="870" y="400">𝜆L</text>
+  <text x="600" y="850">P</text>
+  <circle r="395" cx="400" cy="400"/>
+  <circle r="395" cx="800" cy="400"/>
+ </g>
+</svg>Given now
+ann linch
+you take
+enn all.
+Allow me.
+And, heav<span class="h">-<br></span>ing alljaw<span class="h">-<br></span>breakical
+expressions
+out of old Sire Isaac’s universal of specious arist<span class="h">-<br></span>mystic unsaid, A is for Anna like L is for liv. Aha 
+hahah, Ante Ann you’re apt to ape aunty annalive ! 
+Dawn gives rise. Lo, lo, lives love ! Eve takes fall. 
+La, la, laugh leaves alass! Aiaiaiai, Antiann, we’re 
+last to the lost, Loulou ! Tis perfect. Now (lens your
+dappled eye here, mine’s presbyoperian, shill<a class="p" id="p32"></a>
+und wall) we see the copyngink strayedline AL 
+(in Fig, the forest) from being continued, stops ait 
+Lambday. Modder ilond there too. Allow me 
+anchore. I bring down noth and carry awe. 
+Now, then, take this in! With Olaf as centrum and 
+Olaf’s lambtail for his spokesman circumscript 
+a cyclone. Allow ter ! Hoop ! As round as the 
+calf of an egg! O, dear me! O, dear me now! 
+Another grand discobely ! You’ve actuary ent<span class="h">-<br></span>ducked one ! Quok ? Why, you haven’t a 
+passer! Fantastic! Early clever, surely doomed, 
+to Swift’s, alas, the galehus ! Match of a matchness, 
+like your Bigdud dadder in the bouedeville song, 
+<i>Gorotsky Gollovar’s Troubles</i>, raucking his flavour<span class="h">-<br></span>ite turvku in the smukking precincts of lydias. 
+with Mary Owens and Dolly Monks seesidling to 
+edge his cropulence and Blake-Roche, Kingston 
+and Dockrell auriscenting him from afurz, our 
+papacocopotl, Abraham Bradley King? (ting 
+ting! ting ting !) By his magmasine fall. Lumps, 
+lavas and all. <i>Bene!</i> But it’s not alover yet. The<a class="p" id="p33"></a>
+mystery repeats itself todate as our callback 
+mother Gaudyanna, that was daughter to a tanner, 
+used to sing now and then consinuously over her 
+possetpot in her quer homolocous humminbass 
+hesterdie and istherdie and forivor. Vanissas 
+Vanistatums ! And for a night and a day. In 
+effect, I remumble, purr lil murrerof myhind, so 
+she used indeed. Faithful departed. Rest in 
+peace ! What a wonderful memory you have too ! 
+Twonderful morrowy ! Straorbinaire ! <i>Bene !</i> I 
+bring town eau and curry nothung up my sleeve, 
+Now, springing quickenly from the mudland Loosh 
+from Luccan with Allhim as her Elder tetraturn a 
+a somersault. All’s fair on all fours. Watch! 
+Allow, allow! Hop lala! As umpty herum as your 
+seat! O, dear me, that was very nesse! Very 
+nace indeed ! And makes us a daintical pair of 
+accomplasses ! <i>Beve !</i> Now, there’s tew trick<span class="h">-<br></span>lesome poinds where our twain of doubling 
+bicirculars dunloop into eath the ocher. Lucihere ! 
+I fee where you mea. The doubleviewed seeds.<a class="p" id="p34"></a>
+Nun, lemmas quatsch, and I think as I’m suqeez 
+the limon, stickme punctum but for semenal 
+rations I’d likelong to mack a capital Pee for 
+Pride down there on the batom where Hoddum 
+and Heave, our monsterbilker, balked his bawd of 
+parodies. And let you go and mick your modest 
+mock Pie out of Humbles up your end. With a 
+geing groan grunt and a croak click cluck. And 
+my faceage kink and kurkle trying to make keek 
+peep. Are you right there, Michael, are you right? 
+Ay, I’m right here, Nickel, and I’ll write. But it’s 
+the muddest thick that was ever heard dump. 
+Now join alfa pea and pull loose by dotties and, to
+be more sparematically logoical, eelpie and paleale 
+by trunkles. Allow me align while I encloud 
+especious. Like pah. I peh. Innate little bondery. 
+And as plane as a pokestiff. Now, <i>aqua in buccat.</i> 
+I’ll make you to see figuratleavely the whome of 
+your eternal geomater. Hissss ! Arrah, go on ! Fin 
+for fun? You’ve spat your shower but let’s have 
+at it ! Subtend to me now ! Pisk ! Outer serpum<a class="p" id="p35"></a><span class="h">-<br></span>stances beiug ekewilled, we carefully, if she pleats, 
+lift by her hem at the spidsiest of her trickkikant 
+(like thousands done before) the maidsapron of 
+our A.L.P., fearfully! till its nether nadir is 
+vortically where (allow me aright to two cute 
+winkles) its naval’s napex will have to beandbe. 
+You must proach nearmear for at is dark. And 
+light your mech. And this is what you’ll say. 
+Waaaaaa. Tch ! Sluice! Pla! And their, redneck, 
+mygh and thy, discinet and isoplural in its 
+sixuous parts, midden wedge of the stream’s your 
+muddy old triagonal delta plain for you now, appia 
+lippia pluvaville, the no niggard spot of her safety 
+vulve, first of all usquiluteral threeingles, the 
+constant of fluxion and allaph quaran’s his bett und 
+bier. Paa lickam laa lickam. apl lpa. This it is an 
+her. You see her it. Which it whom you see it is
+her her. Quicks herit fossyending. Quef ! For, let it 
+be taken that her littlenest is of no magnetude or 
+let it be granted that Doll the laziest can be 
+dissimulant with all respects from Doll the fiercst,<a class="p" id="p36"></a>
+thence must any whatyoulike in the power of 
+empthood be either greater <span class="than1">T</span><span class="than2">H</span><span class="than3">A</span><span class="than4">N</span> or less <span class="than5">T</span><span class="than6">H</span><span class="than7">A</span><span class="than8">N</span> 
+the unitate we have in one or hence shall the vect<span class="h">-<br></span>orious readyeyes of evertwo circumflicksrent 
+searclhers never film in the elipsities of their 
+gyribouts those fickers which are returnally 
+reprodictive of themselves. Which is unpassible. 
+Quarrellary. The logos of somewome to that base 
+anything, when most characteristically mantissa<span class="h">-<br></span>minus, comes to nullum in the endth : orso, here 
+is nowet badder than the sin of Aha with his 
+cosin Lil, verswaysed on eoverswised, and all that’s 
+consecants and cotangincies till Perperp stops 
+repippinghim since her redtangles are all absciss<span class="h">-<br></span>an for limitsing this tendency of our Frivul<span class="h">-<br></span>teeny Sexagesima to expense herselfs as sphere as 
+possible, paradismic perimutter, in all directions 
+on the bend of the unbridalled, the infinisissimalls 
+of her facets becoming manier and manier as the 
+calicolum of her umdescribables shrinks from 
+schurtiness to scherts. Scholium, there are trist<a class="p" id="p37"></a>
+sigheds to everysing but ichs on the freed brings 
+euchs to the feared. Qued? O, dear me, look 
+at that now! I’m glad you dimentioned it! My 
+Lourde ! My Lourde ! And a superpbosition ! Quoint 
+a quincidence ! As Ollover Cromleck said when he 
+slepped ueber his grannyamother. But you’re 
+holy mooxed and gaping up the wrong palce as 
+if vou was seeheeing the gheist that stays forenenst, 
+you blessed simpletop domefool ! You must lap 
+wandret down the bluishing refluction below. 
+Her trunk’s not her braindbox. Hear where the 
+bolgylines, Yseen here the puncture. Luck ! Well, 
+well, well, well! O dee, O dee, that’s very lovely! 
+Very lively entirely. So analytical plausible. 
+It will be a lozenge to me all my lipe. Ever 
+thought about Guinness’s? Want to join the
+police? You know, you were always one of 
+the bright ones, since a foot made you an 
+unmentionable, fakes. You know, you’re the 
+divver’s own smart gossoon, aequal to yoursell 
+and unugol to anglyother, so you are, hoax! You<a class="p" id="p38"></a>
+know, you’ll be dampned, so you will, one of 
+these invernal days but you will be, carrotty.</p>
+<p>Wherapool, gayet that he would have ever the 
+lothst, word. with a sweet me ah err eye ear marie 
+to reat from the jacob’s and a shypull for tooth<span class="h">-<br></span>sake of his armjaws at the slidepage, would and 
+could candykissing P. Kevin to fress up the rinn<span class="h">-<br></span>erung and to ate by hart (<i>leo</i> I read, such is span<span class="h">-<br></span>ish, <i>escribibis</i>, all your mycoscoups) wont to 
+nibbleh ravenostonnoriously ihs mum to me in 
+bewonderment of his chipper chuthor with his 
+muffetee cuffes ownconsciously grafficking with his 
+sinister cyclopes after trigamies pursuiting their 
+rovinghamilton selves and godolphing in fairlove 
+to see around the waste of noland’s browne jesus 
+(thur him no quartos !) till that on him poorin sweat 
+the juggaleer’s veins (quench his quill !) in his 
+napier scrag stud out bursthright tamquam taught<span class="h">-<br></span>ropes. Es war itwas in his priesterrite. O He Must 
+Suffer! From this misbelieving feacemaker to his 
+noncredible fancyflame. Ask for bosthoon, late for<a class="p" id="p39"></a>
+Mass, pray for blaablaablack sheep. (Sure you 
+could wright anny pippap passage, Eye bet, as 
+foyne as that moultylousy Erewhig, yerself, mick ! 
+Nock the muddy nickers ! Christ’s Church varses 
+Bellial !) Dear and he went on to scripple gentlemine 
+born, milady bread, he would pen for her, he would 
+pine for her, how he would patpun fun for all with 
+his frolicky frowner so and his glumsome grinner 
+otherso. And how are you, waggy? My animal his 
+sorrafool! And trieste, ah trieste ate I my liver ! 
+<i>Se non é vero son trovatore.</i> O jerry ! He was soso, 
+harriot all ! He was sadfellow, steifel ! He was 
+mistermysterion. Like a purate out of pensionee 
+with a gouvernament job. All moanday, tearsday, 
+wailsday, thumpsday, frightday, shatterday till 
+the fear of the Law. Look at this twitches ! He 
+was quisquis, floored on his plankraft of shittim 
+wood. Look at him ! Sink deep or touch not the 
+Cartesian spring! Want more ashes, griper? How 
+diesmal he was lying low on his rawside laying 
+siege to goblin castle. And, bezouts that, how<a class="p" id="p40"></a>
+hyenesmeal he was laying him long on his 
+laughside lying sack to croakpartridge. (Be thou 
+wars Rolaf’s intestions, quoths the Bhagavat 
+biskop Leech) Ann opes tipoo soon ear! If you 
+could me lendtill my pascol’s candle, sahib, and 
+the price of a plate of poultice. Punked. With best 
+apolojigs and merrymoney thanks to self for all 
+the clerricals and again begs guerdon for bistris<span class="h">-<br></span>pissing on your bunificence. Well wiggywiggywag<span class="h">-<br></span>tail, and how are you yaggy? With a capital Tea 
+for Thirst. Blott.</p>
+<p>Now, (brush your saton hat, me elementator 
+joyclid, son of a Butt! She’s mine, Jow low jure, 
+be Skibbering’s eagles, sweet tart of Whiteknees 
+Archway) watch him, having caught at the bifurk<span class="h">-<br></span>ing calamum in his bolsillos, the onelike under<span class="h">-<br></span>worp he had ever funnet without difficultads, 
+the aboleshqvick, signing away in happinext 
+complete, (Can you write us a last line? From 
+Smith-Jones-Orbison?) Intrieatedly in years, jirry<span class="h">-<br></span>alimpaloop. And i Romain, hup u bn gd grl.<a class="p" id="p41"></a>
+Unds alws my thts. To fallthere at bare feet hurrya<span class="h">-<br></span>swormarose. Two dies of one rafflement. Eche 
+bennyache. Outstamp and distribute him at the 
+expanse of his society. To be continued. Anon.</p>
+<p>And ook, ook, ook fanky ! All the charictures 
+in the drame ! This is how San holypolypools. 
+And this, pardonsky !, is the way Romeopullup<span class="h">-<br></span>alleaps. Pose the pen, man, way me does. Way 
+ole missa vellatooth fust show me how. Fourth 
+power to her illpogue ! Bould strokes for your 
+life ! Tip ! This is Steal, this is Barke, this is Starn, 
+this is Swhipt, this is Wiles, this is Pshaw, this is 
+Doubbllinnbbayyates. This is brave Danny weep<span class="h">-<br></span>ing his spache for the popers. This is cool Conn<span class="h">-<br></span>olly wiping his hearth with brave Danny. And 
+this, regard !, is how Chawleses Skewered par<span class="h">-<br></span>paraparnelligoes between brave Danny boy and 
+the Connolly. Upanishadem ! Top. Spoken hath 
+L’Arty Magory. Eregobragh. Prouf !</p>
+<p>And Kev was wreathed with his pother.</p>
+<p>But, (that Jacoby feeling again for forebitten<a class="p" id="p42"></a>
+fruit and Kevvy too just loves his puppadums !) 
+after all his paraboles of famellicurbs and meddlied 
+muddlingisms, thee faroots hof cullchaw end 
+ate citrawn woodint wun able rep of the 
+triperforator awlrite blast through his pergaman 
+do for the blessted selfchuruls smarter like 
+it done for manny another unpious of the 
+hairydary quare quandary firstings till at length 
+he measured his earth? could not but recken in 
+his adder’s way our frankson who, to be plain, 
+was misocain. Wince wan’s won! Rip! And his 
+countinghands rose.</p>
+<p>Loves deathhow simple ! </p>
+<p>Slutningsbane.<a class="p" id="p43"></a></p>
+<br>
+<a class="p" id="p44"></a>
+</section>
+<section><h3>THE ONDT AND THE GRACEHOPER</h3><p><span>T</span>HE Gracehoper was always jigging a jog, 
+hoppy, on akkant of his joyicity, (he had 
+a partner pair of findlestilts to supplant him), or, 
+if not, he was always making ungraceful overtures 
+to Floh and Luse and Bienie and Vespatilla to 
+play pupa-pupa and pulicy-pulicy and langtennas 
+and pushpygyddyum and to commence insects 
+with him, there mouthparts to his orefice and 
+his gambills to there airy processes, even if only 
+in chaste, ameng the everlastings, behold a was<span class="h">-<br></span>pering pot. He would of curse melissciously, 
+by his fore feelhers, flexors, contractors, depressors 
+and extensors, lamely, harry me, marry me, bury 
+me, bind me, till she was puce for shame and<a class="p" id="p45"></a>
+allso fourmish her in Spinner’s housery at the 
+earthsbest schoppinhour so summery as his cot<span class="h">-<br></span>tage, which was cald fourmillierly Tingsomingen<span class="h">-<br></span>ting, groped up. Or, if he was not done doing 
+that, improbably he was always striking up funny 
+funereels with Besterfarther Zeuts, the Aged One, 
+with all his wigeared corollas, albedinous and 
+oldbuoyant, inscythe his elytrical wormcasket and 
+Dehlia and Peonia, his draping nymphs, bewheedl<span class="h">-<br></span>ing him, compound eyes on hornitosehead, and 
+Auld Letty Plussiboots to scratch his cacumen and 
+cackle his tramsitus, diva deborah, (seven bolls of
+sapo, a lick of lime, two spurts of fussfor, three<span class="h">-<br></span>furts of sulph, a shake o’ shooker, doze grains of 
+migniss and a mesfull of midcap pitchies. The 
+whool of the whaal in the wheel of the whorl of 
+the Boubou from Bourneum has thus come to 
+taon !) and with tambarins and cantoridettes 
+soturning around his eggshill rockcoach their dance 
+McCaper in retrophœbia, beck from bulk, like 
+fantastic disossed and jenny aprils to, the ra, the<a class="p" id="p46"></a>
+ra, the ra, the ra, langsome heels and langsome 
+toesies, attended to by a mutter and doffer duffmatt 
+baxingmotch and a myrmidins of pszozlers pszing<span class="h">-<br></span>ing. <i>Satyr’s Caudledayed Nice</i> and <i>Humbly, 
+Dumbly Sod We Awhile</i> but <i>Ho, Time Time<span class="h">-<br></span>agen, Wake!</i> For if sciencium (what’s what) 
+can mute uns nought, ’a thought, abought the 
+Great Sommboddy within the Omniboss perhops 
+an artsaccord (hoot’s hoot) might sing ums tumtim 
+abutt the Little Newbuddies that ring his panch. 
+A high old tide for the barheated publics and 
+the whole day as gratiis ! Fudder and lighting for
+ally looty, any filly in a fog for O’Cronione lags 
+acrumbling in his sands but his sunsunsuns still 
+tumble on. Erething above ground, as his Book of 
+Breathings bed him, so as everwhy, sham or shun<span class="h">-<br></span>ner, zeemliangly to kick time.</p>
+<p>Grouscious me and scarab my sahul ! What a 
+bagateller it is ! Libelulous ! Inzanzarity ! Pou ! 
+Ptah ! What a zeit for the goths ! vented 
+the Ondt, who, not being a sommerfool, was<a class="p" id="p47"></a>
+thothfolly making chilly spaces at hisphex affront 
+of the icinglass of his windhame, which was cold 
+antitopically Nixnixundnix. We shall not come to 
+party at that lopp’s, he decided possibly, for he is 
+not on our social list. Nor to Ba’s berial nether 
+this oldeborre’s yaar ablong as there’s a khul on a 
+khat. Nefersenless, when he had safely looked up 
+his ovipository, he loftet hails and prayed : May 
+he me no voida water! Seekit Hatup ! May no he 
+me tile pig shed on ! Suckit Hotup ! As broad as 
+Beppy’s realm shall flourish my reign shall flour<span class="h">-<br></span>ish! As high as Heppy’s hevn shall flurrish my 
+haine shall hurrish ! Shall grow, shall flourish! 
+Shall hurrish ! Hummum.</p>
+<p>The Ondt was a weltall fellow, raumybult and 
+abelboobied, bynear saw altitudinous wee a schell<span class="h">-<br></span>ing in kopfers. He was sair sair sullemn and 
+chairmanlooking when he was not making spaces 
+in his psyche, but, laus ! when he wore making 
+spaces on his ikey, he ware mouche mothst secred 
+and muravyingly wisechairmanlooking. Now whim<a class="p" id="p48"></a>
+the sillybilly of a Gracehoper had jingled through 
+a jungle of love and debts and jangled through a 
+jumble of life in doubts afterworse, wetting with 
+the bimblebeaks, drikking with nautonects, bilking 
+with durrydunglecks and horing after ladybirdies 
+<i>(ichnehmon diagelegenaitoikon)</i> he fell joust as 
+sieck as a sexton and tantoo pooveroo quant a 
+churchprince, and wheer the midges to wend 
+hemsylph or vosch to sirch for grub for his cora<span class="h">-<br></span>pusse or to find a hospes, alick, he wist gnit ! 
+Bruko dry ! fuko spint ! Sultamont osa bare ! And 
+volomundo osi videvide ! Nichtsnichtsundnichts ! 
+Not one pickopeck of muscowmoney to bag a 
+tittlebits of beebread ! Iomiol ! Iomiol ! Crick’s
+corbicule, which a plight ! O moy Bog, he contrited, 
+I am heartily hungry !</p>
+<p>He had eaten all the whilepaper, swallowed the 
+lustres, devoured forty flights of styearcases, 
+chewed up all the mensas and seccles, ronged the 
+records, made mundballs of the ephemerids and 
+voracioused most glutinously with the very time<span class="h">-<br></span><a class="p" id="p49"></a>place in the ternitary - not too dusty a cicada of 
+neutriment for a chittinous chip so mitey. But when 
+Chrysalmas was on the bare branches off he went 
+from Tingsomingenting. He took a round stroll 
+and he took a stroll round and he took a round 
+strollagain till the grillies in his head and the 
+leivnits in his hair made him thought he had the 
+Tossmania. Had he twicylched the sees of the 
+deed and trestraversed their revermer? Was he 
+come to hevre with his engiles or gone to hull 
+with the poop? The June snows was flocking in 
+thuckflues on the hegelstomes, millipeeds of it and 
+myriopoods, and a lugly tournedos, the Borabora<span class="h">-<br></span>yellers blohablasting tegolhuts up to tetties and 
+ruching sleets off the coppeehouses with an irri<span class="h">-<br></span>tant, penetrant, siphonopterous spuk. Grausssssss ! 
+Opr ! Grausssssss ! Opr !</p>
+<p>The Gracehoper who, though blind as batflea, 
+yet knew his good smetterling of entymology 
+promptly tossed himself in the vico, phthin and 
+phthir, on top of his buzzer and the next time he<a class="p" id="p50"></a>
+makes the aquinatance of the Ondt after this they 
+have met themselves it shall be motylucky if he 
+will beheld not a world of differents. Behailed His 
+Gross the Ondt prostrandvorous upon his dhrone, 
+in his Papylonian babooshkees, with unshrinkables 
+farfalling from his unthinkables, swarming of him<span class="h">-<br></span>self in his sunnyroom, sated before his comfort<span class="h">-<br></span>umble phullupsuppy of a plate o’monkynous and a 
+confucion of minthe (for he was a conformed 
+aceticist and aristotaller) as appi as a oneysucker 
+or a baskerboy on the Libido with Floh biting 
+his leg thigh and Luse lugging his luff leg and
+Bienie bussing him under his bonnet and Vespatilla 
+blowing cosy fond tutties up the large of his 
+smalls. Emmet and demmet and be jiltses crazed 
+and be jadeses whipt ! schneezed the Gracehoper, 
+aguepe with ptchjelasys and at his wittol’s indts, 
+what have eyeforsight !</p>
+<p>The Ondt, that true and perfect host, was 
+making the greatest spass a body could with 
+his queens laceswinging for he was spizzing all<a class="p" id="p51"></a>
+over him like thingsumanything in formicolation, 
+boundlessly blissfilled in an allallahbath of 
+houris. He was ameising himself hugely at 
+crabround and marypose, chasing Floh out of 
+charity and tickling Luse, I hope too, and tackling 
+Bienie, faith, as well, and jucking Vespatilla jukely 
+by the chimiche. Never did Dorsan from Dun<span class="h">-<br></span>shanagan dance it with more devilry ! The veri<span class="h">-<br></span>patetic imago of the impossible Gracehoper on his 
+odderkop in the myre, sans mantis ne shooshooe, 
+feather weighed animule, actually and presumptu<span class="h">-<br></span>ably sinctifying chronic’s despair, was sufficiently 
+and probably coocoo much for his chorous of 
+gravitates. A darkener of the threshold? Haru ! 
+Orimis, capsizer of his antboat, sekketh rede from 
+Evil-it-is, lord of loaves in Amongded. Be it ! So 
+be it ! Thou-who-thou-art, the fleet-as-spindhrift,
+impfang thee of mine wideheight ! Haru ! 
+The thing pleased him andt, andt andt,<a class="p" id="p52"></a></p><div class="verse vi_line"><div>He larved ond he larved ond he merd such 
+a nauses</div><div>The Gracehoper feared he would mixplace 
+his fauces.</div><div>I forgive you, grondt Ondt, said the 
+Gracehoper, weeping,</div><div>For their sukes of the sakes you are safe 
+in whose keeping.</div><div>Teach Floh and Luse polkas, show Bienie 
+where’s sweet</div><div>And be sure Vespatilla fines fat ones to heat.</div><div>As I once played the piper I must now pay 
+the count</div><div>So saida to Moyhammlet and marhaba to your 
+Mount!</div><div>Let who likes lump above so what flies be a 
+full’un;</div><div>I could not feel moregruggy if this was 
+prompollen.</div><div>I pick up your reproof, the horsegift of a friend,</div><div>For the prize of your save is the price of my 
+spend.</div><div>Can castwhores pulladeftkiss if oldpollocks 
+forsake ’em</div><div>Or Culex feel etchy if Pulex don’t wake him ?<a class="p" id="p53"></a></div><div>A locus to loue, a term it t’embarrass,</div><div>These twain are the twins that tick <span>Homo Vulgaris.</span></div><div>Has Aqileone nort winged to go syf</div><div>Since the Gwyfyn we were in his farrest drewbryf</div><div>And that Accident Man not beseeked where 
+his story ends</div><div>Since longsephyring sighs sought heartseast for 
+their orience&nbsp;?</div><div>We are Wastenot with Want, precondamned, 
+two and true,</div><div>Till Nolans go volants and Bruneyes come blue.</div><div>Ere those gidflirts now gadding you quit your 
+mooks for my gropes</div><div>An extense must impull, an elapse must elopes,</div><div>Of my tectucs takestock, tinktact, and ail’s weal;</div><div>As I view by your farlook hale yourself to 
+my heal,</div><div>Partiprise my thinwhins whiles my blink points 
+unbroken on</div><div>Your whale’s whercabroads with Tout’s 
+trightyright token on.</div><div>My in risible universe youdly haud find</div><div>Sulch oxtrabeeforeness meat soveal behind.<a class="p" id="p54"></a></div><div>Your feats end enormous, your volumes immense</div><div>(May the Graces I hoped for sing your Ondtship 
+song sense!),</div><div>Your genus its worldwide, your spacest sublime!</div><div>But, Holy Saltmartin, why can’t you beat time?</div></div><p>In the name of the former and of the latter
+and of their holocaust. Allmen.</p>
+<a class="p" id="p55"></a></section>
+<section><p>This first edition 
+of Tales Told of Shem and Shaun by 
+James Joyce, with a preface by C. K. 
+Ogden and a portrait of the author by 
+Brancusi, printed in hand-set Caslon in 
+June 1929 for and under the direction 
+of Harry and Caresse Crosby at their 
+Black Sun Press ( Maitre - Imprimeur 
+Lescaret) Rue Cardinale, Paris, is limited 
+to 100 copies on Japanese Vellum signed 
+by the author, 500 copies on Holland 
+Van Gelder Zonen and 50 copies Hors
+Commerce.</p>
+<p>The entire edition is for sale at the 
+Bookshop of Harry F. Marks
+31 West 47 Street New York</p>
+<p ><span class="letu">111</span></p><a class="p" id="pEnd"></a>
+</section>
+<div id="info"><p id="pos"></p>
+<div class="round_box">
+<input type="checkbox" id="wrap" name="wrap" checked><label for="wrap">Wrap</label>
+</div>
+</div>
+</body>
+<script>
+const e = Array.prototype.forEach, E = e.call.bind(e),
+D = document, B = D.body, 
+QS = D.querySelector.bind(D),
+QA = D.querySelectorAll.bind(D);
+function ws(w){
+  E(QA('p, .verse div'), e => e.style['whiteSpace'] = w);
+}
+function unwrap(){
+  E(QA(".h"), e => e.innerHTML = '&shy;');
+  E(QA(".hh"), e => e.innerHTML = '-');
+  ws('initial');
+}
+function wrap(){
+  E(QA('.h, .hh'), e => e.innerHTML = '-<br>');
+  ws('pre-wrap');
+}
+function paginate(){
+  E(QA('.p'), e => {
+    const span = D.createElement('span');
+    span.innerHTML = e.id.slice(1) + '\n↑';
+    span.classList.add('pn');
+    span.classList.add('pnl');
+    e.innerHTML = '¶';
+    e.parentNode.insertBefore(span, e);
+  });
+}
+
+window.onload = () => {
+  texter();
+  paginate();
+
+  let wrapped = true;
+  function set_wrap(w){
+    (wrapped = w) ? wrap() : unwrap();
+  }
+  B.onkeyup = (e) => {
+    if(e.key==='w'){
+      set_wrap(!wrapped);
+      QS("#wrap").checked = wrapped;
+    }
+  };
+  QS('#wrap').onclick = e => set_wrap(e.target.checked);
+};
+
+// pages
+let pages = QA('.p');
+function getPage(node){
+  const page = binarySearch(pages, node, find_page);
+  return page<0 ? -page-1 : page;
+};
+
+B.onmousemove = e => {
+  const po = getPos(e);
+  if(po){
+    const {page, line, description} = po, pmsg = pages[page].id.slice(1);
+    QS('#info p').innerText = `${pmsg} ${description ? description : line}`;
+  }
+};
+
+let lastNode = null;
+let lastDesc = null;
+function getPos(e){
+    let node = text_node_from_point(e.target, e.clientX, e.clientY);
+    if(node===null){ // svg?
+      let node = e.target;
+      let msg = "-";
+      while(node.nodeType===1 && node.nodeName.search(/^(circle|text|line|path|g)$/)===0){
+        node = node.parentElement;
+      }
+      if(node.nodeName==='svg'){ // ALP_diagram
+        if(!node.id || node.id===lastDesc){ // SVGAnimatedString node.className.animVal==="bmk"
+            return;
+        }
+        lastDesc = node.id;
+        lastNode = null;
+        const page = getPage(node);
+        return {page, description: node.id.replace(/_/g, ' ')};
+      }
+    }
+    else if(node!==lastNode && node.data!=='-'){// ignore optional hyphens
+      lastNode = node;
+      lastDesc = null;
+      let line = 0;
+      let page = getPage(node);
+      if(!(2<page && page<pages.length && node.parentNode.nodeType === 1)){
+        return;
+      }
+      if(node.parentNode.nodeName === 'H3'){
+         return {page, description: node.parentNode.innerText};
+      }
+      if(node.parentNode.nodeName === 'P'
+          || node.parentNode.nodeName === 'SPAN'
+          || node.parentNode.nodeName === 'I'
+          || node.parentNode.nodeName === 'DIV'
+      ){
+        let nodes;
+        let page_para, node_para;
+        node_para = node.parentNode;
+        let page_start = pages[page-1]; // page number comes after
+        page_para = page_start.parentNode;
+
+        if(page_para.nodeName !== 'P' && page_para.nodeName!=='I'){
+          line = page_para.nodeName === 'SECTION'||page_para.nodeName === 'DIV' ? 1 : 0;
+          page_para = page_para.nextElementSibling;
+          if(page_para.nodeName !== 'DIV'){
+              page_para = page_para.firstChild;
+              while(page_para.nodeName==='H3'){
+                page_para = page_para.nextSibling;
+              }
+          }
+          page_start = null;
+        }
+          
+        if(node_para.nodeType===1 && 
+            (node_para.nodeName==='SPAN' || node_para.nodeName==='I')
+        ){
+          if(node_para.classList[0]==='pn'){
+            return; // ignore page number
+          }
+          node_para = node_para.parentNode;
+        }
+
+        if(page_para === node_para){
+          line += countNodeLines(page_para, page_start, node);
+        }
+        else {
+          line += 1+countNodeLines(page_para, page_start);
+          let para = page_para.nextSibling;
+          if(!para){ // last para of section
+            para = page_para.parentNode.nextElementSibling;
+          }
+          // COMMENT_NODE or html new line between </p><p>
+          while(para.nodeType === 8 || para.data==='\n' ){
+            para = para.nextSibling;
+            if(!para){
+              return;
+            }
+          }
+          if(para.classList[0]==='verse'){
+            para = para.firstChild;
+          }
+          while(para!== node_para ){
+            line += 1+countNodeLines(para);
+            para = para.nextSibling;
+            if(!para){ // console.log('no para');
+              para = page_para.parentNode.nextSibling;
+              ++line;
+            }
+            while(para.nodeType === 8 || para.data==='\n'){ // COMMENT_NODE
+              para = para.nextSibling ?
+                para.nextSibling
+                :
+                para.parentNode.nextSibling;// back to prev parent
+            }
+          }
+          line += countNodeLines(para, null, node);
+        }
+        // console.log(`at p${page+1}:${line} ${node.data}`);// pages[page].id
+        return {page, line};
+      }                      
+    }
+  }
+
+
+function countNodeLines(nodes, node_start, node_end){
+  let lines = 0;
+  if(!nodes) throw new Error("No nodes!");
+  const kids = nodes.childNodes;
+looper:
+  for(let i=0; i<kids.length; ++i){
+    let kid = kids[i];
+    switch(kid.nodeType){
+      case 1: // ELEMENT_NODE:
+        if(node_start){
+          if(kid===node_start){
+            if(node_start.nodeName==='A'){ // hyphen then page number
+              let prev = node_start.previousSibling;
+              if( prev.nodeType===1 && prev.classList[0] === 'pn'){
+                node_start = prev;
+              }
+              prev = node_start.previousSibling;
+              if(prev.nodeType===1){
+                let c = prev.classList[0]
+                if(c==='h' || c==='hh'){
+                  ++lines;
+                }
+              }
+            }
+            node_start = null;
+          }
+        }
+        else if(kid.nodeName==='SPAN'){
+          const ending = node_end && kid===node_end.parentNode;
+          if(kid.className){
+            const c0 = kid.classList[0];
+            if(c0==='h' || c0==='hh'){
+              if(ending){
+                break looper;
+              }
+              ++lines;
+              continue;
+            }
+            else if(c0==='pn'){
+              continue;
+            }
+            else if(c0.match(/^than\d$/) && ending){
+              break looper;
+            }
+          }
+          else if(ending){
+            break looper;
+          }
+        }
+        else if(kid.nodeName==='I'){
+          lines += countNodeLines(kid, null, node_end);
+          if(node_end){
+            const r = kid.compareDocumentPosition(node_end);
+            if((r & Node.DOCUMENT_POSITION_CONTAINED_BY)!==0){
+              break looper;
+            }
+          }
+        }
+        else if(kid.nodeName==='DIV'){
+          if(i>0 || nodes.nodeName!=='DIV'){
+            ++lines;
+          }
+          lines += countNodeLines(kid, null, node_end);
+          // reached node_end within I region ?
+          if(node_end){
+            const r = kid.compareDocumentPosition(node_end);
+            if((r & Node.DOCUMENT_POSITION_CONTAINED_BY)!==0){
+              break looper;
+            }
+          }
+        }
+        break;
+      case 3: // TEXT_NODE
+        if(node_start){
+          continue;
+        }
+        const str = kid.data;
+        if(str[0]==='\n'){
+          ++lines;
+        }
+        if(kid===node_end){
+          break looper;
+        }
+        if(str.length>1 && str[str.length-1]==='\n'){
+          ++lines;
+        }
+        break;
+      case 2:
+        break;
+    }
+  }
+  return lines;
+}
+
+// Split paragraphs of text into lines
+function texter(){
+  let t, l=1, c=0, tt, nn;
+  const ch_para = document.querySelectorAll('section p');
+    for(let p0i=0; p0i<ch_para.length; p0i++){
+      let p0 = ch_para[p0i];
+      let pnew = D.createElement('p');
+      if(p0.classList.length>0) pnew.className = p0.className;
+      let p1 =  pnew;
+      for(let ni=0; ni<p0.childNodes.length; ni++){
+        let node = p0.childNodes[ni], ls, as;
+        switch(node.nodeType){
+          case 1: // ELEMENT_NODE:
+            if(node.nodeName==='SPAN' 
+              || node.nodeName==='A'
+              || node.nodeName==='BR'
+              || node.nodeName==='svg'
+            ){
+              p0.removeChild(node);
+              --ni;
+              p1.append(node);
+              if(node.classList[0]==='p'){
+                n = `#${node.id}_l`;
+                l = 1;
+              }
+            }
+            else if(node.nodeName==='A'){
+            }
+            else if(node.nodeName==='I'){
+              const ei = document.createElement('i');
+              for(let ni2=0; ni2<node.childNodes.length; ni2++){
+                const node2 = node.childNodes[ni2];
+                switch(node2.nodeType){
+                  case 1: // ELEMENT_NODE:
+                    if(node2.nodeName==='SPAN' 
+                      || node2.nodeName==='A'
+                      || node2.nodeName==='BR'
+                      || node2.nodeName==='svg'
+                    ){
+                      node.removeChild(node2);
+                      --ni2;
+                      ei.append(node2);
+                    }
+                    break;
+                  case 3: // TEXT_NODE
+                    const ls = node2.data.split('\n');
+                    for(let i=0; i<ls.length; ++i){
+                      let str = ls[i];
+                      if(i<ls.length-1){
+                        str += '\n';
+                      }
+                      ei.append(str);
+                  }
+                }
+                p1.append(ei);
+              }
+            }
+            break;
+          case 3: // TEXT_NODE
+            ls = node.data.split('\n');
+            for(let i=0; i<ls.length; ++i){
+              let str;
+              if(ls[i]==''){
+                ++i;
+                if(i<ls.length){
+                  str = '\n' + ls[i];
+                }
+              }
+              else {
+                str = ls[i];
+              }
+              const j = i+1;
+              if(i<ls.length-1){
+                str += '\n';
+              }
+              if(j<ls.length-1 && ls[j]===''){
+                str += '\n';
+                i = j;
+              }
+              if(str){
+                p1.append(str);
+              }
+            }
+            break;
+          case 8: //COMMENT_NODE
+            break;
+        }
+      }
+      p0.parentNode.replaceChild(p1, p0);
+    }
+  }
+
+// https://developer.mozilla.org/en-US/docs/Web/API/Node/compareDocumentPosition
+function find_page(el, arel){
+  const r = el.compareDocumentPosition(arel);
+  if((r & Node.DOCUMENT_POSITION_PRECEDING)!==0)
+    return 1;
+  if((r & Node.DOCUMENT_POSITION_FOLLOWING)!==0)
+    return -1;
+  return 0;
+}
+
+// ret: index of el in ar, or insertion point, S.O. 22697936
+function binarySearch(ar, el, compare_fn){
+  let m = 0,
+    n = ar.length - 1;
+  while (m <= n){
+    var k = (n + m) >> 1;
+    var cmp = compare_fn(el, ar[k]);
+    if (cmp > 0){
+      m = k + 1;
+    }
+    else if(cmp < 0){
+      n = k - 1;
+    }
+    else {
+      return k; // found
+    }
+  }
+  return -m - 1; // insertion point
+}
+
+function rect_contains (rect, x, y){// S.O. 28333327
+  return x >= rect.left  && y >= rect.top && x <= rect.right && y <= rect.bottom;
+}
+
+function text_node_from_point(element, x, y ){
+  var node, 
+    nodes = element.childNodes, 
+    range = document.createRange();
+  for ( var i = 0; node = nodes[i], i < nodes.length; i++ ){
+    if ( node.nodeType !== 3 ) continue;
+    range.selectNodeContents(node);
+    if ( Array.prototype.some.call (range.getClientRects(), r => rect_contains(r, x,y))){
+      return node;
+    }
+  }
+  return null;
+}
+
+
+</script>
+</html>
