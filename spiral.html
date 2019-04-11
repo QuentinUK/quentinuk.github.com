@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <title>C. Brancusi, Portrait of James Joyce</title>
+<style>
+* {
+  background-color: antiquewhite;
+}
+#brancusi { 
+  fill: none;
+  margin: 0 10vw;
+  stroke: black;
+  stroke-width: 2;
+}
+@media (min-aspect-ratio: 700/800) {
+  #brancusi { 
+    height: 80vh;
+  }
+}
+</style>
+<body>
+<svg id="brancusi" viewBox="0 0 700 800">
+   <defs>
+     <g id="spiral">
+       <path d=""/>
+     </g>
+</defs>
+  <use xlink:href="#spiral" transform="translate(450,400) rotate(120) " />
+
+   <line x1="10" y1="100" x2="10" y2="450" />
+   <line x1="170" y1="10" x2="170" y2="790" />
+   <line x1="550" y1="600" x2="550" y2="790" />
+</svg>
+<script>
+
+// S.O. 49091970 Archimedean Spiral    
+function lineIntersection (m1, b1, m2, b2) {
+    if (m1 === m2) {
+        throw new Error("// slopes");
+    }
+    const x = (b2 - b1) / (m1 - m2);
+    return {x: x, y: m1 * x + b1};
+}
+
+// S.O. 3612744 Remove trailing zeros
+function round(n){
+  return n.toFixed(2).replace(/([0-9]+(\.[0-9]+[1-9])?)(\.?0+$)/,'$1');
+}
+
+function pStr (point) {
+  return `${round(point.x)},${round(point.y)} `;
+}
+
+function getPath (startRadius, spacePerLoop, startθ, endθ, θStep) {
+    // Rename spiral parameters for the formula r = a + bθ
+    const a = startRadius;  // start distance from centre
+    const b = spacePerLoop / Math.PI / 2; // space between each loop
+
+    // convert angles to radians
+    let oldθ = newθ = startθ * Math.PI / 180;
+    endθ = endθ * Math.PI / 180;
+    θStep = θStep * Math.PI / 180;
+
+    // radii
+    let oldR,
+        newR = a + b * newθ;
+
+    // start and end points
+    const oldPoint = {x: 0, y: 0};
+    const newPoint = {
+        x: newR * Math.cos(newθ), 
+        y: newR * Math.sin(newθ)
+    };
+
+    // slopes of tangents
+    let oldslope,
+        newSlope = (b * Math.sin(oldθ) + (a + b * newθ) * Math.cos(oldθ)) /
+                   (b * Math.cos(oldθ) - (a + b * newθ) * Math.sin(oldθ));
+
+    let path = "M " + pStr(newPoint);
+    
+    while (oldθ < endθ - θStep) {
+        oldθ = newθ;
+        newθ += θStep;
+
+        oldR = newR;
+        newR = a + b * newθ;
+
+        oldPoint.x = newPoint.x;
+        oldPoint.y = newPoint.y;
+        newPoint.x = newR * Math.cos(newθ);
+        newPoint.y = newR * Math.sin(newθ);
+
+        // Slope calculation with the formula:
+        // (b * sinΘ + (a + bΘ) * cosΘ) / (b * cosΘ - (a + bΘ) * sinΘ)
+        const aPlusBθ = a + b * newθ;
+
+        oldSlope = newSlope;
+        newSlope = (b * Math.sin(newθ) + aPlusBθ * Math.cos(newθ)) /
+                   (b * Math.cos(newθ) - aPlusBθ * Math.sin(newθ));
+
+        const oldIntercept = -(oldSlope * oldR * Math.cos(oldθ) - oldR * Math.sin(oldθ));
+        const newIntercept = -(newSlope * newR* Math.cos(newθ) - newR * Math.sin(newθ));
+
+        const controlPoint = lineIntersection(oldSlope, oldIntercept, newSlope, newIntercept);
+
+        path += "Q " + pStr(controlPoint) + pStr(newPoint);
+    }
+    
+    return path;
+}
+
+const path = getPath(0, 50, 90, 1530, 30);
+const spiral = document.querySelector('#spiral path');
+spiral.setAttribute("d", path);
+</script>
+</body>
+</html>
