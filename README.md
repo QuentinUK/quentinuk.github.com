@@ -18,6 +18,10 @@ Can have parameters for the colours (to show colour names click on blank space) 
 
 [Tales Told of Shem and Shaun Three Fragments from Work in Progress by JAMES JOYCE](https://quentinuk.github.io/fragments.html)
 
+[Haveth Childers Everywhere from Work in Progress by JAMES JOYCE](https://quentinuk.github.io/hce.html)
+
+
+
 [Finnegans Wake by James Joyce, with a Concordance Generator Formatted for the web with CSS3. Images by SVG](https://quentinuk.github.io/fw.html)
 
 [Gaelic: a shorthand link to a Gaelic dictionary at a given word and page.](https://quentinuk.github.io/gaelic?leuma,353)
