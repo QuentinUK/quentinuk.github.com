@@ -16,11 +16,11 @@ Can have parameters for the colours (to show colour names click on blank space) 
 
 [Brancusi, Portrait of James Joyce. By SVG](https://quentinuk.github.io/spiral.html)
 
-[Tales Told of Shem and Shaun Three Fragments from Work in Progress by JAMES JOYCE](https://quentinuk.github.io/fragments.html)
-
 [Haveth Childers Everywhere from Work in Progress by JAMES JOYCE](https://quentinuk.github.io/hce.html)
 
+[Tales Told of Shem and Shaun Three Fragments from Work in Progress by JAMES JOYCE](https://quentinuk.github.io/fragments.html)
 
+[The Mime of Mick, Nick and the Maggies from Work in Progress by JAMES JOYCE](https://quentinuk.github.io/mime.html)
 
 [Finnegans Wake by James Joyce, with a Concordance Generator Formatted for the web with CSS3. Images by SVG](https://quentinuk.github.io/fw.html)
 
