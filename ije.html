@@ -462,6 +462,7 @@ svg.MVT path.graph, svg.MVT rect  {
 // add note|translate|copy|search book|search google|search Wikipedia
 
 
+
 function add_char(o){
   o = Math.abs(o);
   const m = {}, ch = (b,i) => m[String.fromCharCode(b+i)] = String.fromCharCode(b+(i+o)%26);
@@ -488,9 +489,10 @@ function convert_nodes(childNodes){
   }
 }
 
-
+var useStore = true;
 var wikipath = "http://infinitejest.wallacewiki.com/david-foster-wallace/";
 $(function(){
+
   console_log("starting");
   // https://learn.jquery.com/events/
   const urlParams = new URLSearchParams(window.location.search);
@@ -500,7 +502,6 @@ $(function(){
     convert_nodes(document.getElementsByClassName('本')[0].childNodes);
     if(pw<0) return;
   }
-
 
   // make index
   with($(".p")){
@@ -829,8 +830,10 @@ $(function(){
     });
   });
 
-  // helps, load previously stored helps
-  loadHelps();
+  // helps, load previously stored helps, useStore starts true
+  useStore = loadHelps()!==0;
+  $("#tostore").prop('checked', useStore);
+
 
 function loadHelp(pos, show){
   var pp = pos.atHPages;
@@ -868,10 +871,20 @@ function loadHelp(pos, show){
   }
 }
 
+$("#tostore").on("click", function(e){
+  if(useStore){
+     emptyStorage();
+  }
+  useStore = !useStore;
+  if(useStore){
+     saveStorage();
+  }
+});
 
+/*
 $("#topdf").on("click", function(e){
-  var x = $("#IJnotes, #IJchapter");
-  x.insertBefore("<body>");
+  //var x = $("#IJnotes, #IJchapter");
+  //x.insertBefore("<body>");
   $(".Container").detach();
   $("body").attr("style", "font-size:600%");
   $(".p").html("¶");
@@ -887,9 +900,9 @@ $("#topdf").on("click", function(e){
     o.setAttribute("x", +x+800);
   });
   $("#svg_s").css({transform: "translate(200px, -300px) scale(2)"});
-  $("<H1>").text("Infinite Joust").insertBefore("#chapter1");
-  $("<H3>").text("by D.F. Wallace").insertBefore("#chapter1");
-});
+  $("<H1>").text("IJ").insertBefore("#chapter1");
+  $("<H3>").text("by DFW").insertBefore("#chapter1");
+});*/
 
 
 });
@@ -1046,24 +1059,15 @@ ps.getPages = function(at){
 }
 
 var helpMap = {};
-function storageGetHelp(pp){
-  var found;
-  if(localStorage){
-    found = localStorage.getItem(pp);
-  }
-  if(found){
-    return !!(helpMap[pp] = found);
-  }
+
+function helpMapCount(){
+   return Object.keys(helpMap).length;
 }
-function storageSetHelp(pp){
-  var data =  helpMap[pp];
-  if(localStorage && data){
-    localStorage.setItem(pp, data);
-  }
-}
+
 function loadHelps(){
+  var len = 0;
   if(localStorage){
-    var len = localStorage.length;
+    len = localStorage.length;
     for(var i=0; i<len; i++){
       var key = localStorage.key(i);
       console_log("Loading storage key "+key);
@@ -1071,6 +1075,27 @@ function loadHelps(){
         storageGetHelp(key);
       }
     }
+  }
+  return len;
+}
+function storageGetHelp(pp){
+  var found;
+  if(localStorage && useStore){
+    found = localStorage.getItem(pp);
+  }
+  if(found){
+    return !!(helpMap[pp] = found);
+  }
+}
+function saveStorage(){
+  for(let k of Object.keys(helpMap)){
+     storageSetHelp(k);
+  }
+}
+function storageSetHelp(pp){
+  var data =  helpMap[pp];
+  if(localStorage && data && useStore){
+    localStorage.setItem(pp, data);
   }
 }
 function emptyStorage(){
@@ -1153,7 +1178,7 @@ function addHelp(pp, data){
 };
 
 function console_log(s){
- // console.log(s);
+  console.log(s);
 }
 
 // case insensitive compare
@@ -1197,10 +1222,10 @@ function fn_cis(a,b){
                      <select id="toPageNo"></select>
                    </form>
                     <form>
-                     <input type="button" id="topdf">PDF</input>
+                     <input type="checkbox" id="tostore">Store</input>
                     </form>
-                    <p>Right Side</p>
-                    <p>Info Box</p>
+             <!--       <p>Right Side</p>
+                    <p>Info Box</p> -->
                 </div>
 <div class="本" lang="en-US">
 <a class="p" id="∞"></a>
