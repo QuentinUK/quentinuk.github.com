@@ -491,7 +491,7 @@ function convert_nodes(childNodes){
 }
 
 var useStore = true;
-var wikipath = "http://infinitejest.wallacewiki.com/david-foster-wallace/";
+var wikipath = "https://infinitejest.wallacewiki.com/david-foster-wallace/";
 
 $(function(){
   console_log("starting");
@@ -702,7 +702,7 @@ $(function(){
     if(page){
       var href = splita.pop() || page.replace(/\s/g, '_');
       var lang = splita.pop() || "en";
-      href = "http://"+lang+".wikipedia.org/wiki/"+href;
+      href = "https://"+lang+".wikipedia.org/wiki/"+href;
       $(e).html(page);
       $(e).attr("href", href);
     }
