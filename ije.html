@@ -492,8 +492,8 @@ function convert_nodes(childNodes){
 
 var useStore = true;
 var wikipath = "http://infinitejest.wallacewiki.com/david-foster-wallace/";
-$(function(){
 
+$(function(){
   console_log("starting");
   // https://learn.jquery.com/events/
   const urlParams = new URLSearchParams(window.location.search);
@@ -849,12 +849,16 @@ function loadHelp(pos, show){
   else {
     helpMap[pp] = "Pending ...";// stop repeats
 
-    $.getJSON(wikipath+"api.php",{
-	action:"query",
-	titles: pp=="Pages_983-1079" ? "Notes_and_Errata_-_"+pp : pp,
-        prop:"revisions",
-	rvprop:"content",
-	format:"json"
+    $.ajax({
+       url: wikipath+"api.php",
+       data: {
+         action:"query",
+         titles: (pp=="Pages_983-1079" ? "Notes_and_Errata_-_"+pp : pp),
+         prop:"revisions",
+         rvprop:"content",
+         format:"json"
+       },
+       dataType: 'jsonp'
     })
     .done(function(data){
       addHelp(pp,data);
