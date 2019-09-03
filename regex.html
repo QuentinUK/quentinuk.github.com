@@ -444,23 +444,23 @@ var htmlEncode = (function () {
 
 /**
  * Get the parameters from the address bar.
- * o: an object with default values:- {param1:value1, param2:value2…} 
- * Returns o with any new values.
+ * ob: an object with default values:- {param1:value1, param2:value2…} 
+ * Returns ob with any new values.
  */
-function getParams(o) {
+function getParams(ob) {
     // looking for "param=option", "&param=option",
     // or param missing, use /(?:|(?:|&)(param)=(.*?))/
     var regExp = new RegExp('(?:|(?:|&)(' +
-            Object.keys(o).join(')=(.*?))(?:|(?:|&)(') +
+            Object.keys(ob).join(')=(.*?))(?:|(?:|&)(') +
             ')=(.*?))$'),// array has pairs of param,value (if param missing both are undefined)
         res = regExp.exec(decodeURIComponent(window.location.search.substring(1))),
         i;
-    for (i = 1; i < res.length; i += 2) {// copy result to o
-        if (Object.hasOwnProperty(res[i])) {
-            o[res[i]] = res[i + 1];
+    for (i = 1; i < res.length; i += 2) {// copy result to ob
+        if (ob.hasOwnProperty(res[i])) {
+            ob[res[i]] = res[i + 1];
         }
     }
-    return o;
+    return ob;
 }
 $(function () {
     var texts = getParams({
