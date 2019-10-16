@@ -27,7 +27,7 @@ Can have parameters for the colours (to show colour names click on blank space) 
 [Gaelic: a shorthand link to a Gaelic dictionary at a given word and page.](https://quentinuk.github.io/gaelic?leuma,353)
 eg the Gaelic word "leuma" on page 353 of the dictionary
 
-[RegEx: for Regular Expressions testing and development.](https://quentinuk.github.io/regex.html?testText=Hello%20GitHub&regExText=/\b[^\s]%2B\s*$/&replacementText=World)
+[RegEx: for Regular Expressions testing and development.](https://quentinuk.github.io/regex.html?testText=Hello%20GitHub&regExpText=/\b[^\s]%2B\s*$/&replacementText=World)
 
 SansAmp: a solution to Google replacing & with &+and+; in hyperlinks.
 
