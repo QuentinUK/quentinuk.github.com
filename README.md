@@ -29,6 +29,9 @@ eg the Gaelic word "leuma" on page 353 of the dictionary
 
 [RegEx: for Regular Expressions testing and development.](https://quentinuk.github.io/regex.html?testText=Hello%20GitHub&regExpText=/\b[^\s]%2B\s*$/&replacementText=World)
 
+[A Long Joke](https://quentinuk.github.io/ije.html)
+
+
 SansAmp: a solution to Google replacing & with &+and+; in hyperlinks.
 
 SquaresTester: for the Panoramio Group: Square Shots. Every photo in the group is tested for squareness.
