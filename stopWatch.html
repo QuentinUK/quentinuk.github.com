@@ -1,8 +1,8 @@
 <!DOCTYPE html> 
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>StopWatch</title>
+	<head>
+	  <meta charset="utf-8">
+	  <title>StopWatch</title>
 <style>
 html {
 	height: 100%;
@@ -69,7 +69,7 @@ svg path.mark {
 }
 svg text.digital {
 	text-anchor: right;
- 	font-size: 75px;
+		font-size: 75px;
 	font-family: Helvetica;
 	fill: tomato;
 }
@@ -78,15 +78,15 @@ svg ellipse.but {
 	cursor: pointer;
 }
 @-webkit-keyframes butinpress {
-  0% { fill: yellow; }
-  100% { fill: orange; }
+	0% { fill: yellow; }
+	100% { fill: orange; }
 }
 svg ellipse.butin {
 -webkit-animation: butinpress  1s;
 }
 @-webkit-keyframes butoutpress {
-  0% { fill: yellow; }
-  100% { fill: orange; }
+	0% { fill: yellow; }
+	100% { fill: orange; }
 }
 svg ellipse.butout {
 -webkit-animation: butoutpress  1s;
@@ -97,21 +97,21 @@ svg ellipse.butout {
 <body>
 <div class="square">
 <svg xmlns="http://www.w3.org/2000/svg" id="stop_watch" viewBox="0 0 600 600">
- <g>
-  <ellipse id="face" ry="250" rx="250" cy="340" cx="300"/>
- </g>
- <ellipse id="stop" class="but butin" ry="25" rx="25" cy="120" cx="120" />
- <text y="80" x="120" >Stop</text>
- <ellipse id="start" class="but butin" ry="25" rx="25" cy="56"  cx="300"/>
- <text y="22" x="300">Start</text>
- <ellipse id="set" class="but butin" ry="25" rx="25" cy="96"  cx="440"/>
- <text y="60" x="440">Set</text>
- <ellipse id="reset" class="but butin" ry="25" rx="25" cy="154" cx="510"/>
- <text y="118" x="520">ReSet</text>
- <rect height="70" width="350" y="240" x="125"/>
- <text id="digi_time" class="digital" y="300" x="300">00:00.00</text>
- <path id="arrow" d="m295,360l10,0l0,-20l-5,-250l-5,250l0,20l5,0" />
- <ellipse ry="5" rx="5" cy="340" cx="300" />
+	<g>
+	<ellipse id="face" ry="250" rx="250" cy="340" cx="300"/>
+	</g>
+	<ellipse id="stop" class="but butin" ry="25" rx="25" cy="120" cx="120" />
+	<text y="80" x="120" >Stop</text>
+	<ellipse id="start" class="but butin" ry="25" rx="25" cy="56"  cx="300"/>
+	<text y="22" x="300">Start</text>
+	<ellipse id="set" class="but butin" ry="25" rx="25" cy="96"  cx="440"/>
+	<text y="60" x="440">Set</text>
+	<ellipse id="reset" class="but butin" ry="25" rx="25" cy="154" cx="510"/>
+	<text y="118" x="520">ReSet</text>
+	<rect height="70" width="350" y="240" x="125"/>
+	<text id="digi_time" class="digital" y="300" x="300">00:00.00</text>
+	<path id="arrow" d="m295,360l10,0l0,-20l-5,-250l-5,250l0,20l5,0" />
+	<ellipse ry="5" rx="5" cy="340" cx="300" />
 </svg>
 </div>
 </body>
@@ -203,45 +203,66 @@ function dispDigitalTime(t){
 	E("digi_time").textContent = mins + ":" + secs;
 }
 
-var m0 = E("face");
+function make_face(job){
+	var m0 = E("face")
+	const ns = m0.namespaceURI;
+	for(var i=0; i<=300; i++){
+		var a = 2*Math.PI/300*i;
+		var s = Math.sin(a);
+		var c = Math.cos(a);
+		var r = 250-10/2;
+		var n = 2+(i%10?0:5)+(i%5?0:5);
 
-for(var i=0; i<=300; i++){
-	var a = 2*Math.PI/300*i;
-	var s = Math.sin(a);
-	var c = Math.cos(a);
-	var r = 250-10/2;
-	var n = 2+(i%10?0:5)+(i%5?0:5);
+		var secs = i/10;
+		if(!(i%10)){
+			var rt; 
+			var secClass;
 
-	var secs = i/10;
-	if(!(i%10)){
-		var rt; 
-		var secClass;
-
-		if((i%20)||secs==0){
-			if(secs==0){
-				secs = 30;
+			if((i%20)||secs==0){
+				if(secs==0){
+					secs = 30;
+				}
+				rt = 250-30;
+				secClass = "sec1_30"
 			}
-			rt = 250-30;
-			secClass = "sec1_30"
+			else {
+				secs += 30;
+				rt = 250-50;
+				secClass = "sec2_60"
+			}
+			var t = document.createElementNS(ns, "text");
+			t.classList.add(secClass);
+			t.setAttribute('x', 300+s*rt);
+			t.setAttribute('y', 340-c*rt+10);
+			t.textContent = secs;
+			m0.parentElement.appendChild(t);
 		}
-		else {
-			secs += 30;
-			rt = 250-50;
-			secClass = "sec2_60"
+		if(i!=300){
+			var m = document.createElementNS(ns, "path");
+			m.classList.add("mark");
+			m.setAttribute("d", "m" + (300+s*r) + "," + (340-c*r) + "l" + -s*n + "," + c*n);
+			m0.parentElement.appendChild(m);
 		}
-		var t = document.createElementNS( m0.namespaceURI, "text");
-		t.classList.add(secClass);
-		t.setAttribute('x', 300+s*rt);
-		t.setAttribute('y', 340-c*rt+10);
-		t.textContent = secs;
+	}
+	if(job){
+		var r = document.createElementNS(ns, "rect");
+		r.setAttribute('height', 80);
+		r.setAttribute('width', 300);
+		r.setAttribute('x', 150);
+		r.setAttribute('y', 380);
+		m0.parentElement.appendChild(r);
+
+		var t = document.createElementNS(ns, "text");
+		t.classList.add("digital");
+		t.setAttribute('x', 300);
+		t.setAttribute('y', 440);
+		t.textContent = job;
 		m0.parentElement.appendChild(t);
 	}
-	if(i!=300){
-		var m = document.createElementNS( m0.namespaceURI, "path");
-		m.classList.add("mark");
-		m.setAttribute("d", "m" + (300+s*r) + "," + (340-c*r) + "l" + -s*n + "," + c*n);
-		m0.parentElement.appendChild(m);
-	}
 }
+(function(urlParams){
+	const job = urlParams.get("job");	
+	make_face(job);
+})(new URLSearchParams(window.location.search));
 </script>
 </html>
