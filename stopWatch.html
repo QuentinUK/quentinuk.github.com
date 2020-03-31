@@ -1,8 +1,8 @@
 <!DOCTYPE html> 
 <html>
-	<head>
-	  <meta charset="utf-8">
-	  <title>StopWatch</title>
+<head>
+	<meta charset="utf-8">
+	<title>StopWatch</title>
 <style>
 html {
 	height: 100%;
@@ -10,7 +10,7 @@ html {
 body{
 	height: calc(100vh - 20px);
 	cursor: default;
-	background-color: lightcoral;
+	background-color: papayawhip;
 }
 .square, svg#stop_watch {
 	display: -webkit-box;
@@ -67,11 +67,15 @@ svg path.mark {
 	stroke-width: 1;
 	stroke: red;
 }
-svg text.digital {
+svg text.digital, svg text.job {
 	text-anchor: right;
-		font-size: 75px;
+	font-size: 75px;
 	font-family: Helvetica;
 	fill: tomato;
+}
+svg text.job {
+	fill: saddlebrown;
+	font-size: 60px;
 }
 svg ellipse.but {
 	fill: orange;
@@ -91,7 +95,6 @@ svg ellipse.butin {
 svg ellipse.butout {
 -webkit-animation: butoutpress  1s;
 }
-
 </style>
 </head>
 <body>
@@ -253,11 +256,12 @@ function make_face(job){
 		m0.parentElement.appendChild(r);
 
 		var t = document.createElementNS(ns, "text");
-		t.classList.add("digital");
+		t.classList.add("job");
 		t.setAttribute('x', 300);
 		t.setAttribute('y', 440);
 		t.textContent = job;
 		m0.parentElement.appendChild(t);
+		document.title = job;
 	}
 }
 (function(urlParams){
