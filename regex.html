@@ -451,8 +451,8 @@ function getParams(ob) {
     // looking for "param=option", "&param=option",
     // or param missing, use /(?:|(?:|&)(param)=(.*?))/
     var regExp = new RegExp('(?:|(?:|&)(' +
-            Object.keys(ob).join(')=(.*?))(?:|(?:|&)(') +
-            ')=(.*?))$'),// array has pairs of param,value (if param missing both are undefined)
+            Object.keys(ob).join(')=((?:.|\s|\n)?))(?:|(?:|&)(') +
+            ')=((?:.|\s|\n)?))$'),// array has pairs of param,value (if param missing both are undefined)
         res = regExp.exec(decodeURIComponent(window.location.search.substring(1))),
         i;
     for (i = 1; i < res.length; i += 2) {// copy result to ob
