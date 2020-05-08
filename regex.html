@@ -448,16 +448,10 @@ var htmlEncode = (function () {
  * Returns ob with any new values.
  */
 function getParams(ob) {
-    // looking for "param=option", "&param=option",
-    // or param missing, use /(?:|(?:|&)(param)=(.*?))/
-    var regExp = new RegExp('(?:|(?:|&)(' +
-            Object.keys(ob).join(')=((?:.|\s|\n)*?))(?:|(?:|&)(') +
-            ')=((?:.|\s|\n)*?))$'),// array has pairs of param,value (if param missing both are undefined)
-        res = regExp.exec(decodeURIComponent(window.location.search.substring(1))),
-        i;
-    for (i = 1; i < res.length; i += 2) {// copy result to ob
-        if (ob.hasOwnProperty(res[i])) {
-            ob[res[i]] = res[i + 1];
+    const res = Object.fromEntries([...new URL(location).searchParams]);
+    for (const prop in res) {// copy result to ob
+        if (ob.hasOwnProperty(prop)) {
+            ob[prop] = res[prop];
         }
     }
     return ob;
