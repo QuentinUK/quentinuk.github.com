@@ -507,7 +507,8 @@ $(function () {
         for (o in texts) {
             texts[o] = $("#" + o).val();
         }
-        $("#usage").text(window.location.origin + '?' + texts.map(o => o + '=' + encodeURIComponent(texts[o])).join('&amp;'));
+        $("#usage").text(window.location.origin + '?' 
+            + Object.entries(texts).map(([k,v])=> `${k}=${encodeURIComponent(v)}`).join('&amp;'));
 
 
         // "begin with /"+"main expression"+"/"+"flags"
