@@ -508,7 +508,7 @@ $(function () {
             texts[o] = $("#" + o).val();
         }
         $("#usage").text(window.location.href + '?' 
-            + Object.entries(texts).map(([k,v]) => `${k}=${encodeURIComponent(v)}`).join('&amp;'));
+            + Object.entries(texts).map(([k,v]) => `${k}=${encodeURIComponent(v)}`).join('&'));
 
 
         // "begin with /"+"main expression"+"/"+"flags"
