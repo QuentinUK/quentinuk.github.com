@@ -34,8 +34,8 @@ a:active    {color:#FFFF00; }
     <textarea id="testText"></textarea>
 </div>
 <div>
-    <label for="regExpText">Regular Expression Text</label><br />
-    <textarea id="regExpText"></textarea>
+    <label for="regularExpressionText">Regular Expression Text</label><br />
+    <textarea id="regularExpressionText"></textarea>
 </div>
 <div>
     <label for="replacementText">Replacement Text</label><br />
@@ -296,7 +296,7 @@ a:active    {color:#FFFF00; }
         <td><a href="#notes" id="notes"><code>✎?</code></a></td>
         <td><p>The buttons on the above tabs can be dragged into any position.</p>
             <hr><p>The edit text areas above can be resized.</p>
-            <hr><p>USAGE: <code id="usage">www.regex.html?testText=Hi, do you know your ABC's?&amp;regExpText=/abc'/i&amp;replacementText=onion</code><br>Options can be omitted, but the order is important.</p>
+            <hr><p>USAGE: <code id="usage">www.regex.html?testText=Hi, do you know your ABC's?&amp;regularExpressionText=/abc'/i&amp;replacementText=onion</code><br>Options can be omitted, but the order is important.</p>
             <hr>Show white space
             <div id="white-space">   
                <input type="checkbox" id="whiteSP" /><label for="whiteSP">whiteSP</label>
@@ -459,7 +459,7 @@ function getParams(ob) {
 $(function () {
     var texts = getParams({
             testText: "Hi, do you know your ABC's?",
-            regExpText: "/abc'/i",
+            regularExpressionText: "/abc'/i",
             replacementText: "onion"
         }),
        whiteSpace = $.extend(function (prop, bool) {
@@ -507,12 +507,12 @@ $(function () {
         for (o in texts) {
             texts[o] = $("#" + o).val();
         }
-        $("#usage").text(window.location.origin + '?' 
-            + Object.entries(texts).map(([k,v])=> `${k}=${encodeURIComponent(v)}`).join('&amp;'));
+        $("#usage").text(window.location.href + '?' 
+            + Object.entries(texts).map(([k,v]) => `${k}=${encodeURIComponent(v)}`).join('&amp;'));
 
 
         // "begin with /"+"main expression"+"/"+"flags"
-        re = /^\/(.*)\/(.*)/.exec(texts.regExpText);
+        re = /^\/(.*)\/(.*)/.exec(texts.regularExpressionText);
         if (re === null || re.length !== 3) {
             str = "<em>Regular expression needs start / and end /.<\/em>";
         } else if (/[^\\]\//.test(re[1])) {
