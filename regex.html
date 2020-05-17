@@ -507,7 +507,7 @@ $(function () {
         for (o in texts) {
             texts[o] = $("#" + o).val();
         }
-        $("#usage").text(window.location.href + '?' 
+        $("#usage").text(window.location.origin + window.location.pathname + '?' 
             + Object.entries(texts).map(([k,v]) => `${k}=${encodeURIComponent(v)}`).join('&'));
 
 
