@@ -296,7 +296,7 @@ a:active    {color:#FFFF00; }
         <td><a href="#notes" id="notes"><code>✎?</code></a></td>
         <td><p>The buttons on the above tabs can be dragged into any position.</p>
             <hr><p>The edit text areas above can be resized.</p>
-            <hr><p><code>USAGE: www.regex.html?testText=Hi, do you know your ABC's?&amp;regExpText=/abc'/i&amp;replacementText=onion</code><br>Options can be omitted, but the order is important.</p>
+            <hr><p>USAGE: <code id="usage">www.regex.html?testText=Hi, do you know your ABC's?&amp;regExpText=/abc'/i&amp;replacementText=onion</code><br>Options can be omitted, but the order is important.</p>
             <hr>Show white space
             <div id="white-space">   
                <input type="checkbox" id="whiteSP" /><label for="whiteSP">whiteSP</label>
@@ -507,6 +507,8 @@ $(function () {
         for (o in texts) {
             texts[o] = $("#" + o).val();
         }
+        $("#usage").text(window.location.origin + '?' + texts.map(o => o + '=' + encodeURIComponent(texts[o])).join('&amp;'));
+
 
         // "begin with /"+"main expression"+"/"+"flags"
         re = /^\/(.*)\/(.*)/.exec(texts.regExpText);
