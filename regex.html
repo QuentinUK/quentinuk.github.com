@@ -456,7 +456,12 @@ function getParams(ob) {
     }
     return ob;
 }
-            
+
+function loop_exec(re, s){
+    let res = re.exec(s);
+    return res ? [res, ... loop_exec(re, s)] : []; 
+}            
+        
 $(function () {
     var texts = getParams({
             testText: "Hi, do you know your ABC's?",
