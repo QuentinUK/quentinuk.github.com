@@ -459,7 +459,7 @@ function getParams(ob) {
             
 function loop_exec(re, s){
     let res = re.exec(s);
-    return res ? ['[', ...res, ']', ... loop_exec(re, s)] : []; 
+    return res ? [res, ... loop_exec(re, s)] : []; 
 }
             
 $(function () {
