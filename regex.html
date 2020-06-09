@@ -457,11 +457,6 @@ function getParams(ob) {
     return ob;
 }
             
-function loop_exec(re, s){
-    let res = re.exec(s);
-    return res ? [res, ... loop_exec(re, s)] : []; 
-}
-            
 $(function () {
     var texts = getParams({
             testText: "Hi, do you know your ABC's?",
@@ -529,7 +524,7 @@ $(function () {
                 re = new RegExp(re[1], re[2]);// could do a throw     
 
                 // RegExp.exec
-                resultStr = addResults(loop_exec(re, texts.testText));
+                resultStr = addResults(re.global ? loop_exec(re, texts.testText) : re.exec(texts.testText));
                 $('#execResults>.results').html(resultStr);
 
                 // String.match
