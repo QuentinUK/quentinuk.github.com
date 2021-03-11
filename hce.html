@@ -8,8 +8,10 @@
 <style>
 body {
   background-color: snow;
-  margin-right: 1.2em;
   font-family: 'Spectral', serif;
+}
+.pm {
+  margin-right: 1.2em;
 }
 h1, .printer {
   font-weight: 100;
@@ -51,6 +53,14 @@ p {
   width:25em;
   margin: 0 auto;
 }
+@media (max-width: 10em){
+  #volume {
+    width: 100%;
+  }
+  #volume p {
+    margin-right: -1.2em;
+  }
+}
 
 #volume p, #title p, #hce p:first-of-type, #rights p, #end p {
   text-indent: 0;
@@ -74,7 +84,7 @@ p {
   margin-left: 0;
 }
 #mtsadam {
-  font-variant: small-caps;
+  font-size: 0.9em;
 }
 #end p {
   font-size: 0.7em;
@@ -113,14 +123,16 @@ p {
   right: 0;
   background-color: aliceblue;
 }
+#pos {
+  float: left;
+  white-space: pre-line;
+}
 .round_box {
   border: 2px solid darkslategray;
   border-radius: 5px;
   float: right;
 }
-#pos {
-  float: left;
-}
+
 section {
   margin-bottom: 1em;
 }
@@ -146,10 +158,10 @@ section {
 </style>
 </noscript>
 </head>
-<body>
+<body class="pm">
 <section id="cover">
 <h1>HAVETH CHILDERS
-EVERYWHERE</h1>
+EVERY&shy;WHERE</h1>
 <h3>BY</h3>
 <h2>JAMES JOYCE</H2>
 <a class="p">Cover
@@ -175,7 +187,7 @@ VIDALON ROYAL, N<sup>os</sup> XI TO LXXXV.</p>
 </section>
 <section id="title">
 <h1>HAVETH CHILDERS
-EVERYWHERE</h1>
+EVERY&shy;WHERE</h1>
 <p class="frag">FRAGMENT FROM</p>
 <p class="wip">WORK IN PROGRESS</p>
 <p class="wip">by</p>
@@ -192,7 +204,7 @@ EVERYWHERE</h1>
 Copyright by Henry Babou and Jack Kahane, France 1930.
 <a class="p">(06)
 ↑</a></p></section>
-<section id="hce"><p><span id="big_a">A</span><span id="mtsadam">mtsadam</span>, sir, to you ! Eternest cit<span class="h">-<br></span>tas, heil ! Here we are again. I am bubub
+<section id="hce"><p><span id="big_a">A</span><span id="mtsadam">MTSADAM</span>, sir, to you ! Eternest cit<span class="h">-<br></span>tas, heil ! Here we are again. I am bubub
 brought up under a camel act of dynasties
 long out of print, the first of Shitric Shilkan<span class="h">-<br></span>beard (or is it Owllaugh MacAuscullpth the
 Thord?), but, in pontofacts massimust, I am
@@ -205,7 +217,7 @@ Daikin or Monkish tunshep, by saints and
 sinners eyeeye alike as a cleanliving man
 and, as a matter of fict, by my halfwife, I
 think how our public at large appreciates it
-most highly from me that I am as clean<span class="hh">-<br></span>living as could be and that my game was a
+most highly from me that I am as clean<span class="h">-<br></span>living as could be and that my game was a
 fair average since I perpetually kept my
 ouija ouija wicket up. On my verawife
 I never was nor can afford to be guilty of
@@ -328,7 +340,7 @@ again ! And mine it was Barktholed von
 Hunarig, Soesown of Furrows (hourspring<span class="h">-<br></span>like his joussture, immitiate my chry ! as
 urs now, so yous then !) when to our lot it
 fell on my poplar Sexsex, my Sexencentaur<span class="h">-<br></span>nary, whenby Gate of Hal, before his hostel
-of the W odin man, I hestened to freeholdit
+of the Wodin man, I hestened to freeholdit
 op to his Mam his Maman, Majuscules, His
 Magnus Maggerstick, first city’s leasekuays
 of this Nova Tara, our most noble, when
@@ -356,7 +368,7 @@ yous?<a class="p">17
 <p>— Pass the fish for Christ’s sake !</p>
 <p>— Old Whitehowth he is speaking
 again. Ope Eustace tube ! Pity poor whi<span class="h">-<br></span>teoath ! Dear gone mummeries, goby !
-Tell the woyld I have lived true thousand,hells.
+Tell the woyld I have lived true thousand, hells.
 Pity, please, lady, for poor O. W. in this
 profundust snobbing I have caught. Nine
 dirty years mine age, hairs hoar, mummery
@@ -413,7 +425,7 @@ me even two months by laxlaw in second
 division and my first broadcloth is business
 will be to protest to Recorder at Thing of
 all Things, or court of Skivinis, with mar<span class="h">-<br></span>chants grey, antient and credibel, Zero<span class="h">-<br></span>bubble Barrentone, Jonah Whalley, Deter<span class="h">-<br></span>mined Codde or Cucumber Upright, my
-jurats, if it does not occur again. 0 rhyme
+jurats, if it does not occur again. O rhyme
 us ! Haar Faagher, wild heart in Homelan;
 Harrod’s be the naun. Mine kinder come,<a class="p">21
 ↑</a>
@@ -557,7 +569,7 @@ it lieth of all parts. If you would be deli<span class="h">-<br></span>ted with 
 fast by. If you will take the view of the
 sea, it is at hand. Give heed !</p>
 <p>— Do Drumcollogher whatever you do !</p>
-<p>— <i>Visitez Drumcollogher-la-Belle!</i></p>
+<p>— <i>Visitez Drumcollogher-la-Belle !</i></p>
 <p>— <i>Be suke and sie so Ersed Drumcol</i><span class="h">-<br></span><i>logher !</i><a class="p">31
 ↑</a></p>
 <p>— <i>Vedi Drumcollogher e poi moonis.</i></p>
@@ -1193,7 +1205,7 @@ MASTER-PRINTERS, PARIS 1930<a class="p">End
  <p id="pos"></p>
  <div class="round_box">
   <input type="checkbox" id="pages" name="pages" checked>
-  <label for="wrap">Pages</label>
+  <label for="pages">Pages</label>
  </div>
  <div class="round_box">
   <input type="checkbox" id="wrap" name="wrap" checked>
@@ -1201,13 +1213,13 @@ MASTER-PRINTERS, PARIS 1930<a class="p">End
  </div>
 </div>
 <script>
-// https://dataurl.sveinbjorn.org
+
 const e = Array.prototype.forEach, E = e.call.bind(e),
 D = document, B = D.body,
 QS = D.querySelector.bind(D),
 QA = D.querySelectorAll.bind(D);
 function ws(w){
-  E(QA('p, .verse div'), e => e.style['whiteSpace'] = w);
+  E(QA('p:not(#pos), .verse div'), e => e.style['whiteSpace'] = w);
 }
 function unwrap(){
   E(QA(".h"), e => e.innerHTML = '&shy;');
@@ -1231,6 +1243,7 @@ function paginate(){
 }
 function do_pages(show){
   E(QA(".p,.pn"), e => e.style.display = show );
+  B.classList.toggle('pm');
 }
 function show_pages(){
   do_pages('');
@@ -1238,11 +1251,12 @@ function show_pages(){
 function hide_pages(){
   do_pages('none');
 }
+
 function checkBox(id, key, set, fn0, fn1){
   let keyu = key.toUpperCase();
   let keyl = key.toLowerCase();
   function do_set(s){
-    (set = s) ? fn0() : fn1();
+    (set = s) ? fn1() : fn0();
   }
   QS(id).onclick = e => do_set(e.target.checked);
   return e => {
@@ -1256,15 +1270,12 @@ function checkBox(id, key, set, fn0, fn1){
 window.onload = () => {
   texter();
   paginate();
-
-  const w_handler = checkBox('#wrap', 'w', true, wrap, unwrap); 
-  const p_handler = checkBox('#pages', 'p', true, show_pages, hide_pages);
+  const w_handler = checkBox('#wrap', 'w', true, unwrap, wrap); 
+  const p_handler = checkBox('#pages', 'p', true, hide_pages, show_pages);
   B.onkeyup = e => {
      w_handler(e);
      p_handler(e);
   };
-
-//  QS('#pages').onclick = e => set_wrap(e.target.checked);
 };
 // pages
 let pages = QA('.p');
@@ -1273,13 +1284,15 @@ function getPage(node){
   return page<0 ? -page-1 : page;
 };
 
-B.ontouchmove = B.onmousemove = e => {
+const handler = e => {
   const po = getPos(e);
   if(po){
     const {page, line, description} = po, pmsg = pages[page].id.slice(1);
     QS('#info p').innerText = `${pmsg} ${description ? description : line}`;
   }
 };
+B.addEventListener('touchmove', handler, false);
+B.onmousemove = handler; 
 
 let lastNode = null;
 let lastDesc = null;
@@ -1631,6 +1644,7 @@ function text_node_from_point(element, x, y ){
   }
   return null;
 }
+
 </script>
 </body>
 </html>
